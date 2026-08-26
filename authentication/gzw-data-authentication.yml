@@ -1,0 +1,32 @@
+generated: '2026-08-26'
+method: searched
+source: https://gzw-data.dev/docs/ (section "Authentication — None, Public access, no API key") + https://gzw-data.dev/llms.txt
+docs: https://gzw-data.dev/docs/
+note: >-
+  GZW Data is an unauthenticated public read-only API. The OpenAPI document declares NO
+  components.securitySchemes and no top-level security block, and the docs and llms.txt both
+  state plainly that authentication is none and no API key is required. This artifact records
+  a documented ABSENCE of authentication, not a gap in our research. Verified by anonymous
+  probe: GET https://gzw-data.dev/api/v1/weapons returned 200 with no credential supplied.
+model: none
+api_key_required: false
+account_required: false
+oauth2: false
+schemes: []
+evidence:
+- url: https://gzw-data.dev/api/v1/spec
+  status: 200
+  finding: no components.securitySchemes, no security block, 352 operations
+- url: https://gzw-data.dev/api/v1/weapons
+  status: 200
+  finding: 200 OK anonymously, no credential supplied
+- url: https://gzw-data.dev/docs/
+  status: 200
+  finding: 'docs state "Authentication: None — Public access, no API key"'
+access_control:
+  mechanism: best-effort per-IP rate limiting
+  detail: See rate-limits/gzw-data-rate-limits.yml — 100 requests/minute/IP is the only access control.
+cors:
+  access_control_allow_origin: '*'
+  observed: 2026-08-26
+  note: Browser clients can call the API directly from any origin.

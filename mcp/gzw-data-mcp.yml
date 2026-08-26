@@ -1,0 +1,55 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/gzw-data-openapi.json + probes of https://gzw-data.dev/mcp and /api/v1/mcp
+status: candidate
+note: >-
+  GZW Data ships NO MCP server. https://gzw-data.dev/mcp returned 404 and
+  https://gzw-data.dev/api/v1/mcp returned a 404 ENDPOINT_NOT_FOUND JSON body listing the
+  available dataset routes (i.e. the API itself confirms there is no mcp route). No MCP server
+  is published on npm, in the GitHub account, or referenced in llms.txt / the docs. The tools
+  below are a DERIVED CANDIDATE surface computed from the published OpenAPI paths — nobody
+  ships them. Note the OpenAPI declares no operationIds, so each candidate tool is bound to
+  its HTTP method + path instead.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: none
+  verified: probed
+probes:
+- url: https://gzw-data.dev/mcp
+  status: 404
+- url: https://gzw-data.dev/api/v1/mcp
+  status: 404
+candidate_tools:
+- name: list_dataset
+  description: List records from any auto-discovered GZW dataset, with filter, search, sort and pagination.
+  rest: GET /api/v1/{dataset}
+  read_only: true
+- name: get_record
+  description: Retrieve one GZW record by its exact string id.
+  rest: GET /api/v1/{dataset}/{id}
+  read_only: true
+- name: list_datasets
+  description: Return the dataset registry with item counts and observed field names.
+  rest: GET /api/v1/metadata
+  read_only: true
+- name: describe_dataset
+  description: Return detailed generated field metadata (types, optionality, example values) for one dataset.
+  rest: GET /api/v1/metadata/{dataset}
+  read_only: true
+- name: search_all
+  description: Cross-dataset full-text search. Live and documented, but ABSENT from the published OpenAPI.
+  rest: GET /api/v1/search?q={query}
+  read_only: true
+  note: undocumented-in-spec
+- name: dataset_stats
+  description: Item counts for every dataset plus the latest scrape timestamp. Live and documented, but ABSENT from the published OpenAPI.
+  rest: GET /api/v1/stats
+  read_only: true
+  note: undocumented-in-spec
+- name: api_health
+  description: Health/readiness, dataset count and last scrape time.
+  rest: GET /api/v1/health
+  read_only: true

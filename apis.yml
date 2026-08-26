@@ -1,13 +1,42 @@
 name: GZW Data API
-description: >-
-  A free, fan-made read-only REST API providing clean data for the game Gray Zone Warfare — weapons, armor, ammo,
-  tasks/missions, gear, loot and more, auto-discovered from a wiki-scraped dataset directory. No authentication
-  required; access governed by best-effort rate limiting.
-url: https://raw.githubusercontent.com/api-evangelist/gzw-data-api/refs/heads/main/apis.yml
+aid: gzw-data
+description: GZW Data is a free, fan-made, read-only REST API for Gray Zone Warfare game data, published by independent maintainer
+  ZoniBoy00 and hosted on Vercel at gzw-data.dev. It exposes 85+ datasets auto-discovered from a wiki-scraped data directory
+  - weapons, ammo, armor, magazines, attachments, tasks and missions, keys and keycards, loot containers, medical, provisions,
+  gear and vendors - behind one uniform JSON envelope with equality filters, full-text search, sorting and page-number pagination.
+  Three smart routes union related datasets (armor, weapon_parts, helmet_mods). There is no authentication, no account and
+  no API key; access is governed by a best-effort limit of 100 requests per minute per IP with X-RateLimit-* headers. An OpenAPI
+  3.0.3 contract, an llms.txt and a zero-dependency TypeScript client on npm are published. Data is scraped weekly from the
+  community GZW Fandom Wiki; the project is unofficial and not affiliated with the game's publisher.
+image: https://gzw-data.dev/assets/gzw-data-logo.png
+url: https://raw.githubusercontent.com/api-evangelist/gzw-data/refs/heads/main/apis.yml
 created: '2026-08-26'
 modified: '2026-08-26'
 specificationVersion: '0.21'
 tags:
+- gaming
+- video-games
+- gray-zone-warfare
+- game-data
+- developer-tools
+- open-data
+- openapi
+- weapons
+- missions
+- loot
+- rest-api
+- public-api
+- no-auth
+- read-only
+- free-api
+- community
+apis:
+- name: GZW Data API
+  description: Read-only JSON REST API for Gray Zone Warfare game data, backed by an OpenAPI 3.0 contract. Datasets are auto-discovered;
+    supports filtering, full-text search, sorting and pagination. No API key required.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
   - gaming
   - video-games
   - gray-zone-warfare
@@ -18,34 +47,78 @@ tags:
   - weapons
   - missions
   - loot
-apis:
-  - name: GZW Data API
-    description: >-
-      Read-only JSON REST API for Gray Zone Warfare game data, backed by an OpenAPI 3.0 contract. Datasets are
-      auto-discovered; supports filtering, full-text search, sorting and pagination. No API key required.
-    humanURL: https://gzw-data.dev/docs/
-    baseURL: https://gzw-data.dev/api/v1
-    tags:
-      - gaming
-      - video-games
-      - gray-zone-warfare
-      - game-data
-      - developer-tools
-      - open-data
-      - openapi
-      - weapons
-      - missions
-      - loot
-    properties:
-      - type: OpenAPI
-        url: https://gzw-data.dev/api/v1/spec
-      - type: Documentation
-        url: https://gzw-data.dev/docs/
+  properties:
+  - type: OpenAPI
+    url: https://gzw-data.dev/api/v1/spec
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: OpenAPI
+    url: openapi/gzw-data-openapi.json
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
 maintainers:
-  - FN: ZoniBoy00
-    url: https://github.com/ZoniBoy00/gzw-data
+- FN: ZoniBoy00
+  url: https://github.com/ZoniBoy00/gzw-data
+common:
+- type: DomainSecurity
+  url: security/gzw-data-domain-security.yml
+- type: DeveloperPortal
+  url: https://gzw-data.dev/
+- type: Documentation
+  url: https://gzw-data.dev/docs/
+- type: APIReference
+  url: https://gzw-data.dev/docs/
+- type: GettingStarted
+  url: https://gzw-data.dev/docs/#quickstart
+- type: Console
+  url: https://gzw-data.dev/#explorer
+- type: Support
+  url: https://github.com/ZoniBoy00/gzw-data/issues
+- type: GitHubOrganization
+  url: https://github.com/ZoniBoy00
+- type: SourceCode
+  url: https://github.com/ZoniBoy00/gzw-data
+- type: Roadmap
+  url: https://github.com/ZoniBoy00/gzw-data-js/blob/main/ROADMAP.md
+- type: TermsOfService
+  url: https://gzw-data.dev/terms-of-service/
+- type: PrivacyPolicy
+  url: https://gzw-data.dev/privacy-policy/
+- type: Packages
+  url: packages/gzw-data-packages.yml
+- type: SDKs
+  url: packages/gzw-data-packages.yml
+- type: Authentication
+  url: authentication/gzw-data-authentication.yml
+- type: RateLimits
+  url: rate-limits/gzw-data-rate-limits.yml
+- type: Plans
+  url: plans/gzw-data-plans-pricing.yml
+- type: ErrorCatalog
+  url: errors/gzw-data-problem-types.yml
+- type: Conventions
+  url: conventions/gzw-data-conventions.yml
+- type: Lifecycle
+  url: lifecycle/gzw-data-lifecycle.yml
+- type: Conformance
+  url: conformance/gzw-data-conformance.yml
+- type: DataModel
+  url: data-model/gzw-data-data-model.yml
+- type: Overlay
+  url: overlays/gzw-data-openapi-overlay.yaml
+- type: AgentSkill
+  url: skills/_index.yml
 generated:
   by: apis.io/add
   model: claude-opus-4-8
   confidence: 95
   at: '2026-08-26T18:36:10.596Z'
+x-enrichment:
+  date: '2026-08-26'
+  status: enriched
+  artifacts_added: 19
+  pass: local-v1

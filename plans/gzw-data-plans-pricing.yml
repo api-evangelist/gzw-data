@@ -1,0 +1,33 @@
+generated: '2026-08-26'
+method: searched
+source: https://gzw-data.dev/docs/ ("Pricing — Free, No usage plan or account") + https://gzw-data.dev/llms.txt
+docs: https://gzw-data.dev/docs/
+plan_count: 1
+note: >-
+  GZW Data publishes no pricing page and no tiering. It is a single free public tier with no
+  account, no signup, no billing and no paid upgrade path — the provider states this explicitly
+  in the docs and in llms.txt. There is a voluntary Buy Me a Coffee donation link, which is a
+  donation, NOT a plan, and is recorded under funding rather than as a tier.
+plans:
+- name: Free
+  price: 0
+  currency: USD
+  billing_period: none
+  account_required: false
+  api_key_required: false
+  included_quota: 100 requests per minute per IP address (best-effort)
+  overage: none — requests over the limit return 429 with Retry-After
+  limits:
+    requests_per_minute: 100
+    scope: per-ip
+  commercial_use: >-
+    Permitted for "personal, educational, and other lawful purposes" per the Terms of Service,
+    subject to the rate limits. The service is provided as-available with no uptime, response-time
+    or data-retention guarantee.
+  source: https://gzw-data.dev/docs/
+funding:
+- type: donation
+  name: Buy Me a Coffee
+  url: https://www.buymeacoffee.com/zoniboy00
+  status: 200
+  note: Voluntary support link on the console and in the GitHub README. Not a paid API tier.

@@ -1,0 +1,150 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/gzw-data-openapi.json (components.schemas, 85 dataset schemas) + https://gzw-data.dev/api/v1/metadata
+note: >-
+  The GZW Data model is WIDE AND FLAT: 85 auto-discovered dataset entities, every one a flat object
+  of string fields, with NO $ref links between schemas anywhere in the spec. The relationships below
+  are therefore SOFT — they are name-valued cross-references (e.g. a weapon's sold_by holds a vendor's
+  display NAME, not a vendor id), derived from field-name analysis across all 85 schemas plus live
+  record inspection. They are NOT declared by the provider and cannot be resolved with a single
+  request; a consumer must search the target dataset by name. Recorded as low/medium confidence
+  accordingly. Nothing here is invented — every field named below exists in the published schemas.
+entity_count: 85
+declared_refs: 0
+identity:
+  primary_key: id
+  present_on: 85 of 85 datasets (required on every schema)
+  format: >-
+    Slugified display name, lowercased, spaces to hyphens, punctuation preserved
+    (e.g. "AK-12" -> "ak-12", "Contractor SF (Khaki)" -> "contractor-sf-(khaki)").
+  matching: exact only — GET /api/v1/{dataset}/{id} does no fuzzy resolution
+  prefixes: none — ids are not namespaced by dataset, so the same id can exist in several datasets
+universal_fields:
+- field: id
+  datasets: 85
+  role: primary key
+- field: name
+  datasets: 85
+  role: display name; also the value other datasets cross-reference
+- field: image
+  datasets: 83
+  role: absolute URL into static.wikia.nocookie.net (the Fandom CDN), not a first-party asset host
+- field: type
+  datasets: 66
+  role: free-text subcategory within a dataset
+- field: weight
+  datasets: 66
+  role: string with unit, e.g. "3.553 kg" — NOT numeric
+- field: manufacturer
+  datasets: 53
+- field: sold_by
+  datasets: 47
+  role: soft reference to vendors.name
+- field: grid_size
+  datasets: 41
+  role: inventory footprint as a string
+- field: buy_price
+  datasets: 29
+- field: sell_price
+  datasets: 17
+relationships:
+- from: '*'
+  field: sold_by
+  to: vendors
+  cardinality: belongs_to
+  via: vendors.name (display name string, not an id)
+  confidence: medium
+  spread: 47 of 85 datasets carry sold_by
+  note: >-
+    The single strongest edge in the model. Resolve with
+    GET /api/v1/vendors?search=<sold_by value>, then read that vendor's id.
+- from: tasks
+  field: vendor
+  to: vendors
+  cardinality: belongs_to
+  via: vendors.name
+  confidence: medium
+  also_on: [main_task, side_task, hidden_task, contract, contracts, squad_strike_missions]
+- from: vendors
+  field: wares
+  to: '* (item datasets)'
+  cardinality: has_many
+  via: name list
+  confidence: low
+  note: The inverse of sold_by. Free-text list of ware names, not ids.
+- from: tasks
+  field: hidden_task
+  to: hidden_task
+  cardinality: has_one
+  via: name
+  confidence: medium
+- from: tasks
+  field: alternate
+  to: tasks
+  cardinality: has_one
+  via: name
+  confidence: low
+  note: Self-referencing alternate objective; also present on main_task.
+- from: weapons
+  field: accepted_ammunition
+  to: ammo
+  cardinality: has_many
+  via: space-separated ammo names inside a single string field
+  confidence: low
+  note: >-
+    Requires client-side parsing — the field is one string containing several ammo names, e.g.
+    "5.45x39mm BP (7N22) 5.45x39mm BS (7N24) ...". Also present on magazines.
+- from: weapons
+  field: default_ammo
+  to: ammo
+  cardinality: has_one
+  via: ammo.name
+  confidence: low
+- from: weapons
+  field: default_mag
+  to: magazines
+  cardinality: has_one
+  via: magazines.name
+  confidence: low
+- from: magazines
+  field: caliber
+  to: ammo
+  cardinality: has_many
+  via: caliber string shared with weapons.caliber and ammo type
+  confidence: low
+- from: ammo
+  field: stopped_by_armor_class
+  to: '(armor class scale)'
+  cardinality: has_one
+  via: NIJ class string; pairs with the nij_class field on 5 armor datasets
+  confidence: low
+- from: keys
+  field: map_location
+  to: '(map / town)'
+  cardinality: has_one
+  via: free-text location string; keys also carry a town field
+  confidence: low
+- from: keys
+  field: room_contains
+  to: '* (loot datasets)'
+  cardinality: has_many
+  via: free-text loot description
+  confidence: low
+smart_routes:
+  note: >-
+    Three published routes are UNIONS of other datasets rather than datasets of their own. They are
+    the closest thing in this API to a modelled relationship, and the provider documents them as
+    "smart routes".
+  routes:
+  - path: /api/v1/armor
+    union_of: [vests, helmets, glasses]
+  - path: /api/v1/weapon_parts
+    union_of: all weapon-part datasets combined
+  - path: /api/v1/helmet_mods
+    union_of: [night_vision, mounts]
+modelling_gaps:
+- No $ref between any two schemas — the 85 entities are structurally independent in the contract.
+- Cross-references carry display NAMES, not ids, so no reference is directly dereferenceable.
+- Numeric quantities (weight, prices, fire_rate, accuracy) are typed as string with units embedded.
+- 'additionalProperties: true on every dataset schema — new wiki fields appear without a spec change.'
+- Near-duplicate dataset pairs exist (contract/contracts, plate_carrier/plate_carriers, loot_container/loot_containers) as an artifact of wiki category auto-discovery.

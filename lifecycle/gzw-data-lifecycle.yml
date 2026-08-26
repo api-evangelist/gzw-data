@@ -1,0 +1,75 @@
+generated: '2026-08-26'
+method: searched
+source: https://gzw-data.dev/docs/ + https://gzw-data.dev/terms-of-service/ + https://github.com/ZoniBoy00/gzw-data README + https://github.com/ZoniBoy00/gzw-data-js/blob/main/ROADMAP.md
+versioning:
+  scheme: path-prefix
+  current: v1
+  path: /api/v1
+  legacy_path: /api
+  legacy_policy: >-
+    "Both prefixes currently expose the same API contract. New integrations should prefer /api/v1."
+    The legacy /api prefix is described as compatibility-only but carries NO announced end date and
+    NO Deprecation/Sunset header — probed 2026-08-26, neither header is returned on /api/weapons.
+  product_version: 4.0.0 (info.version in the OpenAPI; independent of the v1 path prefix)
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+  deprecated_operations: []
+  note: >-
+    No deprecation policy page exists and the OpenAPI marks no operation deprecated: true.
+    The Terms of Service state the opposite of a deprecation guarantee — "We may change, limit,
+    suspend, or discontinue any endpoint or feature without notice." No Deprecation pointer is
+    emitted, because the provider publishes no policy.
+status_page:
+  published: false
+  url: null
+  note: >-
+    There is no status page. The API does expose GET /api/v1/health (200; ok/status/ready/
+    apiVersion/version/datasetCount/last-scrape) and GET /api/v1/ready (documented to return 503
+    until datasets load). Those are machine health probes an operator can poll — they are NOT a
+    published status page, so no StatusPage pointer is emitted.
+  health_endpoints:
+  - url: https://gzw-data.dev/api/v1/health
+    status: 200
+  - url: https://gzw-data.dev/api/v1/ready
+    documented_behavior: 503 until datasets are loaded
+sla:
+  published: false
+  note: >-
+    Terms of Service: provided "on an as-available basis... No uptime, response-time, or
+    data-retention guarantee is provided." An explicit no-SLA statement.
+support:
+  channel: GitHub Issues
+  url: https://github.com/ZoniBoy00/gzw-data/issues
+  status: 200
+  note: The Privacy Policy and Terms both direct questions to the GitHub repository.
+changelog:
+  published: false
+  note: >-
+    No dated changelog. The main repo has no CHANGELOG.md (404) and zero GitHub releases. The
+    client repo publishes a phase-based ROADMAP.md, which is forward-looking, not a changelog.
+    No ChangeLog pointer is emitted.
+roadmap:
+  published: true
+  url: https://github.com/ZoniBoy00/gzw-data-js/blob/main/ROADMAP.md
+  scope: the @zoniboy/gzw-data-client library, not the API itself
+  note: >-
+    Phase-based roadmap with stated guiding principles including "Make breaking changes only in a
+    planned major release." Our probe from this host returned 429 (GitHub rate-limited our IP);
+    the file was confirmed present and readable via the GitHub contents API.
+data_lifecycle:
+  source: https://gray-zone-warfare.fandom.com/wiki/Gray_Zone_Warfare_Wiki
+  pipeline: https://github.com/ZoniBoy00/gzw-scraper
+  cadence: weekly scraper workflow (per the docs "the wiki-backed data is refreshed by the weekly scraper")
+  freshness_signal: dataVersion timestamp on responses; last scrape reported by /api/v1/health
+  dataset_discovery: >-
+    Datasets are auto-discovered from the repository data/ directory, so new wiki categories become
+    endpoints — and disappearing categories become 404s — WITHOUT a version change or announcement.
+    This is the real lifecycle risk for a consumer, and it is unversioned.
+maturity:
+  first_commit: '2026-07-20'
+  repo_created: '2026-07-20'
+  last_push: '2026-08-26'
+  note: A young project (about five weeks old at profiling), actively pushed the day it was profiled.

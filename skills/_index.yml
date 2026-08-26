@@ -1,0 +1,23 @@
+generated: '2026-08-26'
+method: generated
+source: openapi/gzw-data-openapi.json + https://gzw-data.dev/docs/ + conventions/gzw-data-conventions.yml
+note: >-
+  Three packaged Agent Skills covering the whole usable surface of a read-only, 85-dataset,
+  unauthenticated API. Every step is grounded in a real path from the published OpenAPI or in a
+  route the provider documents and that we probed live; where a route is live but absent from the
+  contract, the skill says so. The provider publishes no skills, no AGENTS.md and no llms-full.txt,
+  so these are generated, not harvested. NOTE: the published spec declares no operationIds at all,
+  so operations are bound to METHOD + PATH rather than to invented ids.
+skills:
+- name: gzw-data-lookup-item
+  file: gzw-data-lookup-item.md
+  description: Resolve a display name to a slugified id and fetch the full record.
+  operations: 4
+- name: gzw-data-browse-dataset
+  file: gzw-data-browse-dataset.md
+  description: Filter, search, sort and page any dataset using the documented query vocabulary.
+  operations: 3
+- name: gzw-data-check-freshness
+  file: gzw-data-check-freshness.md
+  description: Establish data age and API health before quoting a value.
+  operations: 4

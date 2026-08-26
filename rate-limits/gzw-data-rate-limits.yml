@@ -1,0 +1,52 @@
+generated: '2026-08-26'
+method: probed
+source: https://gzw-data.dev/docs/#limits + live response headers observed on https://gzw-data.dev/api/v1/* 2026-08-26
+docs: https://gzw-data.dev/docs/#limits
+limit_count: 1
+rate_limits:
+- scope: per-ip
+  window: 1 minute
+  limit: 100
+  burst: null
+  algorithm: sliding window
+  enforcement: best-effort
+  note: >-
+    The docs state the sliding-window counter lives in the memory of each warm Vercel function
+    instance, so it is explicitly NOT a strict global quota across all instances. The provider
+    documents this caveat itself.
+  applies_to: all /api and /api/v1 routes
+response_headers:
+- name: X-RateLimit-Limit
+  observed_value: '100'
+  observed: true
+- name: X-RateLimit-Remaining
+  observed_value: '97'
+  observed: true
+- name: X-RateLimit-Reset
+  observed_value: '1787770891'
+  format: unix epoch seconds
+  observed: true
+- name: Retry-After
+  observed: false
+  documented: true
+  note: Documented as returned on a 429; not triggered during probing (we stayed under the limit).
+exhaustion:
+  status_code: 429
+  body: documented as the standard error envelope
+  retry_signal: Retry-After header
+caching:
+  note: >-
+    Caching is the provider's stated mitigation. Data endpoints send
+    Cache-Control: public, max-age=300 (observed); health/root send max-age=0, must-revalidate.
+    ETag / W/"..." weak validators are returned on every response observed.
+  observed_headers:
+  - 'cache-control: public, max-age=300'
+  - 'cache-control: public, max-age=0, must-revalidate'
+  - etag
+evidence:
+- url: https://gzw-data.dev/api/v1/weapons?limit=1
+  status: 200
+  headers_seen: [x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, cache-control, etag]
+- url: https://gzw-data.dev/api/v1/stats
+  status: 200
+  headers_seen: [x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, cache-control, etag]

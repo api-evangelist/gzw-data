@@ -1,0 +1,45 @@
+generated: '2026-08-26'
+method: probed
+source: live HTTP probes of https://gzw-data.dev/.well-known/* on 2026-08-26
+note: >-
+  Every /.well-known/ path probed on the single production host returned 404 with a plain-text
+  Vercel NOT_FOUND body — a genuine absence, not an SPA catch-all. Because nothing was served,
+  NO WellKnown or SecurityTxt pointer is emitted in apis.yml; this file records the absence only.
+  /robots.txt and /sitemap.xml ARE served (200) but are not /.well-known/ documents and are
+  recorded here separately for completeness.
+hosts:
+- host: gzw-data.dev
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+other_root_documents:
+- path: /robots.txt
+  status: 200
+  content_type: text/plain
+  note: 'Allows /, /api/v1/stats and /api/v1/weapons; Disallow: /api/. Declares the sitemap.'
+- path: /sitemap.xml
+  status: 200
+  content_type: application/xml
+  note: 4 URLs — /, /docs/, /privacy-policy/, /terms-of-service/

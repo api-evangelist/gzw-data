@@ -1,0 +1,91 @@
+generated: '2026-08-26'
+method: probed
+source: openapi/gzw-data-openapi.json (components.schemas.ApiError / ApiErrorResponse) + live error probes on 2026-08-26
+format: vendor-json
+rfc9457: false
+note: >-
+  IMPORTANT PROVENANCE NOTE — the published OpenAPI declares ApiError and ApiErrorResponse under
+  components.schemas but attaches NO responses block to any of its 352 operations, so no error
+  response is reachable from the contract. The codes below were established by PROBING live error
+  conditions, plus the two example values the schemas carry. This is not an RFC 9457
+  application/problem+json surface; it is a vendor envelope returned as application/json.
+envelope:
+  content_type: application/json
+  shape:
+    error:
+      code: string (required) — machine-readable SCREAMING_SNAKE_CASE code
+      message: string (required) — human-readable message
+      dataset: string (optional) — the dataset that was addressed
+      id: string (optional) — the record id that was addressed
+      endpoint: string (optional) — the unresolved route segment
+      available: array of string (optional) — the dataset names that DO exist
+      docs: string (optional) — pointer to /api/v1/spec
+      additionalProperties: true
+    source: string (required) — always "GZW Data API"
+    timestamp: string (required, date-time)
+    dataVersion: string (date-time) — the scrape timestamp the response was served from
+  example: |
+    {"error":{"code":"RECORD_NOT_FOUND","message":"Record not found","dataset":"weapons",
+     "id":"no-such-id","docs":"/api/v1/spec"},"source":"GZW Data API",
+     "timestamp":"2026-08-26T19:02:13.335Z","dataVersion":"2026-08-25T11:12:54.629187Z"}
+problem_types:
+- code: ENDPOINT_NOT_FOUND
+  status: 404
+  title: Endpoint not found
+  detail: The requested route segment does not resolve to a known dataset or system route.
+  remediation: >-
+    Read the `available` array returned in the error body, or call GET /api/v1/metadata for the
+    dataset registry. Dataset names are auto-discovered and can change between scrapes.
+  method: probed
+  evidence:
+    url: https://gzw-data.dev/api/v1/nosuchdataset
+    status: 404
+- code: RECORD_NOT_FOUND
+  status: 404
+  title: Record not found
+  detail: The dataset exists but no record carries that exact id.
+  remediation: >-
+    Ids are slugified names (e.g. "ak-12") and are matched EXACTLY — there is no fuzzy lookup.
+    Use ?search= on the collection route to resolve a name to an id first. The official JS client
+    returns undefined rather than throwing for this case.
+  method: probed
+  evidence:
+    url: https://gzw-data.dev/api/v1/weapons/no-such-id
+    status: 404
+- code: DATASET_NOT_FOUND
+  status: 404
+  title: Dataset not found
+  detail: The named dataset is not present in the current scrape.
+  remediation: Call GET /api/v1/metadata for the live dataset registry.
+  method: derived
+  source: openapi components.schemas.ApiError example value
+- code: null
+  status: 503
+  title: Not ready
+  detail: >-
+    The docs and README state GET /api/v1/ready returns 503 until the datasets have finished
+    loading. Not observed during probing — the API was ready on every request.
+  remediation: Retry after a short delay; treat 503 on /ready as cold-start, not outage.
+  method: searched
+  source: https://gzw-data.dev/docs/
+- code: null
+  status: 429
+  title: Rate limited
+  detail: Documented as returned when the best-effort 100 req/min/IP limit is exceeded.
+  remediation: Honour the Retry-After header and cache responses (data endpoints send max-age=300).
+  method: searched
+  source: https://gzw-data.dev/docs/#limits
+lenient_input_handling:
+  note: >-
+    Probed deliberately: ?per_page=99999 (above the documented cap of 500) and ?page=abc
+    (non-numeric) both returned 200 rather than a 4xx. The API coerces or clamps bad query
+    parameters instead of rejecting them, so a client cannot detect a malformed query from the
+    status code.
+  evidence:
+  - url: https://gzw-data.dev/api/v1/weapons?per_page=99999
+    status: 200
+  - url: https://gzw-data.dev/api/v1/weapons?page=abc
+    status: 200
+gaps:
+- The OpenAPI declares no responses on any operation, so no error shape is discoverable from the contract.
+- No published error-code reference page; the codes above were recovered by probing.

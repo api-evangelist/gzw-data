@@ -1,0 +1,106 @@
+generated: '2026-08-26'
+method: searched
+source: https://gzw-data.dev/docs/ + https://github.com/ZoniBoy00/gzw-data (README) + live probes 2026-08-26
+docs: https://gzw-data.dev/docs/
+summary: >-
+  GZW Data is a read-only JSON REST API with one consistent response envelope, one composable
+  query-parameter vocabulary applied uniformly to every auto-discovered dataset, and no write
+  surface at all. Because there are no mutations, idempotency, dry-run and reversibility are all
+  structurally not-applicable rather than missing.
+auth_style:
+  style: none
+  detail: Public, no API key, no account. See authentication/gzw-data-authentication.yml.
+versioning:
+  scheme: path-prefix
+  current: /api/v1
+  legacy: /api
+  policy: >-
+    Both prefixes currently expose the same contract; the docs and README both say new integrations
+    should prefer /api/v1. info.version in the OpenAPI reads 4.0.0 (the project version), which does
+    NOT match the v1 path prefix — two independent version numbers are in play.
+  breaking_change_policy: not published for the API. The JS client roadmap states breaking changes only in a planned major release.
+pagination:
+  style: page-number
+  params:
+    page: 1-based page number, default 1
+    per_page: page size, default 50, documented cap 500
+    all: 'all=true returns every filtered record with no pagination'
+  response_fields: [count, page, perPage, total, totalPages]
+  note: >-
+    The official JS client exposes iterate({perPage}) which walks pages and stops at totalPages,
+    an empty page, or an incomplete page. Query parameters are NOT declared in the OpenAPI —
+    they exist only in the docs prose.
+filtering:
+  style: field-equality on any string field
+  example: /api/v1/keys?type=Keycard
+  combinable_with: [search, sort, page, per_page, all]
+search:
+  per_dataset: '?search=ak on any collection route'
+  cross_dataset: 'GET /api/v1/search?q=ak — live and documented, but ABSENT from the OpenAPI'
+sorting:
+  param: sort
+  syntax: 'field:asc | field:desc'
+  example: /api/v1/weapons?sort=name:asc
+field_expansion:
+  supported: false
+  note: Records are flat; there is no expand/include/fields parameter.
+metadata:
+  registry: GET /api/v1/metadata — dataset names, file, itemCount, observed fields
+  per_dataset: GET /api/v1/metadata/{dataset} — types, optional/nullable flags, stable example value
+  full: GET /api/v1/metadata?full=true
+  note: The OpenAPI components.schemas are generated from this same metadata.
+request_id_tracing:
+  supported: false
+  note: >-
+    No X-Request-Id or correlation header is returned. The Vercel NOT_FOUND text body carries an
+    edge trace id (e.g. iad1::trgp5-...) but only on platform 404s, not on API responses.
+response_envelope:
+  success:
+    fields: [data, count, page, perPage, total, totalPages, source, timestamp]
+    unpaginated: data, count, source and timestamp are preserved; pagination fields are omitted
+    example: '{"data":[...],"count":10,"page":1,"perPage":50,"total":2141,"totalPages":43,"source":"GZW Data API","timestamp":"2026-08-24T09:00:00.000Z"}'
+  error:
+    see: errors/gzw-data-problem-types.yml
+    format: vendor JSON envelope, NOT RFC 9457
+data_freshness:
+  field: dataVersion
+  detail: >-
+    Error responses (and the health route) carry a dataVersion / last-scrape timestamp identifying
+    the scrape the data came from. Source is the community GZW Fandom Wiki, refreshed by the
+    public gzw-scraper workflow. The Terms of Service state the data may be incomplete or outdated.
+caching:
+  data_routes: 'Cache-Control: public, max-age=300'
+  system_routes: 'Cache-Control: public, max-age=0, must-revalidate'
+  validators: weak ETags returned on every observed response
+  conditional_requests: ETag present; If-None-Match support not verified
+cors:
+  access_control_allow_origin: '*'
+rate_limit_signaling:
+  see: rate-limits/gzw-data-rate-limits.yml
+  headers: [X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After]
+idempotency:
+  status: na
+  reason: >-
+    The API exposes GET only — 352 operations in the OpenAPI, all GET, and the docs state
+    "All routes are read-only". There is no unsafe method to make idempotent, so an
+    Idempotency-Key surface would be meaningless here. No apis.yml Idempotency pointer is emitted.
+dry_run_mode:
+  status: na
+  reason: No write surface to rehearse.
+reversibility:
+  status: na
+  grade: na
+  reason: >-
+    Read-only API. There is no create, update, delete, purchase, send or any other state-changing
+    operation in the contract or the docs, so there is nothing an agent could take that would need
+    taking back. No reversal operation, and therefore no reversal window, is asserted.
+  write_surfaces: []
+  verified_by:
+  - openapi/gzw-data-openapi.json — 352 operations, every one a GET
+  - https://gzw-data.dev/docs/ — "All routes are read-only and return JSON"
+cross_links:
+  errors: errors/gzw-data-problem-types.yml
+  lifecycle: lifecycle/gzw-data-lifecycle.yml
+  authentication: authentication/gzw-data-authentication.yml
+  rate_limits: rate-limits/gzw-data-rate-limits.yml
+  data_model: data-model/gzw-data-data-model.yml

@@ -1,0 +1,128 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the GZW Data API
+  version: 1.0.0
+x-provenance:
+  generated: '2026-08-26'
+  method: generated
+  source: openapi/gzw-data-openapi.json (verbatim from https://gzw-data.dev/api/v1/spec, 2026-08-26)
+  note: >-
+    Non-destructive Overlay 1.0.0 capturing enhancements API Evangelist derived from the provider's
+    own docs and from live probes. The published spec declares 352 GET operations with ONLY a
+    summary each — no operationId, no responses, no tags, no descriptions, and none of the four
+    query parameters the docs document. This overlay adds contact/licence/terms metadata, the
+    documented query-parameter vocabulary, the real error envelope, and the security posture.
+    It does NOT invent endpoint behaviour and it does not modify openapi/gzw-data-openapi.json.
+actions:
+- target: $.info
+  description: Add contact, licence, terms and a fuller description sourced from the provider's own pages.
+  update:
+    description: >-
+      Free, fan-made, read-only REST API for Gray Zone Warfare game data — 85+ auto-discovered
+      datasets covering weapons, ammo, armor, tasks/missions, gear, loot, containers and vendors,
+      scraped from the community GZW Fandom Wiki. No API key and no account required. Best-effort
+      rate limit of 100 requests per minute per IP. Not affiliated with or endorsed by the game's
+      publisher.
+    termsOfService: https://gzw-data.dev/terms-of-service/
+    contact:
+      name: ZoniBoy00
+      url: https://github.com/ZoniBoy00/gzw-data/issues
+    license:
+      name: MIT
+      url: https://github.com/ZoniBoy00/gzw-data/blob/main/LICENSE
+    x-privacy-policy: https://gzw-data.dev/privacy-policy/
+    x-data-source: https://gray-zone-warfare.fandom.com/wiki/Gray_Zone_Warfare_Wiki
+- target: $
+  description: Declare an explicitly empty security requirement — the API is public and unauthenticated.
+  update:
+    security: []
+    x-authentication: none
+    x-api-key-required: false
+- target: $.servers
+  description: Note the legacy compatibility prefix alongside the versioned base.
+  update:
+  - url: https://gzw-data.dev
+    description: Production. Use the /api/v1 prefix for new integrations; the unversioned /api prefix is compatibility-only.
+- target: $.info
+  description: Record the runtime conventions the docs publish but the contract omits.
+  update:
+    x-rate-limit:
+      limit: 100
+      window: 1 minute
+      scope: per-ip
+      enforcement: best-effort (per warm serverless instance, not a strict global quota)
+      headers: [X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, Retry-After]
+      exhausted_status: 429
+    x-caching:
+      data_routes: 'Cache-Control: public, max-age=300'
+      validators: weak ETag
+    x-cors:
+      allow_origin: '*'
+    x-query-parameters:
+    - name: page
+      description: 1-based page number. Default 1.
+    - name: per_page
+      description: Page size. Default 50, documented cap 500.
+    - name: all
+      description: all=true returns every filtered record without pagination.
+    - name: search
+      description: Full-text search across the record fields of the dataset.
+    - name: sort
+      description: 'Sort by a field, syntax field:asc or field:desc.'
+    - name: '{field}'
+      description: Filter by equality on any string field, e.g. ?type=Keycard.
+    x-response-envelope:
+      fields: [data, count, page, perPage, total, totalPages, source, timestamp]
+      note: Unpaginated responses omit the pagination fields and keep data, count, source, timestamp.
+- target: $.components.schemas.ApiErrorResponse
+  description: Document the additional envelope members observed on live error responses.
+  update:
+    x-observed-members:
+      dataVersion: ISO timestamp of the scrape the response was served from
+    x-error-codes:
+    - code: ENDPOINT_NOT_FOUND
+      status: 404
+      note: Body carries an `available` array of the dataset names that DO exist.
+    - code: RECORD_NOT_FOUND
+      status: 404
+      note: Body carries `dataset`, `id` and a `docs` pointer to /api/v1/spec.
+    - code: DATASET_NOT_FOUND
+      status: 404
+    x-not-rfc9457: >-
+      Served as application/json with a vendor {error:{code,message},source,timestamp} envelope;
+      not application/problem+json.
+- target: $.paths
+  description: Record the live, documented routes that are ABSENT from the published contract.
+  update:
+    x-undocumented-in-spec:
+      note: >-
+        These routes are documented in the provider's own README, docs and llms.txt AND return 200
+        live, but no path item for them exists in the published OpenAPI. Listed here as a gap for the
+        provider; they are deliberately NOT added as path items, because this overlay does not author
+        contract that the provider has not published.
+      routes:
+      - GET /api/v1/search?q={query} — cross-dataset search (probed 200)
+      - GET /api/v1/stats — per-dataset item counts plus latest scrape timestamp (probed 200)
+      - GET /api/v1/images — all item image URLs (probed 200)
+      - GET /api/v1/spec — the OpenAPI document itself (probed 200)
+      - GET /api/v1/metadata?full=true — detailed metadata for all datasets
+- target: $.paths['/api/v1/weapons'].get
+  description: Illustrative enrichment of one representative collection operation. Every collection route follows this shape.
+  update:
+    operationId: listWeapons
+    tags: [weapons]
+    description: >-
+      List Gray Zone Warfare weapons. Supports equality filters on any string field, full-text
+      search, sorting, and page-number pagination. Data is wiki-derived and refreshed by the
+      weekly scraper.
+    x-derived-by: API Evangelist overlay — the published operation carries only a summary.
+- target: $.paths['/api/v1/weapons/{id}'].get
+  description: Illustrative enrichment of one representative single-record operation.
+  update:
+    operationId: getWeapon
+    tags: [weapons]
+    description: >-
+      Retrieve one weapon by its exact slugified id (e.g. ak-12). Ids are matched exactly; use the
+      collection route with ?search= to resolve a display name to an id first. A missing id returns
+      404 RECORD_NOT_FOUND.
+    x-derived-by: API Evangelist overlay — the published operation carries only a summary.

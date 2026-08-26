@@ -1,0 +1,80 @@
+generated: '2026-08-26'
+method: derived
+source: openapi/gzw-data-openapi.json + https://gzw-data.dev/docs/ + live probes 2026-08-26
+note: >-
+  Gaming / game-data is a market with no recognised machine-readable domain standard, so the
+  domain_standard_conformance slot is legitimately empty — reward-only, nothing invented to fill it.
+  No compliance certification, audit or trust program is published, so NO Compliance pointer is emitted.
+conformance:
+- id: openapi
+  conforms: true
+  version: 3.0.3
+  evidence: >-
+    https://gzw-data.dev/api/v1/spec returns a parseable OpenAPI 3.0.3 document with 352 paths and
+    87 component schemas (85 dataset schemas + ApiError + ApiErrorResponse). Saved verbatim to
+    openapi/gzw-data-openapi.json.
+- id: rest
+  conforms: true
+  evidence: Resource-oriented JSON over HTTPS; collection and single-record routes per dataset; GET only.
+- id: json
+  conforms: true
+  evidence: Every response observed was application/json with a stable {data, count, ..., source, timestamp} envelope.
+- id: rfc9457
+  conforms: false
+  evidence: >-
+    Errors are a vendor envelope {"error":{"code","message",...},"source","timestamp"} served as
+    application/json. No type/title/status/detail/instance members, no application/problem+json.
+    Probed https://gzw-data.dev/api/v1/weapons/no-such-id (404).
+- id: pagination
+  conforms: true
+  evidence: >-
+    Page-number pagination with page/per_page/all and count/page/perPage/total/totalPages in the
+    envelope, documented at https://gzw-data.dev/docs/#queries. Note the parameters are NOT declared
+    in the OpenAPI, only in docs prose.
+- id: idempotency
+  conforms: na
+  evidence: Read-only API — 352 GET operations and no write surface. Nothing to make idempotent.
+- id: oauth2
+  conforms: false
+  evidence: No securitySchemes in the spec; /.well-known/oauth-authorization-server returned 404.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returned 404.
+- id: rfc9116
+  conforms: false
+  evidence: /.well-known/security.txt returned 404.
+- id: rfc8594
+  conforms: false
+  evidence: No Deprecation or Sunset header returned on the legacy /api prefix; no deprecation policy published.
+- id: rfc8288
+  conforms: false
+  evidence: No Link header returned on paginated responses; pagination is body-only.
+- id: cors
+  conforms: true
+  evidence: 'Access-Control-Allow-Origin: * observed on every API response.'
+- id: hsts
+  conforms: true
+  evidence: 'strict-transport-security: max-age=63072000 observed; TLSv1.3. See security/gzw-data-domain-security.yml.'
+- id: dnssec
+  conforms: true
+  evidence: DNSSEC signed for gzw-data.dev (probe-domain-security.py, 2026-08-26).
+- id: robots_txt
+  conforms: true
+  evidence: 'https://gzw-data.dev/robots.txt returns 200 and declares the sitemap. Note: Disallow: /api/.'
+- id: llms_txt
+  conforms: true
+  evidence: https://gzw-data.dev/llms.txt returns 200 with a real llms.txt-format document (2,292 bytes).
+- id: api_catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returned 404.
+domain_standard:
+  applicable: false
+  market: gaming / game reference data
+  note: >-
+    No domain standard exists for community game-data APIs — no schema URN, message type,
+    or interchange format applies. Recorded as not-applicable rather than as a failure.
+compliance_certifications: []
+compliance_note: >-
+  None published, and none expected: this is an unincorporated fan project with no accounts, no
+  payment processing and no personal data collection. The Privacy Policy states no accounts, no
+  tracking cookies, no analytics, and that the requesting IP is used only for rate limiting.
