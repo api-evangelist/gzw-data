@@ -1,0 +1,51 @@
+name: GZW Data API
+description: >-
+  A free, fan-made read-only REST API providing clean data for the game Gray Zone Warfare — weapons, armor, ammo,
+  tasks/missions, gear, loot and more, auto-discovered from a wiki-scraped dataset directory. No authentication
+  required; access governed by best-effort rate limiting.
+url: https://raw.githubusercontent.com/api-evangelist/gzw-data-api/refs/heads/main/apis.yml
+created: '2026-08-26'
+modified: '2026-08-26'
+specificationVersion: '0.21'
+tags:
+  - gaming
+  - video-games
+  - gray-zone-warfare
+  - game-data
+  - developer-tools
+  - open-data
+  - openapi
+  - weapons
+  - missions
+  - loot
+apis:
+  - name: GZW Data API
+    description: >-
+      Read-only JSON REST API for Gray Zone Warfare game data, backed by an OpenAPI 3.0 contract. Datasets are
+      auto-discovered; supports filtering, full-text search, sorting and pagination. No API key required.
+    humanURL: https://gzw-data.dev/docs/
+    baseURL: https://gzw-data.dev/api/v1
+    tags:
+      - gaming
+      - video-games
+      - gray-zone-warfare
+      - game-data
+      - developer-tools
+      - open-data
+      - openapi
+      - weapons
+      - missions
+      - loot
+    properties:
+      - type: OpenAPI
+        url: https://gzw-data.dev/api/v1/spec
+      - type: Documentation
+        url: https://gzw-data.dev/docs/
+maintainers:
+  - FN: ZoniBoy00
+    url: https://github.com/ZoniBoy00/gzw-data
+generated:
+  by: apis.io/add
+  model: claude-opus-4-8
+  confidence: 95
+  at: '2026-08-26T18:36:10.596Z'
