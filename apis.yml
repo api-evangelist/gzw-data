@@ -31,31 +31,1642 @@ tags:
 - free-api
 - community
 apis:
-- name: GZW Data API
-  description: Read-only JSON REST API for Gray Zone Warfare game data, backed by an OpenAPI 3.0 contract. Datasets are auto-discovered;
-    supports filtering, full-text search, sorting and pagination. No API key required.
+- aid: gzw-data:gzw-data-ammo-api
+  name: GZW Data API Ammo API
+  description: The Ammo API from GZW Data API — 4 operation(s) for ammo.
   humanURL: https://gzw-data.dev/docs/
   baseURL: https://gzw-data.dev/api/v1
   tags:
-  - gaming
-  - video-games
-  - gray-zone-warfare
-  - game-data
-  - developer-tools
-  - open-data
-  - openapi
-  - weapons
-  - missions
-  - loot
+  - Ammo
   properties:
   - type: OpenAPI
-    url: https://gzw-data.dev/api/v1/spec
+    url: openapi/gzw-data-ammo-api-openapi.yml
   - type: Documentation
     url: https://gzw-data.dev/docs/
   - type: LLMsTxt
     url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-apparel-items-api
+  name: GZW Data API Apparel Items API
+  description: The Apparel Items API from GZW Data API — 4 operation(s) for apparel items.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Apparel Items
+  properties:
   - type: OpenAPI
-    url: openapi/gzw-data-openapi.json
+    url: openapi/gzw-data-apparel-items-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-armor-api
+  name: GZW Data API Armor API
+  description: The Armor API from GZW Data API — 2 operation(s) for armor.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Armor
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-armor-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-auxiliary-api
+  name: GZW Data API Auxiliary API
+  description: The Auxiliary API from GZW Data API — 4 operation(s) for auxiliary.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Auxiliary
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-auxiliary-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-backpacks-api
+  name: GZW Data API Backpacks API
+  description: The Backpacks API from GZW Data API — 4 operation(s) for backpacks.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Backpacks
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-backpacks-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-barrels-api
+  name: GZW Data API Barrels API
+  description: The Barrels API from GZW Data API — 4 operation(s) for barrels.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Barrels
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-barrels-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-belts-api
+  name: GZW Data API Belts API
+  description: The Belts API from GZW Data API — 4 operation(s) for belts.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Belts
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-belts-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-binoculars-api
+  name: GZW Data API Binoculars API
+  description: The Binoculars API from GZW Data API — 4 operation(s) for binoculars.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Binoculars
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-binoculars-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-boots-api
+  name: GZW Data API Boots API
+  description: The Boots API from GZW Data API — 4 operation(s) for boots.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Boots
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-boots-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-buffer-tubes-api
+  name: GZW Data API Buffer Tubes API
+  description: The Buffer Tubes API from GZW Data API — 4 operation(s) for buffer tubes.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Buffer Tubes
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-buffer-tubes-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-charging-handle-api
+  name: GZW Data API Charging Handle API
+  description: The Charging Handle API from GZW Data API — 4 operation(s) for charging handle.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Charging Handle
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-charging-handle-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-cleanup-api
+  name: GZW Data API Cleanup API
+  description: The Cleanup API from GZW Data API — 4 operation(s) for cleanup.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Cleanup
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-cleanup-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-collimators-api
+  name: GZW Data API Collimators API
+  description: The Collimators API from GZW Data API — 4 operation(s) for collimators.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Collimators
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-collimators-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-containers-api
+  name: GZW Data API Containers API
+  description: The Containers API from GZW Data API — 4 operation(s) for containers.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Containers
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-containers-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-contract-api
+  name: GZW Data API Contract API
+  description: The Contract API from GZW Data API — 4 operation(s) for contract.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Contract
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-contract-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-contracts-api
+  name: GZW Data API Contracts API
+  description: The Contracts API from GZW Data API — 4 operation(s) for contracts.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Contracts
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-contracts-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-drinks-api
+  name: GZW Data API Drinks API
+  description: The Drinks API from GZW Data API — 4 operation(s) for drinks.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Drinks
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-drinks-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-electronics-api
+  name: GZW Data API Electronics API
+  description: The Electronics API from GZW Data API — 4 operation(s) for electronics.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Electronics
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-electronics-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-face-cover-api
+  name: GZW Data API Face Cover API
+  description: The Face Cover API from GZW Data API — 4 operation(s) for face cover.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Face Cover
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-face-cover-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-food-api
+  name: GZW Data API Food API
+  description: The Food API from GZW Data API — 4 operation(s) for food.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Food
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-food-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-foregrips-api
+  name: GZW Data API Foregrips API
+  description: The Foregrips API from GZW Data API — 4 operation(s) for foregrips.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Foregrips
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-foregrips-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-front-iron-sights-api
+  name: GZW Data API Front Iron Sights API
+  description: The Front Iron Sights API from GZW Data API — 4 operation(s) for front iron sights.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Front Iron Sights
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-front-iron-sights-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-funds-api
+  name: GZW Data API Funds API
+  description: The Funds API from GZW Data API — 4 operation(s) for funds.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Funds
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-funds-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-gas-blocks-api
+  name: GZW Data API Gas Blocks API
+  description: The Gas Blocks API from GZW Data API — 4 operation(s) for gas blocks.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Gas Blocks
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-gas-blocks-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-gear-api
+  name: GZW Data API Gear API
+  description: The Gear API from GZW Data API — 4 operation(s) for gear.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Gear
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-gear-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-glasses-api
+  name: GZW Data API Glasses API
+  description: The Glasses API from GZW Data API — 4 operation(s) for glasses.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Glasses
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-glasses-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-gloves-api
+  name: GZW Data API Gloves API
+  description: The Gloves API from GZW Data API — 4 operation(s) for gloves.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Gloves
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-gloves-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-gzw-data-api-api
+  name: GZW Data API GZW Data API
+  description: The GZW Data API API from GZW Data API — 2 operation(s) for gzw data api.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - GZW Data API
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-gzw-data-api-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-handguards-api
+  name: GZW Data API Handguards API
+  description: The Handguards API from GZW Data API — 4 operation(s) for handguards.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Handguards
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-handguards-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-headsets-api
+  name: GZW Data API Headsets API
+  description: The Headsets API from GZW Data API — 4 operation(s) for headsets.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Headsets
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-headsets-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-health-api
+  name: GZW Data API Health API
+  description: The Health API from GZW Data API — 2 operation(s) for health.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-health-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-helmet-mods-api
+  name: GZW Data API Helmet Mods API
+  description: The Helmet Mods API from GZW Data API — 2 operation(s) for helmet mods.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Helmet Mods
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-helmet-mods-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-helmet-mounts-api
+  name: GZW Data API Helmet Mounts API
+  description: The Helmet Mounts API from GZW Data API — 4 operation(s) for helmet mounts.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Helmet Mounts
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-helmet-mounts-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-helmets-api
+  name: GZW Data API Helmets API
+  description: The Helmets API from GZW Data API — 4 operation(s) for helmets.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Helmets
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-helmets-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-hidden-task-api
+  name: GZW Data API Hidden Task API
+  description: The Hidden Task API from GZW Data API — 4 operation(s) for hidden task.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Hidden Task
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-hidden-task-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-household-item-api
+  name: GZW Data API Household Item API
+  description: The Household Item API from GZW Data API — 4 operation(s) for household item.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Household Item
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-household-item-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-intels-api
+  name: GZW Data API Intels API
+  description: The Intels API from GZW Data API — 4 operation(s) for intels.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Intels
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-intels-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-items-api
+  name: GZW Data API Items API
+  description: The Items API from GZW Data API — 4 operation(s) for items.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Items
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-items-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-jewellery-api
+  name: GZW Data API Jewellery API
+  description: The Jewellery API from GZW Data API — 4 operation(s) for jewellery.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Jewellery
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-jewellery-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-keycards-api
+  name: GZW Data API Keycards API
+  description: The Keycards API from GZW Data API — 4 operation(s) for keycards.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Keycards
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-keycards-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-keys-api
+  name: GZW Data API Keys API
+  description: The Keys API from GZW Data API — 4 operation(s) for keys.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Keys
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-keys-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-laboratory-supplies-api
+  name: GZW Data API Laboratory Supplies API
+  description: The Laboratory Supplies API from GZW Data API — 4 operation(s) for laboratory supplies.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Laboratory Supplies
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-laboratory-supplies-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-lockboxes-api
+  name: GZW Data API Lockboxes API
+  description: The Lockboxes API from GZW Data API — 4 operation(s) for lockboxes.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Lockboxes
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-lockboxes-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-loot-container-api
+  name: GZW Data API Loot Container API
+  description: The Loot Container API from GZW Data API — 4 operation(s) for loot container.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Loot Container
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-loot-container-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-loot-containers-api
+  name: GZW Data API Loot Containers API
+  description: The Loot Containers API from GZW Data API — 4 operation(s) for loot containers.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Loot Containers
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-loot-containers-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-loot-items-api
+  name: GZW Data API Loot Items API
+  description: The Loot Items API from GZW Data API — 4 operation(s) for loot items.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Loot Items
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-loot-items-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-magazines-api
+  name: GZW Data API Magazines API
+  description: The Magazines API from GZW Data API — 4 operation(s) for magazines.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Magazines
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-magazines-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-main-task-api
+  name: GZW Data API Main Task API
+  description: The Main Task API from GZW Data API — 4 operation(s) for main task.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Main Task
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-main-task-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-medical-api
+  name: GZW Data API Medical API
+  description: The Medical API from GZW Data API — 4 operation(s) for medical.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Medical
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-medical-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-metadata-api
+  name: GZW Data API Metadata API
+  description: The Metadata API from GZW Data API — 4 operation(s) for metadata.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-metadata-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-military-equipment-api
+  name: GZW Data API Military Equipment API
+  description: The Military Equipment API from GZW Data API — 4 operation(s) for military equipment.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Military Equipment
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-military-equipment-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-military-material-api
+  name: GZW Data API Military Material API
+  description: The Military Material API from GZW Data API — 4 operation(s) for military material.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Military Material
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-military-material-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-mortar-rounds-api
+  name: GZW Data API Mortar Rounds API
+  description: The Mortar Rounds API from GZW Data API — 4 operation(s) for mortar rounds.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Mortar Rounds
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-mortar-rounds-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-mounts-api
+  name: GZW Data API Mounts API
+  description: The Mounts API from GZW Data API — 4 operation(s) for mounts.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Mounts
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-mounts-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-muzzle-devices-api
+  name: GZW Data API Muzzle Devices API
+  description: The Muzzle Devices API from GZW Data API — 4 operation(s) for muzzle devices.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Muzzle Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-muzzle-devices-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-night-vision-api
+  name: GZW Data API Night Vision API
+  description: The Night Vision API from GZW Data API — 4 operation(s) for night vision.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Night Vision
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-night-vision-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-paper-api
+  name: GZW Data API Paper API
+  description: The Paper API from GZW Data API — 4 operation(s) for paper.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Paper
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-paper-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-pistol-grips-api
+  name: GZW Data API Pistol Grips API
+  description: The Pistol Grips API from GZW Data API — 4 operation(s) for pistol grips.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Pistol Grips
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-pistol-grips-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-plate-carrier-api
+  name: GZW Data API Plate Carrier API
+  description: The Plate Carrier API from GZW Data API — 4 operation(s) for plate carrier.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Plate Carrier
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-plate-carrier-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-plate-carriers-api
+  name: GZW Data API Plate Carriers API
+  description: The Plate Carriers API from GZW Data API — 4 operation(s) for plate carriers.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Plate Carriers
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-plate-carriers-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-provisions-api
+  name: GZW Data API Provisions API
+  description: The Provisions API from GZW Data API — 4 operation(s) for provisions.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Provisions
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-provisions-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-reading-intel-api
+  name: GZW Data API Reading Intel API
+  description: The Reading Intel API from GZW Data API — 4 operation(s) for reading intel.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Reading Intel
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-reading-intel-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-ready-api
+  name: GZW Data API Ready API
+  description: The Ready API from GZW Data API — 2 operation(s) for ready.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Ready
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-ready-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-rear-iron-sights-api
+  name: GZW Data API Rear Iron Sights API
+  description: The Rear Iron Sights API from GZW Data API — 4 operation(s) for rear iron sights.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Rear Iron Sights
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-rear-iron-sights-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-removed-content-api
+  name: GZW Data API Removed Content API
+  description: The Removed Content API from GZW Data API — 4 operation(s) for removed content.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Removed Content
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-removed-content-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-repair-kits-api
+  name: GZW Data API Repair Kits API
+  description: The Repair Kits API from GZW Data API — 4 operation(s) for repair kits.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Repair Kits
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-repair-kits-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-rigs-api
+  name: GZW Data API Rigs API
+  description: The Rigs API from GZW Data API — 4 operation(s) for rigs.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Rigs
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-rigs-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-scopes-api
+  name: GZW Data API Scopes API
+  description: The Scopes API from GZW Data API — 4 operation(s) for scopes.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Scopes
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-scopes-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-shirts-api
+  name: GZW Data API Shirts API
+  description: The Shirts API from GZW Data API — 4 operation(s) for shirts.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Shirts
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-shirts-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-side-task-api
+  name: GZW Data API Side Task API
+  description: The Side Task API from GZW Data API — 4 operation(s) for side task.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Side Task
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-side-task-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-slides-api
+  name: GZW Data API Slides API
+  description: The Slides API from GZW Data API — 4 operation(s) for slides.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Slides
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-slides-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-squad-strike-missions-api
+  name: GZW Data API Squad Strike Missions API
+  description: >-
+    The Squad Strike Missions API from GZW Data API — 4 operation(s) for squad strike missions.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Squad Strike Missions
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-squad-strike-missions-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-squad-strike-missions-item-api
+  name: GZW Data API Squad Strike Missions Item API
+  description: >-
+    The Squad Strike Missions Item API from GZW Data API — 4 operation(s) for squad strike missions item.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Squad Strike Missions Item
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-squad-strike-missions-item-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-stock-adapters-api
+  name: GZW Data API Stock Adapters API
+  description: The Stock Adapters API from GZW Data API — 4 operation(s) for stock adapters.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Stock Adapters
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-stock-adapters-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-stocks-api
+  name: GZW Data API Stocks API
+  description: The Stocks API from GZW Data API — 4 operation(s) for stocks.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Stocks
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-stocks-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-suppressors-api
+  name: GZW Data API Suppressors API
+  description: The Suppressors API from GZW Data API — 4 operation(s) for suppressors.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Suppressors
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-suppressors-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-tactical-devices-api
+  name: GZW Data API Tactical Devices API
+  description: The Tactical Devices API from GZW Data API — 4 operation(s) for tactical devices.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Tactical Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-tactical-devices-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-task-items-api
+  name: GZW Data API Task Items API
+  description: The Task Items API from GZW Data API — 4 operation(s) for task items.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Task Items
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-task-items-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-tasks-api
+  name: GZW Data API Tasks API
+  description: The Tasks API from GZW Data API — 4 operation(s) for tasks.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-throwables-api
+  name: GZW Data API Throwables API
+  description: The Throwables API from GZW Data API — 4 operation(s) for throwables.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Throwables
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-throwables-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-tools-api
+  name: GZW Data API Tools API
+  description: The Tools API from GZW Data API — 4 operation(s) for tools.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Tools
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-tools-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-trousers-api
+  name: GZW Data API Trousers API
+  description: The Trousers API from GZW Data API — 4 operation(s) for trousers.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Trousers
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-trousers-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-upcoming-content-api
+  name: GZW Data API Upcoming Content API
+  description: The Upcoming Content API from GZW Data API — 4 operation(s) for upcoming content.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Upcoming Content
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-upcoming-content-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-upper-receivers-api
+  name: GZW Data API Upper Receivers API
+  description: The Upper Receivers API from GZW Data API — 4 operation(s) for upper receivers.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Upper Receivers
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-upper-receivers-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-valuables-api
+  name: GZW Data API Valuables API
+  description: The Valuables API from GZW Data API — 4 operation(s) for valuables.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Valuables
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-valuables-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-vendors-api
+  name: GZW Data API Vendors API
+  description: The Vendors API from GZW Data API — 4 operation(s) for vendors.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Vendors
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-vendors-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-vests-api
+  name: GZW Data API Vests API
+  description: The Vests API from GZW Data API — 4 operation(s) for vests.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Vests
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-vests-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-vices-api
+  name: GZW Data API Vices API
+  description: The Vices API from GZW Data API — 4 operation(s) for vices.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Vices
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-vices-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-weapon-parts-api
+  name: GZW Data API Weapon Parts API
+  description: The Weapon Parts API from GZW Data API — 2 operation(s) for weapon parts.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Weapon Parts
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-weapon-parts-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-weapons-api
+  name: GZW Data API Weapons API
+  description: The Weapons API from GZW Data API — 4 operation(s) for weapons.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Weapons
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-weapons-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+  - type: LLMsTxt
+    url: llms/gzw-data-llms.txt
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-workshop-supplies-api
+  name: GZW Data API Workshop Supplies API
+  description: The Workshop Supplies API from GZW Data API — 4 operation(s) for workshop supplies.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Workshop Supplies
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-workshop-supplies-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
   - type: LLMsTxt
     url: llms/gzw-data-llms.txt
   - type: APIReference
