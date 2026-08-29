@@ -8,6 +8,18 @@ description: GZW Data is a free, fan-made, read-only REST API for Gray Zone Warf
   no API key; access is governed by a best-effort limit of 100 requests per minute per IP with X-RateLimit-* headers. An OpenAPI
   3.0.3 contract, an llms.txt and a zero-dependency TypeScript client on npm are published. Data is scraped weekly from the
   community GZW Fandom Wiki; the project is unofficial and not affiliated with the game's publisher.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 image: https://gzw-data.dev/assets/gzw-data-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/gzw-data/refs/heads/main/apis.yml
 created: '2026-08-26'
