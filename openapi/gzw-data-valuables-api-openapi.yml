@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Valuables API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Valuables
+paths:
+  /api/valuables:
+    get:
+      summary: valuables (1 items)
+      tags:
+      - Valuables
+  /api/valuables/{id}:
+    get:
+      summary: Get one valuables record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Valuables
+  /api/v1/valuables:
+    get:
+      summary: valuables (1 items)
+      tags:
+      - Valuables
+  /api/v1/valuables/{id}:
+    get:
+      summary: Get one valuables record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Valuables

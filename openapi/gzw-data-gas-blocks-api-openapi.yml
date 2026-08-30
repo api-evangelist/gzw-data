@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Gas Blocks API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Gas Blocks
+paths:
+  /api/gas_blocks:
+    get:
+      summary: gas_blocks (9 items)
+      tags:
+      - Gas Blocks
+  /api/gas_blocks/{id}:
+    get:
+      summary: Get one gas_blocks record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Gas Blocks
+  /api/v1/gas_blocks:
+    get:
+      summary: gas_blocks (9 items)
+      tags:
+      - Gas Blocks
+  /api/v1/gas_blocks/{id}:
+    get:
+      summary: Get one gas_blocks record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Gas Blocks

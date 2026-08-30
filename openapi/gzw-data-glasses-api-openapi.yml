@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Glasses API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Glasses
+paths:
+  /api/glasses:
+    get:
+      summary: glasses (13 items)
+      tags:
+      - Glasses
+  /api/glasses/{id}:
+    get:
+      summary: Get one glasses record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Glasses
+  /api/v1/glasses:
+    get:
+      summary: glasses (13 items)
+      tags:
+      - Glasses
+  /api/v1/glasses/{id}:
+    get:
+      summary: Get one glasses record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Glasses

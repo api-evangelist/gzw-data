@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Apparel Items API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Apparel Items
+paths:
+  /api/apparel_items:
+    get:
+      summary: apparel_items (63 items)
+      tags:
+      - Apparel Items
+  /api/apparel_items/{id}:
+    get:
+      summary: Get one apparel_items record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Apparel Items
+  /api/v1/apparel_items:
+    get:
+      summary: apparel_items (63 items)
+      tags:
+      - Apparel Items
+  /api/v1/apparel_items/{id}:
+    get:
+      summary: Get one apparel_items record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Apparel Items

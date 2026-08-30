@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Metadata API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Metadata
+paths:
+  /api/metadata:
+    get:
+      summary: Dataset schema metadata
+      tags:
+      - Metadata
+  /api/metadata/{dataset}:
+    get:
+      summary: Get schema metadata for one dataset
+      parameters:
+      - name: dataset
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Metadata
+  /api/v1/metadata:
+    get:
+      summary: Dataset schema metadata
+      tags:
+      - Metadata
+  /api/v1/metadata/{dataset}:
+    get:
+      summary: Get schema metadata for one dataset
+      parameters:
+      - name: dataset
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Metadata

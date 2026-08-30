@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Headsets API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Headsets
+paths:
+  /api/headsets:
+    get:
+      summary: headsets (7 items)
+      tags:
+      - Headsets
+  /api/headsets/{id}:
+    get:
+      summary: Get one headsets record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Headsets
+  /api/v1/headsets:
+    get:
+      summary: headsets (7 items)
+      tags:
+      - Headsets
+  /api/v1/headsets/{id}:
+    get:
+      summary: Get one headsets record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Headsets

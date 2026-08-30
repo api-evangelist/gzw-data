@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Throwables API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Throwables
+paths:
+  /api/throwables:
+    get:
+      summary: throwables (8 items)
+      tags:
+      - Throwables
+  /api/throwables/{id}:
+    get:
+      summary: Get one throwables record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Throwables
+  /api/v1/throwables:
+    get:
+      summary: throwables (8 items)
+      tags:
+      - Throwables
+  /api/v1/throwables/{id}:
+    get:
+      summary: Get one throwables record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Throwables

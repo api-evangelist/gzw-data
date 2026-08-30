@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Buffer Tubes API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Buffer Tubes
+paths:
+  /api/buffer_tubes:
+    get:
+      summary: buffer_tubes (3 items)
+      tags:
+      - Buffer Tubes
+  /api/buffer_tubes/{id}:
+    get:
+      summary: Get one buffer_tubes record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Buffer Tubes
+  /api/v1/buffer_tubes:
+    get:
+      summary: buffer_tubes (3 items)
+      tags:
+      - Buffer Tubes
+  /api/v1/buffer_tubes/{id}:
+    get:
+      summary: Get one buffer_tubes record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Buffer Tubes

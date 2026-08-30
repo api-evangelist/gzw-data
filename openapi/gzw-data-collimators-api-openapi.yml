@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Collimators API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Collimators
+paths:
+  /api/collimators:
+    get:
+      summary: collimators (20 items)
+      tags:
+      - Collimators
+  /api/collimators/{id}:
+    get:
+      summary: Get one collimators record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Collimators
+  /api/v1/collimators:
+    get:
+      summary: collimators (20 items)
+      tags:
+      - Collimators
+  /api/v1/collimators/{id}:
+    get:
+      summary: Get one collimators record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Collimators

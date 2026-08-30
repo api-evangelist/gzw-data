@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Task Items API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Task Items
+paths:
+  /api/task_items:
+    get:
+      summary: task_items (101 items)
+      tags:
+      - Task Items
+  /api/task_items/{id}:
+    get:
+      summary: Get one task_items record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Task Items
+  /api/v1/task_items:
+    get:
+      summary: task_items (101 items)
+      tags:
+      - Task Items
+  /api/v1/task_items/{id}:
+    get:
+      summary: Get one task_items record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Task Items

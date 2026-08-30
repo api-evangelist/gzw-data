@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Mortar Rounds API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Mortar Rounds
+paths:
+  /api/mortar_rounds:
+    get:
+      summary: mortar_rounds (3 items)
+      tags:
+      - Mortar Rounds
+  /api/mortar_rounds/{id}:
+    get:
+      summary: Get one mortar_rounds record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Mortar Rounds
+  /api/v1/mortar_rounds:
+    get:
+      summary: mortar_rounds (3 items)
+      tags:
+      - Mortar Rounds
+  /api/v1/mortar_rounds/{id}:
+    get:
+      summary: Get one mortar_rounds record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Mortar Rounds

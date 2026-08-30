@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Reading Intel API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Reading Intel
+paths:
+  /api/reading_intel:
+    get:
+      summary: reading_intel (1 items)
+      tags:
+      - Reading Intel
+  /api/reading_intel/{id}:
+    get:
+      summary: Get one reading_intel record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Reading Intel
+  /api/v1/reading_intel:
+    get:
+      summary: reading_intel (1 items)
+      tags:
+      - Reading Intel
+  /api/v1/reading_intel/{id}:
+    get:
+      summary: Get one reading_intel record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Reading Intel

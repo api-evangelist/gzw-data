@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Intels API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Intels
+paths:
+  /api/intels:
+    get:
+      summary: intels (5 items)
+      tags:
+      - Intels
+  /api/intels/{id}:
+    get:
+      summary: Get one intels record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Intels
+  /api/v1/intels:
+    get:
+      summary: intels (5 items)
+      tags:
+      - Intels
+  /api/v1/intels/{id}:
+    get:
+      summary: Get one intels record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Intels

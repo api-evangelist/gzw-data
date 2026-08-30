@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Trousers API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Trousers
+paths:
+  /api/trousers:
+    get:
+      summary: trousers (23 items)
+      tags:
+      - Trousers
+  /api/trousers/{id}:
+    get:
+      summary: Get one trousers record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Trousers
+  /api/v1/trousers:
+    get:
+      summary: trousers (23 items)
+      tags:
+      - Trousers
+  /api/v1/trousers/{id}:
+    get:
+      summary: Get one trousers record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Trousers

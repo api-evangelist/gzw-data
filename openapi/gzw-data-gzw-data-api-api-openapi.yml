@@ -1,0 +1,20 @@
+openapi: 3.2.0
+info:
+  title: GZW Data API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: GZW Data API
+paths:
+  /api:
+    get:
+      summary: API root
+      tags:
+      - GZW Data API
+  /api/v1:
+    get:
+      summary: API root
+      tags:
+      - GZW Data API

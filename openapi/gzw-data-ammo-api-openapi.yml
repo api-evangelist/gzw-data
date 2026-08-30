@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Ammo API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Ammo
+paths:
+  /api/ammo:
+    get:
+      summary: ammo (79 items)
+      tags:
+      - Ammo
+  /api/ammo/{id}:
+    get:
+      summary: Get one ammo record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Ammo
+  /api/v1/ammo:
+    get:
+      summary: ammo (79 items)
+      tags:
+      - Ammo
+  /api/v1/ammo/{id}:
+    get:
+      summary: Get one ammo record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Ammo

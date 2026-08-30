@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Tactical Devices API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Tactical Devices
+paths:
+  /api/tactical_devices:
+    get:
+      summary: tactical_devices (11 items)
+      tags:
+      - Tactical Devices
+  /api/tactical_devices/{id}:
+    get:
+      summary: Get one tactical_devices record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Tactical Devices
+  /api/v1/tactical_devices:
+    get:
+      summary: tactical_devices (11 items)
+      tags:
+      - Tactical Devices
+  /api/v1/tactical_devices/{id}:
+    get:
+      summary: Get one tactical_devices record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Tactical Devices

@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Vices API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Vices
+paths:
+  /api/vices:
+    get:
+      summary: vices (11 items)
+      tags:
+      - Vices
+  /api/vices/{id}:
+    get:
+      summary: Get one vices record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Vices
+  /api/v1/vices:
+    get:
+      summary: vices (11 items)
+      tags:
+      - Vices
+  /api/v1/vices/{id}:
+    get:
+      summary: Get one vices record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Vices

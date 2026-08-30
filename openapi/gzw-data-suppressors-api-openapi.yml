@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Suppressors API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Suppressors
+paths:
+  /api/suppressors:
+    get:
+      summary: suppressors (23 items)
+      tags:
+      - Suppressors
+  /api/suppressors/{id}:
+    get:
+      summary: Get one suppressors record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Suppressors
+  /api/v1/suppressors:
+    get:
+      summary: suppressors (23 items)
+      tags:
+      - Suppressors
+  /api/v1/suppressors/{id}:
+    get:
+      summary: Get one suppressors record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Suppressors

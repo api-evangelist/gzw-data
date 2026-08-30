@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Gloves API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Gloves
+paths:
+  /api/gloves:
+    get:
+      summary: gloves (12 items)
+      tags:
+      - Gloves
+  /api/gloves/{id}:
+    get:
+      summary: Get one gloves record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Gloves
+  /api/v1/gloves:
+    get:
+      summary: gloves (12 items)
+      tags:
+      - Gloves
+  /api/v1/gloves/{id}:
+    get:
+      summary: Get one gloves record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Gloves

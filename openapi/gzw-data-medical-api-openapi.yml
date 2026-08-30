@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Medical API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Medical
+paths:
+  /api/medical:
+    get:
+      summary: medical (34 items)
+      tags:
+      - Medical
+  /api/medical/{id}:
+    get:
+      summary: Get one medical record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Medical
+  /api/v1/medical:
+    get:
+      summary: medical (34 items)
+      tags:
+      - Medical
+  /api/v1/medical/{id}:
+    get:
+      summary: Get one medical record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Medical

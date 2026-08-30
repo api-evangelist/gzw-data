@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Keycards API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Keycards
+paths:
+  /api/keycards:
+    get:
+      summary: keycards (8 items)
+      tags:
+      - Keycards
+  /api/keycards/{id}:
+    get:
+      summary: Get one keycards record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Keycards
+  /api/v1/keycards:
+    get:
+      summary: keycards (8 items)
+      tags:
+      - Keycards
+  /api/v1/keycards/{id}:
+    get:
+      summary: Get one keycards record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Keycards

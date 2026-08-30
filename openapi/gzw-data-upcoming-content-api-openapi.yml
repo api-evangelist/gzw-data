@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Upcoming Content API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Upcoming Content
+paths:
+  /api/upcoming_content:
+    get:
+      summary: upcoming_content (11 items)
+      tags:
+      - Upcoming Content
+  /api/upcoming_content/{id}:
+    get:
+      summary: Get one upcoming_content record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Upcoming Content
+  /api/v1/upcoming_content:
+    get:
+      summary: upcoming_content (11 items)
+      tags:
+      - Upcoming Content
+  /api/v1/upcoming_content/{id}:
+    get:
+      summary: Get one upcoming_content record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Upcoming Content

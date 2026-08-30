@@ -1,0 +1,20 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Weapon Parts API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Weapon Parts
+paths:
+  /api/weapon_parts:
+    get:
+      summary: Weapon parts (combined)
+      tags:
+      - Weapon Parts
+  /api/v1/weapon_parts:
+    get:
+      summary: Weapon parts (combined)
+      tags:
+      - Weapon Parts

@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Mounts API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Mounts
+paths:
+  /api/mounts:
+    get:
+      summary: mounts (53 items)
+      tags:
+      - Mounts
+  /api/mounts/{id}:
+    get:
+      summary: Get one mounts record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Mounts
+  /api/v1/mounts:
+    get:
+      summary: mounts (53 items)
+      tags:
+      - Mounts
+  /api/v1/mounts/{id}:
+    get:
+      summary: Get one mounts record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Mounts

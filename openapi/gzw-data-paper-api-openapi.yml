@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Paper API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Paper
+paths:
+  /api/paper:
+    get:
+      summary: paper (1 items)
+      tags:
+      - Paper
+  /api/paper/{id}:
+    get:
+      summary: Get one paper record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Paper
+  /api/v1/paper:
+    get:
+      summary: paper (1 items)
+      tags:
+      - Paper
+  /api/v1/paper/{id}:
+    get:
+      summary: Get one paper record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Paper

@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Tools API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Tools
+paths:
+  /api/tools:
+    get:
+      summary: tools (8 items)
+      tags:
+      - Tools
+  /api/tools/{id}:
+    get:
+      summary: Get one tools record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Tools
+  /api/v1/tools:
+    get:
+      summary: tools (8 items)
+      tags:
+      - Tools
+  /api/v1/tools/{id}:
+    get:
+      summary: Get one tools record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Tools

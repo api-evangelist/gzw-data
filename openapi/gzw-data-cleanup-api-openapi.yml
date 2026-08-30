@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Cleanup API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Cleanup
+paths:
+  /api/cleanup:
+    get:
+      summary: cleanup (4 items)
+      tags:
+      - Cleanup
+  /api/cleanup/{id}:
+    get:
+      summary: Get one cleanup record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Cleanup
+  /api/v1/cleanup:
+    get:
+      summary: cleanup (4 items)
+      tags:
+      - Cleanup
+  /api/v1/cleanup/{id}:
+    get:
+      summary: Get one cleanup record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Cleanup

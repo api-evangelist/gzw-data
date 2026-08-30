@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Drinks API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Drinks
+paths:
+  /api/drinks:
+    get:
+      summary: drinks (18 items)
+      tags:
+      - Drinks
+  /api/drinks/{id}:
+    get:
+      summary: Get one drinks record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Drinks
+  /api/v1/drinks:
+    get:
+      summary: drinks (18 items)
+      tags:
+      - Drinks
+  /api/v1/drinks/{id}:
+    get:
+      summary: Get one drinks record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Drinks

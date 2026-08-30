@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Pistol Grips API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Pistol Grips
+paths:
+  /api/pistol_grips:
+    get:
+      summary: pistol_grips (25 items)
+      tags:
+      - Pistol Grips
+  /api/pistol_grips/{id}:
+    get:
+      summary: Get one pistol_grips record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Pistol Grips
+  /api/v1/pistol_grips:
+    get:
+      summary: pistol_grips (25 items)
+      tags:
+      - Pistol Grips
+  /api/v1/pistol_grips/{id}:
+    get:
+      summary: Get one pistol_grips record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Pistol Grips

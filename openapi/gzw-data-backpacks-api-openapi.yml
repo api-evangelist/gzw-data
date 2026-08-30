@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Backpacks API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Backpacks
+paths:
+  /api/backpacks:
+    get:
+      summary: backpacks (16 items)
+      tags:
+      - Backpacks
+  /api/backpacks/{id}:
+    get:
+      summary: Get one backpacks record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Backpacks
+  /api/v1/backpacks:
+    get:
+      summary: backpacks (16 items)
+      tags:
+      - Backpacks
+  /api/v1/backpacks/{id}:
+    get:
+      summary: Get one backpacks record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Backpacks

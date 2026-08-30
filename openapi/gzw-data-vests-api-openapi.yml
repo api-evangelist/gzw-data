@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Vests API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Vests
+paths:
+  /api/vests:
+    get:
+      summary: vests (19 items)
+      tags:
+      - Vests
+  /api/vests/{id}:
+    get:
+      summary: Get one vests record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Vests
+  /api/v1/vests:
+    get:
+      summary: vests (19 items)
+      tags:
+      - Vests
+  /api/v1/vests/{id}:
+    get:
+      summary: Get one vests record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Vests

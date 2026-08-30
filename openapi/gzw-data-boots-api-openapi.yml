@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Boots API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Boots
+paths:
+  /api/boots:
+    get:
+      summary: boots (6 items)
+      tags:
+      - Boots
+  /api/boots/{id}:
+    get:
+      summary: Get one boots record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Boots
+  /api/v1/boots:
+    get:
+      summary: boots (6 items)
+      tags:
+      - Boots
+  /api/v1/boots/{id}:
+    get:
+      summary: Get one boots record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Boots

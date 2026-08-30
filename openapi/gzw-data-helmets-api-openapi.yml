@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Helmets API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Helmets
+paths:
+  /api/helmets:
+    get:
+      summary: helmets (41 items)
+      tags:
+      - Helmets
+  /api/helmets/{id}:
+    get:
+      summary: Get one helmets record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Helmets
+  /api/v1/helmets:
+    get:
+      summary: helmets (41 items)
+      tags:
+      - Helmets
+  /api/v1/helmets/{id}:
+    get:
+      summary: Get one helmets record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Helmets

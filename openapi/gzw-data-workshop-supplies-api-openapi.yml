@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Workshop Supplies API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Workshop Supplies
+paths:
+  /api/workshop_supplies:
+    get:
+      summary: workshop_supplies (16 items)
+      tags:
+      - Workshop Supplies
+  /api/workshop_supplies/{id}:
+    get:
+      summary: Get one workshop_supplies record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Workshop Supplies
+  /api/v1/workshop_supplies:
+    get:
+      summary: workshop_supplies (16 items)
+      tags:
+      - Workshop Supplies
+  /api/v1/workshop_supplies/{id}:
+    get:
+      summary: Get one workshop_supplies record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Workshop Supplies

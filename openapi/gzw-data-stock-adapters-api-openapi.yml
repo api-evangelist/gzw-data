@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Stock Adapters API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Stock Adapters
+paths:
+  /api/stock_adapters:
+    get:
+      summary: stock_adapters (10 items)
+      tags:
+      - Stock Adapters
+  /api/stock_adapters/{id}:
+    get:
+      summary: Get one stock_adapters record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Stock Adapters
+  /api/v1/stock_adapters:
+    get:
+      summary: stock_adapters (10 items)
+      tags:
+      - Stock Adapters
+  /api/v1/stock_adapters/{id}:
+    get:
+      summary: Get one stock_adapters record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Stock Adapters

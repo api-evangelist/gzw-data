@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Rigs API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Rigs
+paths:
+  /api/rigs:
+    get:
+      summary: rigs (11 items)
+      tags:
+      - Rigs
+  /api/rigs/{id}:
+    get:
+      summary: Get one rigs record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Rigs
+  /api/v1/rigs:
+    get:
+      summary: rigs (11 items)
+      tags:
+      - Rigs
+  /api/v1/rigs/{id}:
+    get:
+      summary: Get one rigs record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Rigs

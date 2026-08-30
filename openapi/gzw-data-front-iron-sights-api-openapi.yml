@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Front Iron Sights API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Front Iron Sights
+paths:
+  /api/front_iron_sights:
+    get:
+      summary: front_iron_sights (16 items)
+      tags:
+      - Front Iron Sights
+  /api/front_iron_sights/{id}:
+    get:
+      summary: Get one front_iron_sights record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Front Iron Sights
+  /api/v1/front_iron_sights:
+    get:
+      summary: front_iron_sights (16 items)
+      tags:
+      - Front Iron Sights
+  /api/v1/front_iron_sights/{id}:
+    get:
+      summary: Get one front_iron_sights record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Front Iron Sights

@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Magazines API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Magazines
+paths:
+  /api/magazines:
+    get:
+      summary: magazines (51 items)
+      tags:
+      - Magazines
+  /api/magazines/{id}:
+    get:
+      summary: Get one magazines record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Magazines
+  /api/v1/magazines:
+    get:
+      summary: magazines (51 items)
+      tags:
+      - Magazines
+  /api/v1/magazines/{id}:
+    get:
+      summary: Get one magazines record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Magazines

@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Shirts API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Shirts
+paths:
+  /api/shirts:
+    get:
+      summary: shirts (20 items)
+      tags:
+      - Shirts
+  /api/shirts/{id}:
+    get:
+      summary: Get one shirts record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Shirts
+  /api/v1/shirts:
+    get:
+      summary: shirts (20 items)
+      tags:
+      - Shirts
+  /api/v1/shirts/{id}:
+    get:
+      summary: Get one shirts record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Shirts

@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Helmet Mounts API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Helmet Mounts
+paths:
+  /api/helmet_mounts:
+    get:
+      summary: helmet_mounts (3 items)
+      tags:
+      - Helmet Mounts
+  /api/helmet_mounts/{id}:
+    get:
+      summary: Get one helmet_mounts record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Helmet Mounts
+  /api/v1/helmet_mounts:
+    get:
+      summary: helmet_mounts (3 items)
+      tags:
+      - Helmet Mounts
+  /api/v1/helmet_mounts/{id}:
+    get:
+      summary: Get one helmet_mounts record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Helmet Mounts

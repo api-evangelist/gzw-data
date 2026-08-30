@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Rear Iron Sights API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Rear Iron Sights
+paths:
+  /api/rear_iron_sights:
+    get:
+      summary: rear_iron_sights (20 items)
+      tags:
+      - Rear Iron Sights
+  /api/rear_iron_sights/{id}:
+    get:
+      summary: Get one rear_iron_sights record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Rear Iron Sights
+  /api/v1/rear_iron_sights:
+    get:
+      summary: rear_iron_sights (20 items)
+      tags:
+      - Rear Iron Sights
+  /api/v1/rear_iron_sights/{id}:
+    get:
+      summary: Get one rear_iron_sights record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Rear Iron Sights

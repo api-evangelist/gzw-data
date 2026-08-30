@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Loot Container API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Loot Container
+paths:
+  /api/loot_container:
+    get:
+      summary: loot_container (39 items)
+      tags:
+      - Loot Container
+  /api/loot_container/{id}:
+    get:
+      summary: Get one loot_container record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Loot Container
+  /api/v1/loot_container:
+    get:
+      summary: loot_container (39 items)
+      tags:
+      - Loot Container
+  /api/v1/loot_container/{id}:
+    get:
+      summary: Get one loot_container record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Loot Container

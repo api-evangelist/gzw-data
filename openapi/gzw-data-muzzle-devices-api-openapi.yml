@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Muzzle Devices API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Muzzle Devices
+paths:
+  /api/muzzle_devices:
+    get:
+      summary: muzzle_devices (45 items)
+      tags:
+      - Muzzle Devices
+  /api/muzzle_devices/{id}:
+    get:
+      summary: Get one muzzle_devices record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Muzzle Devices
+  /api/v1/muzzle_devices:
+    get:
+      summary: muzzle_devices (45 items)
+      tags:
+      - Muzzle Devices
+  /api/v1/muzzle_devices/{id}:
+    get:
+      summary: Get one muzzle_devices record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Muzzle Devices

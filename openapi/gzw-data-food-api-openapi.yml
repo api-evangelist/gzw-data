@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Food API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Food
+paths:
+  /api/food:
+    get:
+      summary: food (19 items)
+      tags:
+      - Food
+  /api/food/{id}:
+    get:
+      summary: Get one food record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Food
+  /api/v1/food:
+    get:
+      summary: food (19 items)
+      tags:
+      - Food
+  /api/v1/food/{id}:
+    get:
+      summary: Get one food record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Food

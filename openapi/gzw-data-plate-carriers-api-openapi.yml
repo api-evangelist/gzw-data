@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Plate Carriers API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Plate Carriers
+paths:
+  /api/plate_carriers:
+    get:
+      summary: plate_carriers (16 items)
+      tags:
+      - Plate Carriers
+  /api/plate_carriers/{id}:
+    get:
+      summary: Get one plate_carriers record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Plate Carriers
+  /api/v1/plate_carriers:
+    get:
+      summary: plate_carriers (16 items)
+      tags:
+      - Plate Carriers
+  /api/v1/plate_carriers/{id}:
+    get:
+      summary: Get one plate_carriers record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Plate Carriers

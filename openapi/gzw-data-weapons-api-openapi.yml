@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Weapons API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Weapons
+paths:
+  /api/weapons:
+    get:
+      summary: weapons (44 items)
+      tags:
+      - Weapons
+  /api/weapons/{id}:
+    get:
+      summary: Get one weapons record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Weapons
+  /api/v1/weapons:
+    get:
+      summary: weapons (44 items)
+      tags:
+      - Weapons
+  /api/v1/weapons/{id}:
+    get:
+      summary: Get one weapons record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Weapons

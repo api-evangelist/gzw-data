@@ -1,0 +1,20 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Armor API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Armor
+paths:
+  /api/armor:
+    get:
+      summary: Armor (vests + helmets + glasses)
+      tags:
+      - Armor
+  /api/v1/armor:
+    get:
+      summary: Armor (vests + helmets + glasses)
+      tags:
+      - Armor

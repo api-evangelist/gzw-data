@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Binoculars API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Binoculars
+paths:
+  /api/binoculars:
+    get:
+      summary: binoculars (4 items)
+      tags:
+      - Binoculars
+  /api/binoculars/{id}:
+    get:
+      summary: Get one binoculars record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Binoculars
+  /api/v1/binoculars:
+    get:
+      summary: binoculars (4 items)
+      tags:
+      - Binoculars
+  /api/v1/binoculars/{id}:
+    get:
+      summary: Get one binoculars record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Binoculars

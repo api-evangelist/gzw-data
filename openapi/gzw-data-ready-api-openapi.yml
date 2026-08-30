@@ -1,0 +1,20 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Ready API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Ready
+paths:
+  /api/ready:
+    get:
+      summary: Readiness probe for loaded datasets
+      tags:
+      - Ready
+  /api/v1/ready:
+    get:
+      summary: Readiness probe for loaded datasets
+      tags:
+      - Ready

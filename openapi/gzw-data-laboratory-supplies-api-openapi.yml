@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Laboratory Supplies API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Laboratory Supplies
+paths:
+  /api/laboratory_supplies:
+    get:
+      summary: laboratory_supplies (9 items)
+      tags:
+      - Laboratory Supplies
+  /api/laboratory_supplies/{id}:
+    get:
+      summary: Get one laboratory_supplies record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Laboratory Supplies
+  /api/v1/laboratory_supplies:
+    get:
+      summary: laboratory_supplies (9 items)
+      tags:
+      - Laboratory Supplies
+  /api/v1/laboratory_supplies/{id}:
+    get:
+      summary: Get one laboratory_supplies record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Laboratory Supplies

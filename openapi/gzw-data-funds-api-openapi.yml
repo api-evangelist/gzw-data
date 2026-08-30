@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Funds API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Funds
+paths:
+  /api/funds:
+    get:
+      summary: funds (4 items)
+      tags:
+      - Funds
+  /api/funds/{id}:
+    get:
+      summary: Get one funds record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Funds
+  /api/v1/funds:
+    get:
+      summary: funds (4 items)
+      tags:
+      - Funds
+  /api/v1/funds/{id}:
+    get:
+      summary: Get one funds record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Funds

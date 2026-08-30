@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Military Equipment API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Military Equipment
+paths:
+  /api/military_equipment:
+    get:
+      summary: military_equipment (19 items)
+      tags:
+      - Military Equipment
+  /api/military_equipment/{id}:
+    get:
+      summary: Get one military_equipment record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Military Equipment
+  /api/v1/military_equipment:
+    get:
+      summary: military_equipment (19 items)
+      tags:
+      - Military Equipment
+  /api/v1/military_equipment/{id}:
+    get:
+      summary: Get one military_equipment record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Military Equipment

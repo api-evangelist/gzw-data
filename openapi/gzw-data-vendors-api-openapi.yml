@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Vendors API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Vendors
+paths:
+  /api/vendors:
+    get:
+      summary: vendors (7 items)
+      tags:
+      - Vendors
+  /api/vendors/{id}:
+    get:
+      summary: Get one vendors record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Vendors
+  /api/v1/vendors:
+    get:
+      summary: vendors (7 items)
+      tags:
+      - Vendors
+  /api/v1/vendors/{id}:
+    get:
+      summary: Get one vendors record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Vendors

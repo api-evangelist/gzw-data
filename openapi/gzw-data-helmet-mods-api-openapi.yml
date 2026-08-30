@@ -1,0 +1,20 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Helmet Mods API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Helmet Mods
+paths:
+  /api/helmet_mods:
+    get:
+      summary: Helmet mods (night vision + mounts)
+      tags:
+      - Helmet Mods
+  /api/v1/helmet_mods:
+    get:
+      summary: Helmet mods (night vision + mounts)
+      tags:
+      - Helmet Mods

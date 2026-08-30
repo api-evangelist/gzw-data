@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Electronics API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Electronics
+paths:
+  /api/electronics:
+    get:
+      summary: electronics (5 items)
+      tags:
+      - Electronics
+  /api/electronics/{id}:
+    get:
+      summary: Get one electronics record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Electronics
+  /api/v1/electronics:
+    get:
+      summary: electronics (5 items)
+      tags:
+      - Electronics
+  /api/v1/electronics/{id}:
+    get:
+      summary: Get one electronics record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Electronics

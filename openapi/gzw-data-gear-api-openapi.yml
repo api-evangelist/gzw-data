@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Gear API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Gear
+paths:
+  /api/gear:
+    get:
+      summary: gear (26 items)
+      tags:
+      - Gear
+  /api/gear/{id}:
+    get:
+      summary: Get one gear record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Gear
+  /api/v1/gear:
+    get:
+      summary: gear (26 items)
+      tags:
+      - Gear
+  /api/v1/gear/{id}:
+    get:
+      summary: Get one gear record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Gear

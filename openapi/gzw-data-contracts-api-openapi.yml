@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Contracts API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Contracts
+paths:
+  /api/contracts:
+    get:
+      summary: contracts (3 items)
+      tags:
+      - Contracts
+  /api/contracts/{id}:
+    get:
+      summary: Get one contracts record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Contracts
+  /api/v1/contracts:
+    get:
+      summary: contracts (3 items)
+      tags:
+      - Contracts
+  /api/v1/contracts/{id}:
+    get:
+      summary: Get one contracts record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Contracts

@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Squad Strike Missions API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Squad Strike Missions
+paths:
+  /api/squad_strike_missions:
+    get:
+      summary: squad_strike_missions (32 items)
+      tags:
+      - Squad Strike Missions
+  /api/squad_strike_missions/{id}:
+    get:
+      summary: Get one squad_strike_missions record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Squad Strike Missions
+  /api/v1/squad_strike_missions:
+    get:
+      summary: squad_strike_missions (32 items)
+      tags:
+      - Squad Strike Missions
+  /api/v1/squad_strike_missions/{id}:
+    get:
+      summary: Get one squad_strike_missions record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Squad Strike Missions

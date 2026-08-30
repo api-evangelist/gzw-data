@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Night Vision API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Night Vision
+paths:
+  /api/night_vision:
+    get:
+      summary: night_vision (5 items)
+      tags:
+      - Night Vision
+  /api/night_vision/{id}:
+    get:
+      summary: Get one night_vision record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Night Vision
+  /api/v1/night_vision:
+    get:
+      summary: night_vision (5 items)
+      tags:
+      - Night Vision
+  /api/v1/night_vision/{id}:
+    get:
+      summary: Get one night_vision record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Night Vision

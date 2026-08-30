@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Military Material API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Military Material
+paths:
+  /api/military_material:
+    get:
+      summary: military_material (4 items)
+      tags:
+      - Military Material
+  /api/military_material/{id}:
+    get:
+      summary: Get one military_material record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Military Material
+  /api/v1/military_material:
+    get:
+      summary: military_material (4 items)
+      tags:
+      - Military Material
+  /api/v1/military_material/{id}:
+    get:
+      summary: Get one military_material record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Military Material

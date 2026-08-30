@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Side Task API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Side Task
+paths:
+  /api/side_task:
+    get:
+      summary: side_task (96 items)
+      tags:
+      - Side Task
+  /api/side_task/{id}:
+    get:
+      summary: Get one side_task record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Side Task
+  /api/v1/side_task:
+    get:
+      summary: side_task (96 items)
+      tags:
+      - Side Task
+  /api/v1/side_task/{id}:
+    get:
+      summary: Get one side_task record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Side Task

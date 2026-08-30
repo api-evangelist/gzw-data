@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Barrels API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Barrels
+paths:
+  /api/barrels:
+    get:
+      summary: barrels (28 items)
+      tags:
+      - Barrels
+  /api/barrels/{id}:
+    get:
+      summary: Get one barrels record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Barrels
+  /api/v1/barrels:
+    get:
+      summary: barrels (28 items)
+      tags:
+      - Barrels
+  /api/v1/barrels/{id}:
+    get:
+      summary: Get one barrels record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Barrels

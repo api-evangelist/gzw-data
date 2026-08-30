@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Household Item API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Household Item
+paths:
+  /api/household_item:
+    get:
+      summary: household_item (20 items)
+      tags:
+      - Household Item
+  /api/household_item/{id}:
+    get:
+      summary: Get one household_item record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Household Item
+  /api/v1/household_item:
+    get:
+      summary: household_item (20 items)
+      tags:
+      - Household Item
+  /api/v1/household_item/{id}:
+    get:
+      summary: Get one household_item record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Household Item

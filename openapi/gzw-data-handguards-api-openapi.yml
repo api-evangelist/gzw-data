@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Handguards API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Handguards
+paths:
+  /api/handguards:
+    get:
+      summary: handguards (56 items)
+      tags:
+      - Handguards
+  /api/handguards/{id}:
+    get:
+      summary: Get one handguards record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Handguards
+  /api/v1/handguards:
+    get:
+      summary: handguards (56 items)
+      tags:
+      - Handguards
+  /api/v1/handguards/{id}:
+    get:
+      summary: Get one handguards record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Handguards

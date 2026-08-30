@@ -1,0 +1,20 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Health API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Health
+paths:
+  /api/health:
+    get:
+      summary: API health and dataset status
+      tags:
+      - Health
+  /api/v1/health:
+    get:
+      summary: API health and dataset status
+      tags:
+      - Health

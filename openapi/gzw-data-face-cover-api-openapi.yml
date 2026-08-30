@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Face Cover API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Face Cover
+paths:
+  /api/face_cover:
+    get:
+      summary: face_cover (4 items)
+      tags:
+      - Face Cover
+  /api/face_cover/{id}:
+    get:
+      summary: Get one face_cover record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Face Cover
+  /api/v1/face_cover:
+    get:
+      summary: face_cover (4 items)
+      tags:
+      - Face Cover
+  /api/v1/face_cover/{id}:
+    get:
+      summary: Get one face_cover record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Face Cover

@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Upper Receivers API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Upper Receivers
+paths:
+  /api/upper_receivers:
+    get:
+      summary: upper_receivers (15 items)
+      tags:
+      - Upper Receivers
+  /api/upper_receivers/{id}:
+    get:
+      summary: Get one upper_receivers record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Upper Receivers
+  /api/v1/upper_receivers:
+    get:
+      summary: upper_receivers (15 items)
+      tags:
+      - Upper Receivers
+  /api/v1/upper_receivers/{id}:
+    get:
+      summary: Get one upper_receivers record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Upper Receivers

@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Hidden Task API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Hidden Task
+paths:
+  /api/hidden_task:
+    get:
+      summary: hidden_task (7 items)
+      tags:
+      - Hidden Task
+  /api/hidden_task/{id}:
+    get:
+      summary: Get one hidden_task record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Hidden Task
+  /api/v1/hidden_task:
+    get:
+      summary: hidden_task (7 items)
+      tags:
+      - Hidden Task
+  /api/v1/hidden_task/{id}:
+    get:
+      summary: Get one hidden_task record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Hidden Task

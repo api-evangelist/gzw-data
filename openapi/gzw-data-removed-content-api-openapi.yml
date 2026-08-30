@@ -1,0 +1,42 @@
+openapi: 3.2.0
+info:
+  title: GZW Data Removed Content API
+  version: 4.0.0
+  description: Comprehensive Gray Zone Warfare game data API.
+servers:
+- url: https://gzw-data.dev
+tags:
+- name: Removed Content
+paths:
+  /api/removed_content:
+    get:
+      summary: removed_content (24 items)
+      tags:
+      - Removed Content
+  /api/removed_content/{id}:
+    get:
+      summary: Get one removed_content record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Removed Content
+  /api/v1/removed_content:
+    get:
+      summary: removed_content (24 items)
+      tags:
+      - Removed Content
+  /api/v1/removed_content/{id}:
+    get:
+      summary: Get one removed_content record by id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      tags:
+      - Removed Content
