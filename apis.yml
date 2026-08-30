@@ -26,6 +26,23 @@ created: '2026-08-26'
 modified: '2026-08-26'
 specificationVersion: '0.21'
 tags:
+- Gaming
+- Video Games
+- gray-zone-warfare
+- Game Data
+- Developer Tools
+- Open Data
+- OpenAPI
+- Weapons
+- Missions
+- loot
+- REST API
+- Public API
+- No Auth
+- Read Only
+- Free API
+- Community
+tags_raw:
 - gaming
 - video-games
 - gray-zone-warfare
@@ -715,6 +732,8 @@ apis:
   humanURL: https://gzw-data.dev/docs/
   baseURL: https://gzw-data.dev/api/v1
   tags:
+  - Item
+  tags_raw:
   - Items
   properties:
   - type: OpenAPI
@@ -1455,6 +1474,8 @@ apis:
   humanURL: https://gzw-data.dev/docs/
   baseURL: https://gzw-data.dev/api/v1
   tags:
+  - Task
+  tags_raw:
   - Tasks
   properties:
   - type: OpenAPI
