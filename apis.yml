@@ -1708,6 +1708,9 @@ maintainers:
 - FN: ZoniBoy00
   url: https://github.com/ZoniBoy00/gzw-data
 common:
+- type: License
+  name: MIT
+  url: https://github.com/ZoniBoy00/gzw-data/blob/main/LICENSE
 - type: DomainSecurity
   url: security/gzw-data-domain-security.yml
 - type: DeveloperPortal
