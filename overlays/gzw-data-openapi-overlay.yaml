@@ -3,16 +3,21 @@ info:
   title: API Evangelist enhancements for the GZW Data API
   version: 1.0.0
 x-provenance:
-  generated: '2026-08-26'
+  generated: '2026-09-03'
   method: generated
-  source: openapi/gzw-data-openapi.json (verbatim from https://gzw-data.dev/api/v1/spec, 2026-08-26)
+  source: openapi/_original/gzw-data-openapi.json (verbatim from https://gzw-data.dev/api/v1/spec, implementation 4.2.0, re-fetched 2026-09-03)
   note: >-
     Non-destructive Overlay 1.0.0 capturing enhancements API Evangelist derived from the provider's
-    own docs and from live probes. The published spec declares 352 GET operations with ONLY a
-    summary each — no operationId, no responses, no tags, no descriptions, and none of the four
-    query parameters the docs document. This overlay adds contact/licence/terms metadata, the
-    documented query-parameter vocabulary, the real error envelope, and the security posture.
-    It does NOT invent endpoint behaviour and it does not modify openapi/gzw-data-openapi.json.
+    own docs and from live probes. REVISED 2026-09-03 for implementation 4.2.0: the provider has
+    since added the responses this overlay previously had to describe from the outside — all 362
+    operations now declare 200/400/404/429 against shared $ref schemas, and 176 declare their path
+    parameters. What the contract STILL omits, and what this overlay therefore still carries, is:
+    operationIds, operation descriptions, tags, contact/licence/terms metadata, an explicit empty
+    security requirement, and every QUERY parameter (page, per_page, all, search, sort, field
+    equality, and the four search-route parameters dataset/fields/fuzzy/limit) — zero query
+    parameters are declared anywhere in 4.2.0. It does NOT invent endpoint behaviour and it does not
+    modify openapi/_original/gzw-data-openapi.json.
+extends: openapi/_original/gzw-data-openapi.json
 actions:
 - target: $.info
   description: Add contact, licence, terms and a fuller description sourced from the provider's own pages.
@@ -58,6 +63,23 @@ actions:
       validators: weak ETag
     x-cors:
       allow_origin: '*'
+    x-contract-version-observed:
+      implementation_version: 4.2.0
+      observed: '2026-09-03'
+      previous: 4.0.0 observed 2026-08-26
+      responses_declared: true
+      query_parameters_declared: false
+    x-search-parameters:
+    - name: q
+      description: The search query, on GET /api/v1/search.
+    - name: dataset
+      description: Limit the search to one or more comma-separated datasets.
+    - name: fields
+      description: Search only the named comma-separated fields.
+    - name: fuzzy
+      description: fuzzy=true allows small spelling and punctuation differences.
+    - name: limit
+      description: Matches per dataset; documented maximum 50.
     x-query-parameters:
     - name: page
       description: 1-based page number. Default 1.
@@ -97,11 +119,13 @@ actions:
     x-undocumented-in-spec:
       note: >-
         These routes are documented in the provider's own README, docs and llms.txt AND return 200
-        live, but no path item for them exists in the published OpenAPI. Listed here as a gap for the
+        live, but no path item for them exists in the published OpenAPI. NARROWED 2026-09-03:
+        /api/v1/search was on this list against 4.0.0 and is now DECLARED in 4.2.0, along with the
+        new /version, /changes, /schema/{dataset} and /items/{id}/context routes. Only /stats,
+        /images and /spec itself remain undeclared. Listed here as a gap for the
         provider; they are deliberately NOT added as path items, because this overlay does not author
         contract that the provider has not published.
       routes:
-      - GET /api/v1/search?q={query} — cross-dataset search (probed 200)
       - GET /api/v1/stats — per-dataset item counts plus latest scrape timestamp (probed 200)
       - GET /api/v1/images — all item image URLs (probed 200)
       - GET /api/v1/spec — the OpenAPI document itself (probed 200)

@@ -1,0 +1,699 @@
+generated: '2026-09-03'
+method: derived
+source: openapi/_original/gzw-data-openapi.json 4.2.0 components.schemas (85 dataset record schemas) + https://gzw-data.dev/api/v1/metadata
+  + data-model/gzw-data-data-model.yml
+note: The field vocabulary of the GZW Data API, derived by counting every property name across the 85 dataset record
+  schemas the provider publishes. The provider does not publish a vocabulary, glossary or data dictionary of its
+  own — the schemas are GENERATED from observed scraped data, so this vocabulary is an observation of that data,
+  and a term can appear or disappear when the weekly wiki scrape changes. EVERY value in this API is typed `string`,
+  including prices, weights and rates, which is the single most important thing a consumer needs to know before
+  parsing. Definitions are written only for terms whose meaning is established by the published schemas, the docs,
+  or a live probe recorded elsewhere in this repo; terms without a definition are listed with their spread and left
+  undefined rather than guessed at.
+scope: 85 dataset record schemas; the 7 envelope schemas (ApiError, ApiErrorResponse, ObjectResponse, PaginatedResponse,
+  RecordResponse, MetadataResponse, Capabilities) are excluded and documented in conventions/ instead.
+all_values_are_strings: true
+term_count: 80
+universal_terms:
+- id
+- name
+- image
+envelope_terms:
+- term: data
+  definition: The payload — an object for a single record, an array for a collection, a keyed object for /search.
+- term: count
+  definition: Records in THIS response.
+- term: page
+  definition: 1-based page number.
+- term: perPage
+  definition: Page size actually applied. Compare against what you asked for — out-of-range values return 200, not
+    4xx.
+- term: total
+  definition: Records matching the filter across all pages.
+- term: totalPages
+  definition: Page count; stop paging here.
+- term: source
+  definition: Always the literal "GZW Data API".
+- term: timestamp
+  definition: ISO 8601 time the response was generated.
+- term: dataVersion
+  definition: ISO 8601 timestamp of the wiki scrape snapshot the response was served from. The freshness signal
+    — see changelog/gzw-data-changelog.yml.
+- term: snapshotId
+  definition: Opaque id of the stored dataset snapshot, on /api/v1/version and /api/v1/changes.
+terms:
+- term: id
+  datasets: 85
+  required_in: 85
+  type: string
+  appears_in_sample:
+  - ammo
+  - apparel_items
+  - auxiliary
+  - backpacks
+  - barrels
+  - belts
+  definition: Primary key. Slugified display name, lowercased, spaces to hyphens. Matched EXACTLY by GET /api/v1/{dataset}/{id};
+    not namespaced by dataset.
+- term: name
+  datasets: 85
+  required_in: 85
+  type: string
+  appears_in_sample:
+  - ammo
+  - apparel_items
+  - auxiliary
+  - backpacks
+  - barrels
+  - belts
+  definition: Display name. Also the value other datasets cross-reference (see sold_by).
+- term: image
+  datasets: 83
+  required_in: 33
+  type: string
+  appears_in_sample:
+  - ammo
+  - apparel_items
+  - auxiliary
+  - backpacks
+  - barrels
+  - belts
+  definition: Absolute URL into static.wikia.nocookie.net, the Fandom CDN — not a first-party asset host.
+- term: type
+  datasets: 66
+  required_in: 52
+  type: string
+  appears_in_sample:
+  - ammo
+  - auxiliary
+  - backpacks
+  - barrels
+  - belts
+  - binoculars
+  definition: Free-text subcategory within the dataset. The most common filter target, e.g. ?type=Keycard.
+- term: weight
+  datasets: 66
+  required_in: 53
+  type: string
+  appears_in_sample:
+  - ammo
+  - auxiliary
+  - backpacks
+  - barrels
+  - belts
+  - binoculars
+  definition: String carrying a unit, e.g. "3.553 kg". NOT numeric — locale variants like "0,014kg" occur.
+- term: manufacturer
+  datasets: 53
+  required_in: 33
+  type: string
+  appears_in_sample:
+  - ammo
+  - auxiliary
+  - backpacks
+  - barrels
+  - belts
+  - binoculars
+  definition: In-game manufacturer name, free text.
+- term: sold_by
+  datasets: 47
+  required_in: 32
+  type: string
+  appears_in_sample:
+  - ammo
+  - auxiliary
+  - backpacks
+  - barrels
+  - belts
+  - binoculars
+  definition: Soft reference to vendors.name, often with a rank suffix ("Turncoat R.2"). Resolvable in one request
+    only on the items dataset, via GET /api/v1/items/{id}/context.
+- term: grid_size
+  datasets: 41
+  required_in: 24
+  type: string
+  appears_in_sample:
+  - ammo
+  - backpacks
+  - belts
+  - binoculars
+  - containers
+  - drinks
+  definition: Inventory footprint as a string, e.g. "1x1".
+- term: buy_price
+  datasets: 29
+  required_in: 2
+  type: string
+  appears_in_sample:
+  - auxiliary
+  - barrels
+  - charging_handle
+  - collimators
+  - containers
+  - food
+  definition: String with a currency symbol and thousands separators, e.g. "$1,160". NOT numeric.
+- term: sell_price
+  datasets: 17
+  required_in: 12
+  type: string
+  appears_in_sample:
+  - containers
+  - electronics
+  - food
+  - funds
+  - household_item
+  - items
+  definition: String with a currency symbol, e.g. "$269". NOT numeric.
+- term: weapon_handling
+  datasets: 11
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - collimators
+  - foregrips
+  - front_iron_sights
+  - handguards
+  - pistol_grips
+  - rear_iron_sights
+- term: size_change_horizontal
+  datasets: 10
+  required_in: 2
+  type: string
+  appears_in_sample:
+  - barrels
+  - buffer_tubes
+  - handguards
+  - magazines
+  - scopes
+  - stock_adapters
+- term: slots
+  datasets: 9
+  required_in: 4
+  type: string
+  appears_in_sample:
+  - backpacks
+  - belts
+  - containers
+  - gear
+  - helmets
+  - lockboxes
+- term: location
+  datasets: 9
+  required_in: 5
+  type: string
+  appears_in_sample:
+  - cleanup
+  - contract
+  - contracts
+  - hidden_task
+  - main_task
+  - removed_content
+- term: vendor
+  datasets: 9
+  required_in: 7
+  type: string
+  appears_in_sample:
+  - cleanup
+  - contract
+  - contracts
+  - hidden_task
+  - main_task
+  - removed_content
+- term: recoil_control
+  datasets: 7
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - buffer_tubes
+  - foregrips
+  - handguards
+  - pistol_grips
+  - slides
+  - stocks
+- term: ergonomics
+  datasets: 7
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - foregrips
+  - handguards
+  - pistol_grips
+  - scopes
+  - stocks
+  - suppressors
+- term: slot
+  datasets: 6
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - gas_blocks
+  - handguards
+  - pistol_grips
+  - suppressors
+  - upcoming_content
+  - weapons
+- term: muzzle_device_efficiency
+  datasets: 5
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - barrels
+  - gas_blocks
+  - muzzle_devices
+  - suppressors
+  - weapons
+- term: reload_speed
+  datasets: 5
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - charging_handle
+  - magazines
+  - slides
+  - upcoming_content
+  - weapons
+- term: material
+  datasets: 5
+  required_in: 2
+  type: string
+  appears_in_sample:
+  - helmets
+  - plate_carrier
+  - plate_carriers
+  - upcoming_content
+  - vests
+- term: nij_class
+  datasets: 5
+  required_in: 2
+  type: string
+  appears_in_sample:
+  - helmets
+  - plate_carrier
+  - plate_carriers
+  - upcoming_content
+  - vests
+- term: size_change_vertical
+  datasets: 5
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - magazines
+  - pistol_grips
+  - scopes
+  - stocks
+  - weapon_parts
+- term: accuracy
+  datasets: 4
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - barrels
+  - suppressors
+  - upcoming_content
+  - weapons
+  definition: String with unit, e.g. "2.81 MOA".
+- term: fire_rate
+  datasets: 4
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - barrels
+  - gas_blocks
+  - upcoming_content
+  - weapons
+  definition: String with unit, e.g. "700 RPM".
+- term: magnification
+  datasets: 4
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - collimators
+  - front_iron_sights
+  - rear_iron_sights
+  - scopes
+- term: sighting_range
+  datasets: 4
+  required_in: 4
+  type: string
+  appears_in_sample:
+  - collimators
+  - front_iron_sights
+  - rear_iron_sights
+  - scopes
+- term: inventory_layout_(x/y)
+  datasets: 4
+  required_in: 2
+  type: string
+  appears_in_sample:
+  - containers
+  - lockboxes
+  - loot_container
+  - loot_containers
+- term: charges
+  datasets: 4
+  required_in: 3
+  type: string
+  appears_in_sample:
+  - drinks
+  - food
+  - medical
+  - repair_kits
+- term: armor_locations
+  datasets: 4
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - plate_carrier
+  - plate_carriers
+  - upcoming_content
+  - vests
+- term: accuracy_modifier
+  datasets: 3
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - ammo
+  - muzzle_devices
+  - suppressors
+- term: muzzle_velocity
+  datasets: 3
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - ammo
+  - barrels
+  - weapons
+- term: effect
+  datasets: 3
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - drinks
+  - food
+  - medical
+- term: use_time
+  datasets: 3
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - drinks
+  - food
+  - medical
+- term: hidden_task
+  datasets: 3
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - hidden_task
+  - side_task
+  - tasks
+- term: usage
+  datasets: 3
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - keycards
+  - keys
+  - removed_content
+- term: accepted_ammunition
+  datasets: 3
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - magazines
+  - upcoming_content
+  - weapons
+  definition: Space-joined list of ammunition names in ONE string — not an array. Must be split by the consumer.
+- term: caliber
+  datasets: 3
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - magazines
+  - upcoming_content
+  - weapons
+  definition: Ammunition calibre designation, e.g. "5.45x39mm".
+- term: alternate
+  datasets: 3
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - main_task
+  - side_task
+  - tasks
+- term: map_location
+  datasets: 2
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - cleanup
+  - keys
+- term: room_contains
+  datasets: 2
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - cleanup
+  - keys
+- term: size
+  datasets: 2
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - cleanup
+  - keys
+- term: town
+  datasets: 2
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - cleanup
+  - keys
+- term: duration
+  datasets: 2
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - items
+  - medical
+- term: grid
+  datasets: 2
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - loot_items
+  - provisions
+- term: inventory
+  datasets: 2
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - plate_carriers
+  - rigs
+- term: task_type
+  datasets: 2
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - side_task
+  - tasks
+- term: fire_mode
+  datasets: 2
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - upcoming_content
+  - weapons
+  definition: Slash-joined list in one string, e.g. "Single/Full-auto".
+- term: dispersion
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - ammo
+- term: durability_modifier
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - ammo
+- term: stopped_by_armor_class
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - ammo
+- term: restrictions
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - containers
+- term: arm_stamina_boost
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - food
+- term: arm_stamina_boost_cap
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - food
+- term: arm_stamina_boost_duration
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - food
+- term: body_stamina_boost
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - food
+- term: body_stamina_boost_cap
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - food
+- term: body_stamina_boost_duration
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - food
+- term: energy_per_charge
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - food
+- term: hydratation_per_charge
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - food
+- term: flashbang_resistance
+  datasets: 1
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - glasses
+- term: rain_protection
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - helmets
+- term: field_of_view
+  datasets: 1
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - night_vision
+- term: figure_of_merit
+  datasets: 1
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - night_vision
+- term: phosphor_color
+  datasets: 1
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - night_vision
+- term: size_change_vert/horiz
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - night_vision
+- term: source
+  datasets: 1
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - provisions
+- term: required_level
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - removed_content
+- term: repair_efficiency
+  datasets: 1
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - repair_kits
+- term: loudness_reduction
+  datasets: 1
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - suppressors
+- term: modes
+  datasets: 1
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - tactical_devices
+- term: faction
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - tasks
+- term: burning_time
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - throwables
+- term: fragment_count
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - throwables
+- term: fuse_delay
+  datasets: 1
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - throwables
+- term: radius
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - throwables
+- term: full_name
+  datasets: 1
+  required_in: 1
+  type: string
+  appears_in_sample:
+  - vendors
+- term: wares
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - vendors
+- term: default_ammo
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - weapons
+- term: default_mag
+  datasets: 1
+  required_in: 0
+  type: string
+  appears_in_sample:
+  - weapons

@@ -1,6 +1,6 @@
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: derived
-source: openapi/gzw-data-openapi.json (components.schemas, 85 dataset schemas) + https://gzw-data.dev/api/v1/metadata
+source: openapi/_original/gzw-data-openapi.json 4.2.0 (components.schemas, 85 dataset schemas) + https://gzw-data.dev/api/v1/metadata + https://gzw-data.dev/api/v1/items/{id}/context (probed 2026-09-03)
 note: >-
   The GZW Data model is WIDE AND FLAT: 85 auto-discovered dataset entities, every one a flat object
   of string fields, with NO $ref links between schemas anywhere in the spec. The relationships below

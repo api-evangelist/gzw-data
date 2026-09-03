@@ -8,16 +8,16 @@ operations:
 - GET /api/v1/metadata
 - GET /api/v1/metadata/{dataset}
 - GET /api/v1/{dataset}
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: generated
-source: openapi/gzw-data-openapi.json + https://gzw-data.dev/docs/#queries + conventions/gzw-data-conventions.yml
+source: openapi/_original/gzw-data-openapi.json + https://gzw-data.dev/docs/#queries + conventions/gzw-data-conventions.yml
 ---
 
 # Browse and filter a GZW dataset
 
 Every collection route takes the same small, composable query vocabulary. **None of these
-parameters are declared in the published OpenAPI** — they exist only in the provider's docs — so
-they are listed here explicitly.
+parameters are declared in the published OpenAPI** — 4.2.0 declares path parameters on 176
+operations but zero query parameters anywhere — so they are listed here explicitly.
 
 | Parameter | Meaning |
 |---|---|
@@ -26,6 +26,20 @@ they are listed here explicitly.
 | `?sort={field}:asc\|desc` | Sort by a field |
 | `?page={n}&per_page={n}` | Page-number pagination; `per_page` defaults to 50, caps at 500 |
 | `?all=true` | Return every filtered record with no pagination |
+
+On the cross-dataset route `GET /api/v1/search` there are four more, documented at
+`https://gzw-data.dev/docs/#queries`:
+
+| Parameter | Meaning |
+|---|---|
+| `?q={query}` | The search query |
+| `?dataset=weapons,ammo` | Limit the search to named comma-separated datasets |
+| `?fields=name,type` | Search only the named comma-separated fields |
+| `?fuzzy=true` | Allow small spelling and punctuation differences |
+| `?limit=10` | Matches per dataset; documented maximum 50 |
+
+`/api/v1/search` returns `data.results` as an **object keyed by dataset name**, not the flat
+`data` array the collection routes return — parse it differently.
 
 ## Steps
 
@@ -57,4 +71,4 @@ they are listed here explicitly.
 - **Three routes are unions, not datasets:** `/api/v1/armor` (vests + helmets + glasses),
   `/api/v1/weapon_parts`, `/api/v1/helmet_mods` (night vision + mounts). They accept the same query
   parameters.
-- **Read-only.** All 352 operations are `GET`.
+- **Read-only.** All 362 operations in the 4.2.0 contract are `GET`.

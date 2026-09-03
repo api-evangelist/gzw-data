@@ -1,6 +1,6 @@
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: probed
-source: https://gzw-data.dev/docs/#limits + live response headers observed on https://gzw-data.dev/api/v1/* 2026-08-26
+source: https://gzw-data.dev/docs/#limits + live response headers observed on https://gzw-data.dev/api/v1/* 2026-09-03 (re-probe; unchanged from 2026-08-26)
 docs: https://gzw-data.dev/docs/#limits
 limit_count: 1
 rate_limits:

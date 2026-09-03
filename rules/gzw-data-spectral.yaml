@@ -1,0 +1,120 @@
+# GZW Data API — Spectral ruleset
+#
+# generated: '2026-09-03'
+# method: generated
+# source: >-
+#   Written by API Evangelist against the provider's own published contract
+#   (openapi/_original/gzw-data-openapi.json, implementation 4.2.0, fetched 2026-09-03 from
+#   https://gzw-data.dev/api/v1/spec). Every rule below fires on a gap that document ACTUALLY has,
+#   or guards a property it ACTUALLY gets right and should not lose. Nothing here is a generic
+#   style preference imported from another API. Run with:
+#     spectral lint openapi/_original/gzw-data-openapi.json --ruleset rules/gzw-data-spectral.yaml
+extends: [[spectral:oas, recommended]]
+rules:
+  # ---- gaps the 4.2.0 contract currently has -------------------------------
+  gzw-operation-operationid:
+    description: >-
+      Every operation must declare an operationId. As of 4.2.0, 0 of 362 operations do, which is why
+      every derived artifact in this repository binds tools and skills to METHOD + PATH instead of an
+      id, and why generated SDKs get positional names.
+    message: "{{path}} has no operationId"
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: error
+    then: { field: operationId, function: truthy }
+
+  gzw-operation-description:
+    description: >-
+      Every operation should carry a description as well as a summary. As of 4.2.0 all 362 operations
+      have a one-line summary (e.g. "ammo (79 items)") and none has a description.
+    message: "{{path}} has a summary but no description"
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: warn
+    then: { field: description, function: truthy }
+
+  gzw-operation-tags:
+    description: >-
+      Every operation should be tagged so the contract can be navigated and split by resource. As of
+      4.2.0 the document declares no top-level tags array and tags no operation; API Evangelist
+      derives tags from the first path segment to produce the per-resource specs in openapi/.
+    message: "{{path}} is untagged"
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: warn
+    then: { field: tags, function: truthy }
+
+  gzw-query-parameters-declared:
+    description: >-
+      The docs publish a query vocabulary the contract does not — page, per_page, all, search, sort,
+      arbitrary field equality, and on /search the dataset, fields, fuzzy and limit parameters. 176 of
+      362 operations declare parameters in 4.2.0 and every one is a PATH parameter; zero query
+      parameters are declared anywhere. A code generator therefore emits a client that cannot
+      paginate, filter or sort. This rule flags collection routes that declare no query parameter.
+    message: "{{path}} declares no query parameters, but the docs document page/per_page/all/search/sort on collection routes"
+    given: $.paths[?(!@property.match(/\{.*\}$/))].get
+    severity: info
+    then:
+      field: parameters
+      function: truthy
+
+  gzw-info-contact:
+    description: info.contact should name a reachable maintainer. The provider publishes support@gzw-data.dev and security@gzw-data.dev on its own site but neither is in the contract.
+    message: info.contact is missing
+    given: $.info
+    severity: warn
+    then: { field: contact, function: truthy }
+
+  gzw-info-license:
+    description: info.license should be declared. The source repository is MIT-licensed; the contract says nothing.
+    message: info.license is missing
+    given: $.info
+    severity: warn
+    then: { field: license, function: truthy }
+
+  gzw-info-terms:
+    description: info.termsOfService should point at https://gzw-data.dev/terms-of-service/, which the provider publishes and the contract omits.
+    message: info.termsOfService is missing
+    given: $.info
+    severity: info
+    then: { field: termsOfService, function: truthy }
+
+  gzw-security-declared:
+    description: >-
+      An unauthenticated API should say so EXPLICITLY with a top-level `security: []`, rather than by
+      omitting the key. As written, a reader cannot distinguish "no auth required" from "auth not
+      documented" — the two most consequential opposite meanings in a contract.
+    message: "No top-level security requirement is declared; an intentionally public API should declare an empty security array"
+    given: $
+    severity: info
+    then: { field: security, function: defined }
+
+  # ---- properties 4.2.0 got right; these guard against regression ----------
+  gzw-responses-declared:
+    description: >-
+      REGRESSION GUARD. The 4.0.0 document declared no responses at all on any of its 352 operations.
+      4.2.0 declares 200/400/404/429 on all 362. Do not lose that.
+    message: "{{path}} declares no responses"
+    given: $.paths[*][get,post,put,patch,delete]
+    severity: error
+    then: { field: responses, function: truthy }
+
+  gzw-error-responses-declared:
+    description: REGRESSION GUARD. Every operation should keep declaring its 404, which is the error a consumer of a slug-keyed read API hits most.
+    message: "{{path}} declares no 404 response"
+    given: $.paths[*][get,post,put,patch,delete].responses
+    severity: warn
+    then: { field: "404", function: truthy }
+
+  gzw-rate-limit-retry-after:
+    description: >-
+      REGRESSION GUARD. The 429 response declares a Retry-After header in 4.2.0. That header is the
+      only runtime backoff signal an agent gets against the 100 req/min/IP limit — keep it in the contract.
+    message: The 429 response does not declare a Retry-After header
+    given: $.paths[*][get,post,put,patch,delete].responses.429
+    severity: warn
+    then: { field: headers.Retry-After, function: truthy }
+
+  gzw-components-reuse:
+    description: REGRESSION GUARD. Responses should keep $ref-ing the shared envelope schemas rather than inlining them.
+    message: Response content schema is inlined rather than $ref-ed to components.schemas
+    given: $.paths[*][*].responses[*].content['application/json'].schema
+    severity: info
+    then: { field: "$ref", function: truthy }

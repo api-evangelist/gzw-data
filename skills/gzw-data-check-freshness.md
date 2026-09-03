@@ -9,9 +9,10 @@ operations:
 - GET /api/v1/ready
 - GET /api/v1/stats
 - GET /api/v1/spec
-generated: '2026-08-26'
+- GET /api/v1/version
+generated: '2026-09-03'
 method: generated
-source: openapi/gzw-data-openapi.json + https://gzw-data.dev/docs/ + lifecycle/gzw-data-lifecycle.yml
+source: openapi/_original/gzw-data-openapi.json + https://gzw-data.dev/docs/ + lifecycle/gzw-data-lifecycle.yml
 ---
 
 # Check GZW Data freshness before you quote a number
@@ -22,6 +23,11 @@ values and mechanics without notice." A game patch can therefore make a weapon s
 the scrape catches up. Check freshness whenever a user might act on the value.
 
 ## Steps
+
+0. **Prefer `/api/v1/version` when you only need the snapshot.** Added in implementation 4.2.0, it
+   returns `implementationVersion`, `dataVersion`, `snapshotId` and per-dataset record counts in one
+   call. Pair it with `GET /api/v1/changes` to see which datasets moved — see the
+   `gzw-data-track-data-changes` skill.
 
 1. **Health and last scrape.** `GET /api/v1/health` returns `ok`, `status`, `ready`, `apiVersion`,
    `version`, `datasetCount` and the last-scrape information. Note the scrape timestamp.

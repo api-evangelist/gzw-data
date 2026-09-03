@@ -1,0 +1,93 @@
+generated: '2026-09-03'
+method: probed
+source: https://gzw-data.dev/api/v1/changes + https://gzw-data.dev/api/v1/version (probed 2026-09-03) + https://gzw-data.dev/docs/ ("Snapshot / Version information")
+docs: https://gzw-data.dev/docs/
+note: >-
+  READ THIS BEFORE TRUSTING THE POINTER. GZW Data publishes NO prose changelog for the API — no
+  CHANGELOG.md in either repository (both 404), zero GitHub releases on either repo, and no
+  dated "what's new" page on the site. What it DOES publish, and what this artifact records, is a
+  MACHINE-READABLE DATA CHANGE FEED added in implementation 4.2.0: GET /api/v1/changes diffs the
+  current dataset snapshot against the previously stored one, and GET /api/v1/version pins the
+  implementation version, the data snapshot id and the per-dataset record counts. For a scraped
+  data product that is the change surface that actually matters to a consumer — it answers "did
+  the data I cached change, and which datasets" — but it is NOT an API changelog and it will not
+  tell you that an endpoint was added or a response shape changed. Both facts are recorded here
+  rather than one being dressed up as the other.
+scheme:
+  api_version: path-prefix (/api/v1); unchanged since first observation
+  implementation_version: semver, exposed as info.version in the OpenAPI and implementationVersion in /api/v1/version
+  data_version: ISO 8601 timestamp of the scrape snapshot, returned as dataVersion on EVERY response
+current:
+  implementation_version: 4.2.0
+  api_version: v1
+  data_version: '2026-08-31T13:22:10.500330Z'
+  snapshot_id: 73ba905251e5c5e1
+  observed: '2026-09-03'
+change_feed:
+  endpoint: https://gzw-data.dev/api/v1/changes
+  status: 200
+  fields: [current, latest, previous, historyCount, hasHistory, changes.datasets, changes.added, changes.removed, message]
+  history_depth: 2
+  observed_state: >-
+    historyCount 2, previous snapshot 2026-08-25T11:12:54.629187Z, current 2026-08-31T13:22:10.500330Z,
+    changes.added [], changes.removed [], changes.datasets {} — i.e. no dataset was added or removed
+    between the two stored snapshots. The provider's own message: "Changes are calculated from the
+    latest stored snapshot."
+  limitation: >-
+    Only the latest and previous snapshots are retained (historyCount 2), so this is a one-step diff,
+    not a history. A consumer polling less often than the weekly scrape cannot reconstruct what it missed.
+version_endpoint:
+  endpoint: https://gzw-data.dev/api/v1/version
+  status: 200
+  fields: [api, apiVersion, implementationVersion, baseUrl, openapi, dataVersion, snapshot]
+entries:
+- version: 4.2.0
+  date: '2026-09-03'
+  date_basis: first observed by API Evangelist on this date; the provider publishes no release date
+  breaking: false
+  additions:
+  - GET /api/v1/version — implementation version, snapshot id and per-dataset counts
+  - GET /api/v1/changes — snapshot-to-snapshot dataset diff
+  - GET /api/v1/schema/{dataset} — per-dataset generated field metadata for code generators
+  - GET /api/v1/items/{id}/context — resolves an item's soft vendor reference into real vendor objects
+  - GET /api/v1/search — cross-dataset search, previously live but ABSENT from the contract, now declared in it
+  - datasets funds and removed_content
+  contract_changes:
+  - every one of the 362 operations now declares 200/400/404/429 responses (0 of 352 did in 4.0.0)
+  - 176 operations now declare their path parameters
+  - new shared response schemas ObjectResponse, PaginatedResponse, RecordResponse, MetadataResponse, Capabilities
+  - the 429 response declares a Retry-After header
+  - path count 352 to 362, component schemas 87 to 92
+  evidence:
+    url: https://gzw-data.dev/api/v1/spec
+    status: 200
+    fetched: '2026-09-03'
+  note: >-
+    Diffed by API Evangelist against the 4.0.0 document harvested from the same URL on 2026-08-26.
+    No path was removed. The provider announced none of this anywhere we could find.
+- version: 4.0.0
+  date: '2026-08-26'
+  date_basis: first observed by API Evangelist on this date
+  breaking: false
+  highlights:
+  - 352 GET operations across 85 auto-discovered datasets, summary only, no responses declared
+  evidence:
+    url: https://gzw-data.dev/api/v1/spec
+    status: 200
+    fetched: '2026-08-26'
+absent:
+  changelog_md:
+  - url: https://raw.githubusercontent.com/ZoniBoy00/gzw-data/main/CHANGELOG.md
+    status: 404
+  - url: https://raw.githubusercontent.com/ZoniBoy00/gzw-data-js/main/CHANGELOG.md
+    status: 404
+  github_releases:
+  - url: https://api.github.com/repos/ZoniBoy00/gzw-data/releases
+    status: 200
+    result: empty array — no tagged releases
+  - url: https://api.github.com/repos/ZoniBoy00/gzw-data-js/releases
+    status: 200
+    result: empty array — no tagged releases
+  note: >-
+    The npm client @zoniboy/gzw-data-client DOES carry dated versions (7 releases, latest 0.3.0 on
+    2026-08-29) — see packages/gzw-data-packages.yml. That is the client's history, not the API's.

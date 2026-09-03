@@ -11,7 +11,7 @@ operations:
 - GET /api/v1/search
 generated: '2026-08-26'
 method: generated
-source: openapi/gzw-data-openapi.json + https://gzw-data.dev/docs/ + conventions/gzw-data-conventions.yml
+source: openapi/_original/gzw-data-openapi.json + https://gzw-data.dev/docs/ + conventions/gzw-data-conventions.yml
 ---
 
 # Look up one GZW item by name

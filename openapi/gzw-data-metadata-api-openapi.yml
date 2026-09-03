@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: GZW Data Metadata API
-  version: 4.0.0
-  description: Comprehensive Gray Zone Warfare game data API.
+  title: Gzw Data Metadata API
+  version: 4.2.0
+  description: 'Operations tagged Metadata across 2 of this provider''s published API definitions: gzw-data-openapi.json, gzw-data-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://gzw-data.dev
 tags:
@@ -11,8 +11,39 @@ paths:
   /api/metadata:
     get:
       summary: Dataset schema metadata
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Metadata
+    servers:
+    - url: https://gzw-data.dev
   /api/metadata/{dataset}:
     get:
       summary: Get schema metadata for one dataset
@@ -22,13 +53,75 @@ paths:
         required: true
         schema:
           type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Metadata
+    servers:
+    - url: https://gzw-data.dev
   /api/v1/metadata:
     get:
       summary: Dataset schema metadata
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Metadata
+    servers:
+    - url: https://gzw-data.dev
   /api/v1/metadata/{dataset}:
     get:
       summary: Get schema metadata for one dataset
@@ -38,5 +131,176 @@ paths:
         required: true
         schema:
           type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Metadata
+    servers:
+    - url: https://gzw-data.dev
+components:
+  schemas:
+    ApiError:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: DATASET_NOT_FOUND
+        message:
+          type: string
+          example: Dataset not found
+        dataset:
+          type: string
+        id:
+          type: string
+      additionalProperties: true
+    Capabilities:
+      type: object
+      required:
+      - operations
+      - filters
+      - sorting
+      - counts
+      properties:
+        operations:
+          type: array
+          items:
+            type: string
+          example:
+          - list
+          - get
+          - filter
+          - sort
+          - paginate
+        filters:
+          type: object
+          properties:
+            supported:
+              type: boolean
+            fields:
+              type: array
+              items:
+                type: string
+        sorting:
+          type: object
+          properties:
+            supported:
+              type: boolean
+            fields:
+              type: array
+              items:
+                type: string
+            directions:
+              type: array
+              items:
+                type: string
+                enum:
+                - asc
+                - desc
+        counts:
+          type: object
+          properties:
+            supported:
+              type: boolean
+            includesTotal:
+              type: boolean
+            includesPageCount:
+              type: boolean
+    MetadataResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              datasetCount:
+                type: integer
+              datasets:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    file:
+                      type: string
+                    itemCount:
+                      type: integer
+                    fields: {}
+                    capabilities:
+                      $ref: '#/components/schemas/Capabilities'
+                  required:
+                  - name
+                  - itemCount
+                  - fields
+                  - capabilities
+    ApiErrorResponse:
+      type: object
+      required:
+      - error
+      - source
+      - timestamp
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
+          type: string
+          example: GZW Data API
+        timestamp:
+          type: string
+          format: date-time
+    ObjectResponse:
+      type: object
+      required:
+      - data
+      - source
+      - timestamp
+      properties:
+        data: {}
+        source:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        dataVersion:
+          type: string
+        apiVersion:
+          type: string
+          example: v1
+        implementationVersion:
+          type: string
+          example: 4.2.0
+      additionalProperties: true
+x-refined-from:
+- gzw-data-openapi.json
+- gzw-data-openapi.json

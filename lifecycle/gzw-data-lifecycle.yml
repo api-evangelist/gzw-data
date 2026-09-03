@@ -1,4 +1,4 @@
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: searched
 source: https://gzw-data.dev/docs/ + https://gzw-data.dev/terms-of-service/ + https://github.com/ZoniBoy00/gzw-data README + https://github.com/ZoniBoy00/gzw-data-js/blob/main/ROADMAP.md
 versioning:
@@ -10,7 +10,7 @@ versioning:
     "Both prefixes currently expose the same API contract. New integrations should prefer /api/v1."
     The legacy /api prefix is described as compatibility-only but carries NO announced end date and
     NO Deprecation/Sunset header — probed 2026-08-26, neither header is returned on /api/weapons.
-  product_version: 4.0.0 (info.version in the OpenAPI; independent of the v1 path prefix)
+  product_version: 4.2.0 (info.version in the OpenAPI as of 2026-09-03, was 4.0.0 on 2026-08-26; independent of the v1 path prefix and also exposed as implementationVersion on GET /api/v1/version)
 deprecation:
   policy_published: false
   sunset_header: false
@@ -46,11 +46,22 @@ support:
   status: 200
   note: The Privacy Policy and Terms both direct questions to the GitHub repository.
 changelog:
-  published: false
+  published: partial
+  changed_since_last_round: true
+  prose_changelog: false
+  machine_readable_change_feed: true
+  url: https://gzw-data.dev/api/v1/changes
   note: >-
-    No dated changelog. The main repo has no CHANGELOG.md (404) and zero GitHub releases. The
-    client repo publishes a phase-based ROADMAP.md, which is forward-looking, not a changelog.
-    No ChangeLog pointer is emitted.
+    There is still NO prose changelog: no CHANGELOG.md in either repository (both 404 on
+    2026-09-03), zero GitHub releases on either repo, and no dated "what's new" page. What DID
+    appear in implementation 4.2.0 is a machine-readable DATA change feed — GET /api/v1/changes
+    diffs the current dataset snapshot against the previously stored one, and GET /api/v1/version
+    pins implementation version, snapshot id and per-dataset counts. That is a real, dated change
+    surface for the data product, so a ChangeLog pointer IS now emitted, at
+    changelog/gzw-data-changelog.yml, which states plainly that it covers data snapshots and not
+    API contract changes. The client library's own dated releases live in
+    packages/gzw-data-packages.yml.
+  see: changelog/gzw-data-changelog.yml
 roadmap:
   published: true
   url: https://github.com/ZoniBoy00/gzw-data-js/blob/main/ROADMAP.md
@@ -68,8 +79,21 @@ data_lifecycle:
     Datasets are auto-discovered from the repository data/ directory, so new wiki categories become
     endpoints — and disappearing categories become 404s — WITHOUT a version change or announcement.
     This is the real lifecycle risk for a consumer, and it is unversioned.
+operational_endpoints_added_4_2_0:
+- url: https://gzw-data.dev/api/v1/version
+  status: 200
+  returns: implementationVersion, apiVersion, dataVersion, snapshot with per-dataset counts
+- url: https://gzw-data.dev/api/v1/changes
+  status: 200
+  returns: current/latest/previous snapshot, historyCount, added/removed/changed datasets
+  limitation: history depth 2 — only the latest and previous snapshots are retained
 maturity:
   first_commit: '2026-07-20'
   repo_created: '2026-07-20'
   last_push: '2026-08-26'
+  re_observed: '2026-09-03'
+  re_observation_note: >-
+    In the eight days between profiling rounds the implementation moved 4.0.0 to 4.2.0, a
+    security.txt and a SECURITY.md appeared, SPF and DMARC records were added, /playground/ and
+    /feedback/ pages shipped, and the npm client moved 0.2.4 to 0.3.0. Actively developed.
   note: A young project (about five weeks old at profiling), actively pushed the day it was profiled.

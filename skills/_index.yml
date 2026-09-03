@@ -1,8 +1,8 @@
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: generated
-source: openapi/gzw-data-openapi.json + https://gzw-data.dev/docs/ + conventions/gzw-data-conventions.yml
+source: openapi/_original/gzw-data-openapi.json (4.2.0) + https://gzw-data.dev/docs/ + conventions/gzw-data-conventions.yml
 note: >-
-  Three packaged Agent Skills covering the whole usable surface of a read-only, 85-dataset,
+  Four packaged Agent Skills covering the whole usable surface of a read-only, 85-dataset,
   unauthenticated API. Every step is grounded in a real path from the published OpenAPI or in a
   route the provider documents and that we probed live; where a route is live but absent from the
   contract, the skill says so. The provider publishes no skills, no AGENTS.md and no llms-full.txt,
@@ -21,3 +21,9 @@ skills:
   file: gzw-data-check-freshness.md
   description: Establish data age and API health before quoting a value.
   operations: 4
+- name: gzw-data-track-data-changes
+  file: gzw-data-track-data-changes.md
+  description: Detect whether the dataset snapshot moved and which datasets changed, before re-pulling anything.
+  operations: 4
+  added: '2026-09-03'
+  note: Grounded in the four routes implementation 4.2.0 added — /version, /changes, /schema/{dataset}, /items/{id}/context.

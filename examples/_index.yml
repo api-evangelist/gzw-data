@@ -1,0 +1,65 @@
+generated: '2026-09-03'
+method: probed
+source: live anonymous GET requests against https://gzw-data.dev/api/v1 on 2026-09-03
+note: >-
+  Real, unmodified responses captured from the live public API. Nothing here is hand-written: each
+  file is the exact JSON body the endpoint returned, saved verbatim, including the provider's own
+  source/timestamp/dataVersion envelope fields. They exist because the published OpenAPI declares
+  response SCHEMAS (as of 4.2.0) but carries no `example`/`examples` anywhere, so a consumer or an
+  agent reading only the contract never sees a concrete body. The API is unauthenticated and
+  read-only, so every one of these is reproducible by anyone with curl.
+data_version_at_capture: '2026-08-31T13:22:10.500330Z'
+examples:
+- file: gzw-data-record-response.json
+  operation: GET /api/v1/weapons/ak-12
+  status: 200
+  shows: single-record envelope — data object, source, timestamp, dataVersion
+- file: gzw-data-paginated-response.json
+  operation: GET /api/v1/weapons?sort=name:asc&page=1&per_page=2
+  status: 200
+  shows: paginated envelope — data array, page, perPage, total, totalPages, count; plus the sort and pagination parameters in use
+- file: gzw-data-search-response.json
+  operation: GET /api/v1/search?q=ak-12&limit=2
+  status: 200
+  shows: cross-dataset search — results keyed by dataset name, each holding matched records
+- file: gzw-data-item-context-response.json
+  operation: GET /api/v1/items/advanced-tracking-tag/context
+  status: 200
+  shows: >-
+    the 4.2.0 relationship-resolution route — the item plus RESOLVED vendor objects for its
+    sold_by value, plus references/referenceCount and the provider's own caveat that references
+    are textual matches and not guaranteed gameplay relationships
+- file: gzw-data-version-response.json
+  operation: GET /api/v1/version
+  status: 200
+  shows: apiVersion, implementationVersion, baseUrl, openapi URL, dataVersion and the full snapshot with per-dataset record counts
+- file: gzw-data-changes-response.json
+  operation: GET /api/v1/changes
+  status: 200
+  shows: current/latest/previous snapshot ids and the computed added/removed/changed dataset diff
+- file: gzw-data-health-response.json
+  operation: GET /api/v1/health
+  status: 200
+  shows: liveness envelope
+- file: gzw-data-schema-weapons-response.json
+  operation: GET /api/v1/schema/weapons
+  status: 200
+  shows: >-
+    the provider's generated per-dataset field metadata (types, presentCount, optional, nullable,
+    example). This is NOT a JSON Schema document — see json-schema/_index.yml.
+- file: gzw-data-schema-vendors-response.json
+  operation: GET /api/v1/schema/vendors
+  status: 200
+  shows: the same field-metadata shape for the vendors dataset
+- file: gzw-data-metadata-registry-response.json
+  operation: GET /api/v1/metadata
+  status: 200
+  shows: the full dataset registry — 85 datasets with file, itemCount and observed field names
+- file: gzw-data-error-record-not-found.json
+  operation: GET /api/v1/weapons/no-such-id
+  status: 404
+  shows: RECORD_NOT_FOUND — the vendor error envelope with dataset, id and a docs pointer
+- file: gzw-data-error-endpoint-not-found.json
+  operation: GET /api/v1/nosuchdataset
+  status: 404
+  shows: ENDPOINT_NOT_FOUND — carries an `available` array naming every dataset that DOES exist

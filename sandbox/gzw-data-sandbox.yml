@@ -1,0 +1,45 @@
+generated: '2026-09-03'
+method: searched
+source: https://gzw-data.dev/playground/ + https://gzw-data.dev/#explorer + https://gzw-data.dev/docs/
+note: >-
+  READ THE SHAPE OF THIS ONE. GZW Data has NO sandbox in the payments sense — there are no test
+  keys, no test-vs-live modes, no fixture values, no test clock and no simulated conditions,
+  because there is nothing to simulate: the API is unauthenticated, read-only and free, so the
+  production API IS the safe environment. Calling production with curl costs nothing, changes
+  nothing, and needs no account. What the provider DOES publish is two first-party hosted request
+  surfaces, and those are what this artifact records. Recording an absence of test credentials
+  here is deliberate: it is the honest answer for a read-only public API, not a gap.
+test_live_separation:
+  applicable: false
+  reason: No authentication and no write surface, so there are no test credentials and no modes to separate.
+key_prefixes: []
+test_values: []
+test_clock: false
+fixtures: false
+hosted_surfaces:
+- name: API Playground
+  url: https://gzw-data.dev/playground/
+  status: 200
+  probed: '2026-09-03'
+  type: hosted request builder
+  description: >-
+    "Run read-only requests, change parameters and inspect real JSON responses without writing
+    code." A first-party interactive console against the live API.
+  auth_required: false
+- name: Data explorer
+  url: https://gzw-data.dev/#explorer
+  status: 200
+  probed: '2026-09-03'
+  type: embedded dataset browser on the project homepage
+  description: >-
+    "Live request builder — pick a dataset, search it, and inspect the same JSON endpoint your app
+    will call." Paginated record preview wired to the live API.
+  auth_required: false
+safe_probing_guidance:
+  from_provider: >-
+    The SECURITY.md asks testers to "keep testing low-volume, cache responses, respect Retry-After,
+    and do not attempt denial-of-service testing, quota bypass, destructive requests, or access to
+    systems outside this project."
+  rate_limit: 100 requests/minute/IP, best-effort — see rate-limits/gzw-data-rate-limits.yml
+  first_call: curl https://gzw-data.dev/api/v1/weapons
+captured_responses: examples/_index.yml

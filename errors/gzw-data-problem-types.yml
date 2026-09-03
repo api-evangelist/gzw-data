@@ -1,14 +1,21 @@
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: probed
-source: openapi/gzw-data-openapi.json (components.schemas.ApiError / ApiErrorResponse) + live error probes on 2026-08-26
+source: openapi/_original/gzw-data-openapi.json 4.2.0 (declared 400/404/429 responses + components.schemas.ApiError / ApiErrorResponse) + live error probes on 2026-09-03
 format: vendor-json
 rfc9457: false
 note: >-
-  IMPORTANT PROVENANCE NOTE — the published OpenAPI declares ApiError and ApiErrorResponse under
-  components.schemas but attaches NO responses block to any of its 352 operations, so no error
-  response is reachable from the contract. The codes below were established by PROBING live error
-  conditions, plus the two example values the schemas carry. This is not an RFC 9457
-  application/problem+json surface; it is a vendor envelope returned as application/json.
+  PROVENANCE, AND WHAT CHANGED. In 4.0.0 (harvested 2026-08-26) the OpenAPI declared ApiError and
+  ApiErrorResponse under components.schemas but attached NO responses block to any of its 352
+  operations, so no error response was reachable from the contract at all and every code below had
+  to be established by PROBING live error conditions. In 4.2.0 (re-harvested 2026-09-03) every one
+  of the 362 operations now declares 400 "Invalid request", 404 "Resource not found" and 429
+  "Rate limit exceeded", each $ref-ing ApiErrorResponse, and the 429 declares a Retry-After header.
+  The STATUS CODES are therefore now contract-derived; the CODE STRINGS below (ENDPOINT_NOT_FOUND,
+  RECORD_NOT_FOUND, DATASET_NOT_FOUND) remain probe-derived, because the contract still names no
+  enumeration of error.code values anywhere. This is not an RFC 9457 application/problem+json
+  surface; it is a vendor envelope returned as application/json. Live error bodies captured
+  verbatim in examples/gzw-data-error-record-not-found.json and
+  examples/gzw-data-error-endpoint-not-found.json.
 envelope:
   content_type: application/json
   shape:

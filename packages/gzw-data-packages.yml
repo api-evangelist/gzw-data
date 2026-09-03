@@ -1,8 +1,8 @@
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: searched
-source: https://registry.npmjs.org/@zoniboy/gzw-data-client + https://gzw-data.dev/docs/ + https://github.com/ZoniBoy00/gzw-data-js
+source: https://registry.npmjs.org/@zoniboy/gzw-data-client (re-read 2026-09-03) + https://gzw-data.dev/docs/ + https://github.com/ZoniBoy00/gzw-data-js
 note: >-
-  One first-party client library. Registry metadata read live from registry.npmjs.org on 2026-08-26.
+  One first-party client library. Registry metadata re-read live from registry.npmjs.org on 2026-09-03 (latest moved 0.2.4 -> 0.3.0).
   npmjs.com's HTML package page returned 403 to our crawler (bot challenge) but the registry JSON
   endpoint answered 200, so the package is live. No PyPI, RubyGems, Packagist, crates.io, NuGet,
   Maven Central or pkg.go.dev package was found under the ZoniBoy00 / gzw namespace.
@@ -15,10 +15,13 @@ packages:
   source: https://github.com/ZoniBoy00/gzw-data-js
   official: true
   license: MIT
-  version: 0.2.4
-  published: '2026-08-26'
+  version: 0.3.0
+  published: '2026-08-29'
   first_published: '2026-08-24'
-  release_count: 6
+  release_count: 7
+  previous_observation:
+    version: 0.2.4
+    published: '2026-08-26'
   runtime: Node.js >=18 and modern browsers
   dependencies: 0
   cli: false
@@ -32,8 +35,11 @@ packages:
   - health / stats / images / spec / cross-dataset search helpers
   - retry handling for rate limits, 5xx and transient network failures
   note: >-
-    Currency is strong — latest release 0.2.4 was published the same day this profile was written,
-    and all six releases fall inside a three-day window (2026-08-24 to 2026-08-26). No abandonment signal.
+    Currency is strong. Seven releases in six days (2026-08-24 to 2026-08-29), latest 0.3.0 five
+    days before this re-read, and the client tracks the API it wraps — the API's own implementation
+    moved 4.0.0 to 4.2.0 over the same window. No abandonment signal. The npm package is the ONLY
+    registry artifact; still nothing on PyPI, RubyGems, crates.io, NuGet, Maven Central or pkg.go.dev
+    under the ZoniBoy00 / gzw namespace (re-checked 2026-09-03).
 registries_checked:
 - registry: npm
   result: 1 first-party package

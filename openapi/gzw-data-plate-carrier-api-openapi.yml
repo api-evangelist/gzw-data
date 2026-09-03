@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: GZW Data Plate Carrier API
-  version: 4.0.0
-  description: Comprehensive Gray Zone Warfare game data API.
+  title: Gzw Data Plate Carrier API
+  version: 4.2.0
+  description: 'Operations tagged Plate Carrier across 2 of this provider''s published API definitions: gzw-data-openapi.json, gzw-data-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://gzw-data.dev
 tags:
@@ -11,8 +11,39 @@ paths:
   /api/plate_carrier:
     get:
       summary: plate_carrier (1 items)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Plate Carrier
+    servers:
+    - url: https://gzw-data.dev
   /api/plate_carrier/{id}:
     get:
       summary: Get one plate_carrier record by id
@@ -22,13 +53,75 @@ paths:
         required: true
         schema:
           type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecordResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Plate Carrier
+    servers:
+    - url: https://gzw-data.dev
   /api/v1/plate_carrier:
     get:
       summary: plate_carrier (1 items)
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Plate Carrier
+    servers:
+    - url: https://gzw-data.dev
   /api/v1/plate_carrier/{id}:
     get:
       summary: Get one plate_carrier record by id
@@ -38,5 +131,121 @@ paths:
         required: true
         schema:
           type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecordResponse'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Plate Carrier
+    servers:
+    - url: https://gzw-data.dev
+components:
+  schemas:
+    PaginatedResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              type: object
+          count:
+            type: integer
+          page:
+            type: integer
+          perPage:
+            type: integer
+          total:
+            type: integer
+          totalPages:
+            type: integer
+    ApiError:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: DATASET_NOT_FOUND
+        message:
+          type: string
+          example: Dataset not found
+        dataset:
+          type: string
+        id:
+          type: string
+      additionalProperties: true
+    RecordResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: object
+    ApiErrorResponse:
+      type: object
+      required:
+      - error
+      - source
+      - timestamp
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
+          type: string
+          example: GZW Data API
+        timestamp:
+          type: string
+          format: date-time
+    ObjectResponse:
+      type: object
+      required:
+      - data
+      - source
+      - timestamp
+      properties:
+        data: {}
+        source:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        dataVersion:
+          type: string
+        apiVersion:
+          type: string
+          example: v1
+        implementationVersion:
+          type: string
+          example: 4.2.0
+      additionalProperties: true
+x-refined-from:
+- gzw-data-openapi.json
+- gzw-data-openapi.json

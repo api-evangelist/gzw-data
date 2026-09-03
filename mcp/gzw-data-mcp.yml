@@ -1,6 +1,6 @@
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: derived
-source: openapi/gzw-data-openapi.json + probes of https://gzw-data.dev/mcp and /api/v1/mcp
+source: openapi/_original/gzw-data-openapi.json (4.2.0) + re-probes of https://gzw-data.dev/mcp and /api/v1/mcp on 2026-09-03
 status: candidate
 note: >-
   GZW Data ships NO MCP server. https://gzw-data.dev/mcp returned 404 and
@@ -20,8 +20,22 @@ deployment:
 probes:
 - url: https://gzw-data.dev/mcp
   status: 404
+  probed: '2026-09-03'
 - url: https://gzw-data.dev/api/v1/mcp
   status: 404
+  probed: '2026-09-03'
+  body: ENDPOINT_NOT_FOUND JSON listing the 85 dataset routes that DO exist — the API itself confirms no mcp route
+- url: https://gzw-data.dev/.well-known/agent-card.json
+  status: 404
+  probed: '2026-09-03'
+- url: https://gzw-data.dev/.well-known/agent.json
+  status: 404
+  probed: '2026-09-03'
+re_probe_note: >-
+  Re-probed 2026-09-03 after the provider shipped implementation 4.2.0. Still no MCP server, no
+  agent card, and no mention of MCP in the README, docs, llms.txt or either npm package. The
+  candidate tool list below remains DERIVED and unpublished, and no MCPServer pointer is emitted
+  in apis.yml. Three new routes in 4.2.0 add three new candidate tools, recorded below.
 candidate_tools:
 - name: list_dataset
   description: List records from any auto-discovered GZW dataset, with filter, search, sort and pagination.
@@ -53,3 +67,23 @@ candidate_tools:
   description: Health/readiness, dataset count and last scrape time.
   rest: GET /api/v1/health
   read_only: true
+- name: get_version
+  description: Implementation version, API version, data snapshot id and per-dataset record counts.
+  rest: GET /api/v1/version
+  read_only: true
+  note: added in implementation 4.2.0; declared in the contract
+- name: get_changes
+  description: Diff of the current dataset snapshot against the previously stored one (added/removed datasets).
+  rest: GET /api/v1/changes
+  read_only: true
+  note: added in implementation 4.2.0; declared in the contract
+- name: get_dataset_schema
+  description: Generated field metadata for one dataset — types, presence counts, optional/nullable flags and an example value.
+  rest: GET /api/v1/schema/{dataset}
+  read_only: true
+  note: added in implementation 4.2.0; declared in the contract
+- name: get_item_context
+  description: Resolve one item's soft vendor reference into real vendor objects plus textual cross-references.
+  rest: GET /api/v1/items/{id}/context
+  read_only: true
+  note: added in implementation 4.2.0; scoped to the `items` dataset only

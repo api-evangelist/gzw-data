@@ -9,21 +9,44 @@ description: GZW Data is a free, fan-made, read-only REST API for Gray Zone Warf
   3.0.3 contract, an llms.txt and a zero-dependency TypeScript client on npm are published. Data is scraped weekly from the
   community GZW Fandom Wiki; the project is unofficial and not affiliated with the game's publisher.
 deliveryModel:
-  model: unknown
+  model: free
   open_source: unknown
-  commercial: true
+  commercial: false
+  commercial_use: permitted-under-terms
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: 'Free public API. Commercial USE is permitted subject to the Terms of Service and
+    the applicable dataset licences — which is not the same as the API being a commercial product.'
+  confidence: stated-by-provider
+  provider_wording: 'Pricing: free; commercial use is subject to the Terms of Service and applicable
+    dataset licenses.'
+  corrected: '2026-09-03'
+  corrected_note: 'Was commercial: true at confidence low. Reported by the provider on
+    api-evangelist/gzw-data#1 and confirmed against their own llms.txt, which states the wording
+    above verbatim. A boolean reads as a fact whatever confidence sits beside it.'
   source:
   - pricing
   - repository-unlicensed
   generated: '2026-08-28'
   method: derived
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: high
+  source:
+  - plans
+  - authentication
+  - rate-limits
+  - security
+  generated: '2026-09-02'
+  method: derived
 image: https://gzw-data.dev/assets/gzw-data-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/gzw-data/refs/heads/main/apis.yml
 created: '2026-08-26'
-modified: '2026-08-26'
+modified: '2026-09-03'
 specificationVersion: '0.21'
 tags:
 - Gaming
@@ -1704,10 +1727,123 @@ apis:
     url: llms/gzw-data-llms.txt
   - type: APIReference
     url: https://gzw-data.dev/docs/
+- aid: gzw-data:gzw-data-changes-api
+  name: GZW Data API Changes API
+  description: The Changes API from GZW Data API — 2 operation(s) for changes.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Changes
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-changes-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+- aid: gzw-data:gzw-data-schema-api
+  name: GZW Data API Schema API
+  description: The Schema API from GZW Data API — 2 operation(s) for schema.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Schema
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-schema-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+- aid: gzw-data:gzw-data-search-api
+  name: GZW Data API Search API
+  description: The Search API from GZW Data API — 2 operation(s) for search.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-search-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
+- aid: gzw-data:gzw-data-version-api
+  name: GZW Data API Version API
+  description: The Version API from GZW Data API — 2 operation(s) for version.
+  humanURL: https://gzw-data.dev/docs/
+  baseURL: https://gzw-data.dev/api/v1
+  tags:
+  - Version
+  properties:
+  - type: OpenAPI
+    url: openapi/gzw-data-version-api-openapi.yml
+  - type: Documentation
+    url: https://gzw-data.dev/docs/
+  - type: APIReference
+    url: https://gzw-data.dev/docs/
+  - type: LLMsTxt
+    url: https://gzw-data.dev/llms.txt
 maintainers:
 - FN: ZoniBoy00
+  email: support@gzw-data.dev
   url: https://github.com/ZoniBoy00/gzw-data
+  x-email-source: >-
+    Published by the provider as the general support contact on https://gzw-data.dev/ and
+    https://gzw-data.dev/docs/ ("Project contact — support@gzw-data.dev, General API questions and
+    support"). security@gzw-data.dev is the separate private vulnerability channel and is recorded
+    in security/gzw-data-vulnerability-disclosure.yml, not here.
 common:
+- type: Vocabulary
+  name: Field vocabulary derived from the 85 published dataset schemas
+  url: vocabulary/gzw-data-vocabulary.yml
+- type: SpectralRules
+  name: Spectral ruleset written against this provider's own contract gaps
+  url: rules/gzw-data-spectral.yaml
+- type: Sandbox
+  name: Sandbox posture — no test credentials exist; production is the safe environment
+  url: sandbox/gzw-data-sandbox.yml
+- type: WellKnown
+  name: /.well-known/ discovery probe (security.txt served, everything else 404)
+  url: well-known/gzw-data-well-known.yml
+- type: SecurityTxt
+  name: RFC 9116 security.txt
+  url: https://gzw-data.dev/.well-known/security.txt
+- type: Security
+  name: Security Policy (vulnerability disclosure)
+  url: https://github.com/ZoniBoy00/gzw-data/blob/main/SECURITY.md
+- type: ChangeLog
+  name: Snapshot version + dataset change feed
+  url: changelog/gzw-data-changelog.yml
+- type: Examples
+  name: Captured live request/response examples
+  url: examples/_index.yml
+- type: JSONSchema
+  name: JSON Schema 2020-12 per dataset, derived from components.schemas
+  url: json-schema/_index.yml
+- type: LLMsTxt
+  name: Provider-published llms.txt (verbatim)
+  url: llms/gzw-data-llms.txt
+- type: Playground
+  name: API Playground — run read-only requests without writing code
+  url: https://gzw-data.dev/playground/
+- type: Pricing
+  name: Pricing block on the developer reference — free, no usage plan or account
+  url: https://gzw-data.dev/docs/
+- type: HelpCenter
+  name: Feedback desk — bug, missing data, feature or API support
+  url: https://gzw-data.dev/feedback/
+- type: AgenticAccess
+  url: agentic-access/gzw-data-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/gzw-data-vulnerability-disclosure.yml
 - type: License
   name: MIT
   url: https://github.com/ZoniBoy00/gzw-data/blob/main/LICENSE
@@ -1765,7 +1901,18 @@ generated:
   confidence: 95
   at: '2026-08-26T18:36:10.596Z'
 x-enrichment:
-  date: '2026-08-26'
+  date: '2026-09-03'
   status: enriched
-  artifacts_added: 19
+  artifacts_added: 119
+  artifacts_updated: 111
   pass: local-v1
+  previous:
+    date: '2026-08-26'
+    status: enriched
+    artifacts_added: 19
+  highlights: >-
+    Re-harvested the contract: the provider moved implementation 4.0.0 -> 4.2.0 (362 paths, every
+    operation now declaring 200/400/404/429 against shared $ref schemas) and shipped a security.txt,
+    a SECURITY.md, SPF/DMARC records, a /playground/ and a /feedback/ page. New artifacts: verbatim
+    provider llms.txt, security.txt, vulnerability disclosure, changelog, examples, json-schema (92
+    documents), vocabulary, Spectral rules, sandbox, agentic-access, a fourth agent skill.

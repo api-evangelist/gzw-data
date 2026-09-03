@@ -1,4 +1,4 @@
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: searched
 source: https://gzw-data.dev/docs/ (section "Authentication — None, Public access, no API key") + https://gzw-data.dev/llms.txt
 docs: https://gzw-data.dev/docs/
@@ -16,7 +16,7 @@ schemes: []
 evidence:
 - url: https://gzw-data.dev/api/v1/spec
   status: 200
-  finding: no components.securitySchemes, no security block, 352 operations
+  finding: 'no components.securitySchemes, no security block, 362 operations (re-verified 2026-09-03 against implementation 4.2.0)'
 - url: https://gzw-data.dev/api/v1/weapons
   status: 200
   finding: 200 OK anonymously, no credential supplied

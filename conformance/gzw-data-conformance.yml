@@ -1,6 +1,6 @@
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: derived
-source: openapi/gzw-data-openapi.json + https://gzw-data.dev/docs/ + live probes 2026-08-26
+source: openapi/_original/gzw-data-openapi.json (4.2.0) + https://gzw-data.dev/docs/ + live probes 2026-09-03
 note: >-
   Gaming / game-data is a market with no recognised machine-readable domain standard, so the
   domain_standard_conformance slot is legitimately empty — reward-only, nothing invented to fill it.
@@ -10,9 +10,13 @@ conformance:
   conforms: true
   version: 3.0.3
   evidence: >-
-    https://gzw-data.dev/api/v1/spec returns a parseable OpenAPI 3.0.3 document with 352 paths and
-    87 component schemas (85 dataset schemas + ApiError + ApiErrorResponse). Saved verbatim to
-    openapi/gzw-data-openapi.json.
+    https://gzw-data.dev/api/v1/spec returns a parseable OpenAPI 3.0.3 document, implementation
+    version 4.2.0, with 362 paths and 92 component schemas (85 dataset schemas + ApiError,
+    ApiErrorResponse, ObjectResponse, PaginatedResponse, RecordResponse, MetadataResponse,
+    Capabilities). Re-fetched and saved verbatim to openapi/_original/gzw-data-openapi.json on
+    2026-09-03. UPGRADE SINCE 4.0.0: every operation now declares 200/400/404/429 responses that
+    $ref the shared schemas, and 176 declare their path parameters — the 4.0.0 document declared
+    no responses at all. Still no operationId, no operation description and no tags.
 - id: rest
   conforms: true
   evidence: Resource-oriented JSON over HTTPS; collection and single-record routes per dataset; GET only.
@@ -33,7 +37,7 @@ conformance:
     in the OpenAPI, only in docs prose.
 - id: idempotency
   conforms: na
-  evidence: Read-only API — 352 GET operations and no write surface. Nothing to make idempotent.
+  evidence: Read-only API — 362 GET operations and no write surface. Nothing to make idempotent.
 - id: oauth2
   conforms: false
   evidence: No securitySchemes in the spec; /.well-known/oauth-authorization-server returned 404.
@@ -41,11 +45,25 @@ conformance:
   conforms: false
   evidence: /.well-known/openid-configuration returned 404.
 - id: rfc9116
-  conforms: false
-  evidence: /.well-known/security.txt returned 404.
+  conforms: true
+  evidence: >-
+    CHANGED SINCE 2026-08-26 (was 404). https://gzw-data.dev/.well-known/security.txt returned 200
+    on 2026-09-03 with a valid RFC 9116 document: Contact mailto:security@gzw-data.dev, Expires
+    2027-08-27, Preferred-Languages fi/en, Canonical self-reference. Required fields Contact and
+    Expires are both present and the Expires date is in the future. No Policy: field, so the
+    SECURITY.md policy is not reachable from the document itself. Saved verbatim to
+    well-known/gzw-data-security.txt.
 - id: rfc8594
   conforms: false
   evidence: No Deprecation or Sunset header returned on the legacy /api prefix; no deprecation policy published.
+- id: json-schema-2020-12
+  conforms: partial
+  evidence: >-
+    The provider does not publish JSON Schema documents. The OpenAPI 3.0.3 components.schemas are
+    OAS 3.0 Schema Objects (a JSON Schema draft-04 dialect subset), and GET /api/v1/schema/{dataset}
+    returns a generated FIELD-METADATA document, not a schema document. API Evangelist derived
+    2020-12 documents from components.schemas into json-schema/ — that is our derivation, not a
+    provider conformance claim.
 - id: rfc8288
   conforms: false
   evidence: No Link header returned on paginated responses; pagination is body-only.

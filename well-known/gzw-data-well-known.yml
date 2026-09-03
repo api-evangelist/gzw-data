@@ -1,18 +1,35 @@
-generated: '2026-08-26'
+generated: '2026-09-03'
 method: probed
-source: live HTTP probes of https://gzw-data.dev/.well-known/* on 2026-08-26
+source: live HTTP probes of https://gzw-data.dev on 2026-09-03 (re-probe of the 2026-08-26 sweep)
 note: >-
-  Every /.well-known/ path probed on the single production host returned 404 with a plain-text
-  Vercel NOT_FOUND body — a genuine absence, not an SPA catch-all. Because nothing was served,
-  NO WellKnown or SecurityTxt pointer is emitted in apis.yml; this file records the absence only.
-  /robots.txt and /sitemap.xml ARE served (200) but are not /.well-known/ documents and are
-  recorded here separately for completeness.
+  CHANGE SINCE THE LAST ROUND: /.well-known/security.txt now returns 200 with a valid RFC 9116
+  document (Contact + Expires + Canonical). On 2026-08-26 every /.well-known/ path on this host
+  returned 404, so this is a real new provider surface, not a re-read of an existing one. The
+  document was saved verbatim to gzw-data-security.txt and WellKnown + SecurityTxt pointers are
+  now emitted in apis.yml. Everything else still 404s with the same 79-byte plain-text Vercel
+  NOT_FOUND body — a genuine absence, not an SPA catch-all, confirmed by the negative control
+  below. /apis.json, /.well-known/apis.json and /apis.yml were probed for the first time this
+  round (roadmap#164) and all 404 — the claim in this repo's PROFILE.md that an apis.json is
+  served at https://gzw-data.dev/apis.json is WRONG and is corrected here by probe.
+path_echo_control: passed
+soft_404_control:
+  path: /.well-known/gzw-data-negative-control-7f3ab91c.json
+  status: 404
+  bytes: 79
+  content_type: text/plain
+  finding: >-
+    A path that cannot exist returns 404, so this host does not echo paths and does not answer
+    2xx for arbitrary /.well-known/* requests. Every 200 recorded below is therefore a real
+    document, and every 404 is a real absence.
+hit_count: 1
 hosts:
-- host: gzw-data.dev
+- host: https://gzw-data.dev
   documents:
   - path: /.well-known/security.txt
-    status: 404
-    file: null
+    status: 200
+    file: gzw-data-security.txt
+    content_type: text/plain; charset=utf-8
+    note: RFC 9116. Contact mailto:security@gzw-data.dev, Expires 2027-08-27, Preferred-Languages fi/en. No Policy or Encryption field.
   - path: /.well-known/openid-configuration
     status: 404
     file: null
@@ -25,7 +42,28 @@ hosts:
   - path: /.well-known/api-catalog
     status: 404
     file: null
+  - path: /.well-known/api-catalog.json
+    status: 404
+    file: null
   - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/ucp.json
+    status: 404
+    file: null
+  - path: /.well-known/acp.json
+    status: 404
+    file: null
+  - path: /.well-known/aauth-resource.json
+    status: 404
+    file: null
+  - path: /.well-known/apis.json
+    status: 404
+    file: null
+  - path: /apis.json
+    status: 404
+    file: null
+  - path: /apis.yml
     status: 404
     file: null
   - path: /.well-known/agent-card.json
@@ -43,3 +81,7 @@ other_root_documents:
   status: 200
   content_type: application/xml
   note: 4 URLs — /, /docs/, /privacy-policy/, /terms-of-service/
+- path: /llms.txt
+  status: 200
+  content_type: text/plain
+  note: Served by the provider; saved verbatim to llms/gzw-data-llms.txt (method searched).

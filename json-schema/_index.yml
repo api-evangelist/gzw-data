@@ -1,0 +1,872 @@
+generated: '2026-09-03'
+method: derived
+source: openapi/_original/gzw-data-openapi.json (components.schemas, verbatim from https://gzw-data.dev/api/v1/spec
+  4.2.0, fetched 2026-09-03)
+note: 'One JSON Schema 2020-12 document per schema the provider publishes in components.schemas — 85 dataset
+  record schemas plus 7 envelope schemas. Constraints are carried over VERBATIM; nothing was tightened,
+  widened or invented. Internal $refs were rewritten from #/components/schemas/<X> to the sibling file.
+  The provider also serves its own per-dataset field metadata at GET /api/v1/schema/{dataset}, which is
+  a generated field-observation document (types/presentCount/optional/nullable/example), NOT a JSON Schema
+  — two captured responses are kept in examples/ as evidence rather than being passed off as schema documents.'
+spec: https://json-schema.org/draft/2020-12/schema
+schema_count: 92
+record_schemas: 85
+envelope_schemas:
+- ApiError
+- ApiErrorResponse
+- Capabilities
+- MetadataResponse
+- ObjectResponse
+- PaginatedResponse
+- RecordResponse
+provider_metadata_endpoints:
+- path: /api/v1/metadata
+  description: 'dataset registry: names, file, itemCount, observed fields'
+- path: /api/v1/metadata/{dataset}
+  description: per-dataset field metadata
+- path: /api/v1/schema/{dataset}
+  description: per-dataset generated field metadata for code generators/validators (added in 4.2.0)
+schemas:
+- name: ApiError
+  file: gzw-data-ApiError.json
+  properties: 4
+  required:
+  - code
+  - message
+- name: ApiErrorResponse
+  file: gzw-data-ApiErrorResponse.json
+  properties: 3
+  required:
+  - error
+  - source
+  - timestamp
+- name: Capabilities
+  file: gzw-data-Capabilities.json
+  properties: 4
+  required:
+  - operations
+  - filters
+  - sorting
+  - counts
+- name: MetadataResponse
+  file: gzw-data-MetadataResponse.json
+  properties: 0
+  required: []
+- name: ObjectResponse
+  file: gzw-data-ObjectResponse.json
+  properties: 6
+  required:
+  - data
+  - source
+  - timestamp
+- name: PaginatedResponse
+  file: gzw-data-PaginatedResponse.json
+  properties: 0
+  required: []
+- name: RecordResponse
+  file: gzw-data-RecordResponse.json
+  properties: 0
+  required: []
+- name: ammo
+  file: gzw-data-ammo.json
+  properties: 13
+  required:
+  - id
+  - name
+- name: apparel_items
+  file: gzw-data-apparel-items.json
+  properties: 3
+  required:
+  - id
+  - name
+- name: auxiliary
+  file: gzw-data-auxiliary.json
+  properties: 8
+  required:
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: backpacks
+  file: gzw-data-backpacks.json
+  properties: 9
+  required:
+  - id
+  - image
+  - name
+  - slots
+  - type
+  - weight
+- name: barrels
+  file: gzw-data-barrels.json
+  properties: 13
+  required:
+  - accuracy
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: belts
+  file: gzw-data-belts.json
+  properties: 9
+  required:
+  - grid_size
+  - id
+  - image
+  - manufacturer
+  - name
+  - slots
+  - sold_by
+  - type
+  - weight
+- name: binoculars
+  file: gzw-data-binoculars.json
+  properties: 7
+  required:
+  - grid_size
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: boots
+  file: gzw-data-boots.json
+  properties: 3
+  required:
+  - id
+  - image
+  - name
+- name: buffer_tubes
+  file: gzw-data-buffer-tubes.json
+  properties: 9
+  required:
+  - id
+  - manufacturer
+  - name
+  - size_change_horizontal
+  - sold_by
+  - type
+  - weight
+- name: charging_handle
+  file: gzw-data-charging-handle.json
+  properties: 9
+  required:
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: cleanup
+  file: gzw-data-cleanup.json
+  properties: 10
+  required:
+  - id
+  - image
+  - name
+- name: collimators
+  file: gzw-data-collimators.json
+  properties: 11
+  required:
+  - id
+  - manufacturer
+  - name
+  - sighting_range
+  - sold_by
+  - type
+  - weight
+- name: containers
+  file: gzw-data-containers.json
+  properties: 13
+  required:
+  - grid_size
+  - id
+  - image
+  - inventory_layout_(x/y)
+  - name
+  - sold_by
+  - type
+- name: contract
+  file: gzw-data-contract.json
+  properties: 5
+  required:
+  - id
+  - image
+  - location
+  - name
+  - vendor
+- name: contracts
+  file: gzw-data-contracts.json
+  properties: 5
+  required:
+  - id
+  - image
+  - location
+  - name
+  - vendor
+- name: drinks
+  file: gzw-data-drinks.json
+  properties: 11
+  required:
+  - charges
+  - effect
+  - grid_size
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: electronics
+  file: gzw-data-electronics.json
+  properties: 8
+  required:
+  - grid_size
+  - id
+  - image
+  - name
+  - sell_price
+  - type
+  - weight
+- name: face_cover
+  file: gzw-data-face-cover.json
+  properties: 8
+  required:
+  - grid_size
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: food
+  file: gzw-data-food.json
+  properties: 21
+  required:
+  - charges
+  - grid_size
+  - id
+  - name
+  - type
+  - weight
+- name: foregrips
+  file: gzw-data-foregrips.json
+  properties: 11
+  required:
+  - id
+  - manufacturer
+  - name
+  - recoil_control
+  - sold_by
+  - type
+  - weapon_handling
+  - weight
+- name: front_iron_sights
+  file: gzw-data-front-iron-sights.json
+  properties: 11
+  required:
+  - id
+  - manufacturer
+  - name
+  - sighting_range
+  - sold_by
+  - type
+  - weight
+- name: funds
+  file: gzw-data-funds.json
+  properties: 7
+  required:
+  - grid_size
+  - id
+  - image
+  - name
+  - sell_price
+  - type
+  - weight
+- name: gas_blocks
+  file: gzw-data-gas-blocks.json
+  properties: 11
+  required:
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: gear
+  file: gzw-data-gear.json
+  properties: 9
+  required:
+  - id
+  - name
+- name: glasses
+  file: gzw-data-glasses.json
+  properties: 9
+  required:
+  - flashbang_resistance
+  - grid_size
+  - id
+  - name
+  - sold_by
+  - type
+- name: gloves
+  file: gzw-data-gloves.json
+  properties: 3
+  required:
+  - id
+  - name
+- name: handguards
+  file: gzw-data-handguards.json
+  properties: 14
+  required:
+  - id
+  - manufacturer
+  - name
+  - type
+  - weight
+- name: headsets
+  file: gzw-data-headsets.json
+  properties: 9
+  required:
+  - grid_size
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: helmet_mounts
+  file: gzw-data-helmet-mounts.json
+  properties: 7
+  required:
+  - id
+  - image
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: helmets
+  file: gzw-data-helmets.json
+  properties: 12
+  required:
+  - grid_size
+  - id
+  - name
+- name: hidden_task
+  file: gzw-data-hidden-task.json
+  properties: 6
+  required:
+  - hidden_task
+  - id
+  - image
+  - location
+  - name
+  - vendor
+- name: household_item
+  file: gzw-data-household-item.json
+  properties: 8
+  required:
+  - grid_size
+  - id
+  - name
+  - sell_price
+  - type
+  - weight
+- name: intels
+  file: gzw-data-intels.json
+  properties: 4
+  required:
+  - id
+  - name
+  - type
+- name: items
+  file: gzw-data-items.json
+  properties: 10
+  required:
+  - buy_price
+  - duration
+  - grid_size
+  - id
+  - image
+  - manufacturer
+  - name
+  - sell_price
+  - sold_by
+  - weight
+- name: jewellery
+  file: gzw-data-jewellery.json
+  properties: 8
+  required:
+  - grid_size
+  - id
+  - name
+  - sell_price
+  - type
+  - weight
+- name: keycards
+  file: gzw-data-keycards.json
+  properties: 7
+  required:
+  - id
+  - image
+  - name
+- name: keys
+  file: gzw-data-keys.json
+  properties: 11
+  required:
+  - id
+  - image
+  - name
+- name: laboratory_supplies
+  file: gzw-data-laboratory-supplies.json
+  properties: 8
+  required:
+  - grid_size
+  - id
+  - name
+  - sell_price
+  - type
+  - weight
+- name: lockboxes
+  file: gzw-data-lockboxes.json
+  properties: 8
+  required:
+  - grid_size
+  - id
+  - image
+  - inventory_layout_(x/y)
+  - name
+  - slots
+  - type
+  - weight
+- name: loot_container
+  file: gzw-data-loot-container.json
+  properties: 6
+  required:
+  - id
+  - name
+  - type
+- name: loot_containers
+  file: gzw-data-loot-containers.json
+  properties: 5
+  required:
+  - id
+  - name
+- name: loot_items
+  file: gzw-data-loot-items.json
+  properties: 5
+  required:
+  - id
+  - image
+  - name
+  - weight
+- name: magazines
+  file: gzw-data-magazines.json
+  properties: 13
+  required:
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: main_task
+  file: gzw-data-main-task.json
+  properties: 6
+  required:
+  - id
+  - image
+  - location
+  - name
+  - vendor
+- name: medical
+  file: gzw-data-medical.json
+  properties: 12
+  required:
+  - id
+  - name
+- name: military_equipment
+  file: gzw-data-military-equipment.json
+  properties: 7
+  required:
+  - grid_size
+  - id
+  - name
+  - sell_price
+  - type
+  - weight
+- name: military_material
+  file: gzw-data-military-material.json
+  properties: 7
+  required:
+  - grid_size
+  - id
+  - image
+  - name
+  - sell_price
+  - type
+  - weight
+- name: mortar_rounds
+  file: gzw-data-mortar-rounds.json
+  properties: 9
+  required:
+  - grid_size
+  - id
+  - image
+  - manufacturer
+  - name
+  - sell_price
+  - sold_by
+  - weight
+- name: mounts
+  file: gzw-data-mounts.json
+  properties: 8
+  required:
+  - id
+  - manufacturer
+  - name
+  - type
+  - weight
+- name: muzzle_devices
+  file: gzw-data-muzzle-devices.json
+  properties: 10
+  required:
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: night_vision
+  file: gzw-data-night-vision.json
+  properties: 13
+  required:
+  - field_of_view
+  - figure_of_merit
+  - id
+  - image
+  - manufacturer
+  - name
+  - phosphor_color
+  - sold_by
+  - type
+  - weight
+- name: paper
+  file: gzw-data-paper.json
+  properties: 3
+  required:
+  - id
+  - name
+  - type
+- name: pistol_grips
+  file: gzw-data-pistol-grips.json
+  properties: 13
+  required:
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: plate_carrier
+  file: gzw-data-plate-carrier.json
+  properties: 8
+  required:
+  - armor_locations
+  - id
+  - image
+  - material
+  - name
+  - nij_class
+  - sold_by
+  - weight
+- name: plate_carriers
+  file: gzw-data-plate-carriers.json
+  properties: 13
+  required:
+  - id
+  - image
+  - material
+  - name
+  - nij_class
+  - weight
+- name: provisions
+  file: gzw-data-provisions.json
+  properties: 6
+  required:
+  - grid
+  - id
+  - name
+  - source
+  - weight
+- name: reading_intel
+  file: gzw-data-reading-intel.json
+  properties: 4
+  required:
+  - id
+  - image
+  - name
+  - type
+- name: rear_iron_sights
+  file: gzw-data-rear-iron-sights.json
+  properties: 11
+  required:
+  - id
+  - manufacturer
+  - name
+  - sighting_range
+  - sold_by
+  - type
+  - weight
+- name: removed_content
+  file: gzw-data-removed-content.json
+  properties: 10
+  required:
+  - id
+  - name
+- name: repair_kits
+  file: gzw-data-repair-kits.json
+  properties: 12
+  required:
+  - buy_price
+  - charges
+  - id
+  - image
+  - manufacturer
+  - name
+  - repair_efficiency
+  - sold_by
+  - type
+  - weight
+- name: rigs
+  file: gzw-data-rigs.json
+  properties: 10
+  required:
+  - id
+  - name
+  - slots
+  - sold_by
+  - type
+  - weight
+- name: scopes
+  file: gzw-data-scopes.json
+  properties: 14
+  required:
+  - id
+  - magnification
+  - manufacturer
+  - name
+  - sighting_range
+  - sold_by
+  - type
+  - weight
+- name: shirts
+  file: gzw-data-shirts.json
+  properties: 3
+  required:
+  - id
+  - image
+  - name
+- name: side_task
+  file: gzw-data-side-task.json
+  properties: 8
+  required:
+  - id
+  - image
+  - name
+  - vendor
+- name: slides
+  file: gzw-data-slides.json
+  properties: 10
+  required:
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: squad_strike_missions
+  file: gzw-data-squad-strike-missions.json
+  properties: 5
+  required:
+  - id
+  - image
+  - location
+  - name
+  - vendor
+- name: squad_strike_missions_item
+  file: gzw-data-squad-strike-missions-item.json
+  properties: 5
+  required:
+  - grid_size
+  - id
+  - name
+  - weight
+- name: stock_adapters
+  file: gzw-data-stock-adapters.json
+  properties: 9
+  required:
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: stocks
+  file: gzw-data-stocks.json
+  properties: 13
+  required:
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: suppressors
+  file: gzw-data-suppressors.json
+  properties: 17
+  required:
+  - id
+  - loudness_reduction
+  - manufacturer
+  - muzzle_device_efficiency
+  - name
+  - sold_by
+  - type
+  - weight
+- name: tactical_devices
+  file: gzw-data-tactical-devices.json
+  properties: 10
+  required:
+  - id
+  - manufacturer
+  - modes
+  - name
+  - type
+  - weight
+- name: task_items
+  file: gzw-data-task-items.json
+  properties: 7
+  required:
+  - id
+  - name
+- name: tasks
+  file: gzw-data-tasks.json
+  properties: 9
+  required:
+  - id
+  - image
+  - name
+  - vendor
+- name: throwables
+  file: gzw-data-throwables.json
+  properties: 13
+  required:
+  - fuse_delay
+  - id
+  - image
+  - manufacturer
+  - name
+  - sell_price
+  - type
+  - weight
+- name: tools
+  file: gzw-data-tools.json
+  properties: 9
+  required:
+  - grid_size
+  - id
+  - name
+  - weight
+- name: trousers
+  file: gzw-data-trousers.json
+  properties: 3
+  required:
+  - id
+  - image
+  - name
+- name: upcoming_content
+  file: gzw-data-upcoming-content.json
+  properties: 19
+  required:
+  - id
+  - name
+  - type
+- name: upper_receivers
+  file: gzw-data-upper-receivers.json
+  properties: 9
+  required:
+  - id
+  - manufacturer
+  - name
+  - sold_by
+  - type
+  - weight
+- name: valuables
+  file: gzw-data-valuables.json
+  properties: 6
+  required:
+  - grid_size
+  - id
+  - image
+  - name
+  - type
+  - weight
+- name: vendors
+  file: gzw-data-vendors.json
+  properties: 5
+  required:
+  - full_name
+  - id
+  - image
+  - name
+- name: vests
+  file: gzw-data-vests.json
+  properties: 11
+  required:
+  - id
+  - name
+- name: vices
+  file: gzw-data-vices.json
+  properties: 8
+  required:
+  - grid_size
+  - id
+  - name
+  - sell_price
+  - type
+  - weight
+- name: weapon_parts
+  file: gzw-data-weapon-parts.json
+  properties: 8
+  required:
+  - id
+  - image
+  - manufacturer
+  - name
+  - size_change_horizontal
+  - size_change_vertical
+  - type
+  - weight
+- name: weapons
+  file: gzw-data-weapons.json
+  properties: 22
+  required:
+  - id
+  - name
+- name: workshop_supplies
+  file: gzw-data-workshop-supplies.json
+  properties: 8
+  required:
+  - grid_size
+  - id
+  - name
+  - sell_price
+  - type
+  - weight
