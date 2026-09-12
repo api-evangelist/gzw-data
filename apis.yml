@@ -1801,6 +1801,8 @@ maintainers:
     support"). security@gzw-data.dev is the separate private vulnerability channel and is recorded
     in security/gzw-data-vulnerability-disclosure.yml, not here.
 common:
+- type: Website
+  url: https://gzw-data.dev/
 - type: Vocabulary
   name: Field vocabulary derived from the 85 published dataset schemas
   url: vocabulary/gzw-data-vocabulary.yml
