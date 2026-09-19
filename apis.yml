@@ -60,7 +60,7 @@ tags:
 - Missions
 - loot
 - REST API
-- Public API
+- Public APIs
 - No Auth
 - Read Only
 - Free API
@@ -485,6 +485,8 @@ apis:
   humanURL: https://gzw-data.dev/docs/
   baseURL: https://gzw-data.dev/api/v1
   tags:
+  - Fund
+  tags_raw:
   - Funds
   properties:
   - type: OpenAPI
