@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Gzw Data Ready API
+  title: GZW Data Ready API
   version: 4.2.0
-  description: 'Operations tagged Ready across 2 of this provider''s published API definitions: gzw-data-openapi.json, gzw-data-openapi.json. Each path carries the servers of the definition it was published in.'
+  description: Comprehensive Gray Zone Warfare game data API.
 servers:
 - url: https://gzw-data.dev
 tags:
@@ -42,8 +42,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Ready
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiReady
+      x-operation-id-source: derived
   /api/v1/ready:
     get:
       summary: Lightweight readiness probe for loaded datasets
@@ -78,8 +78,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Ready
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1Ready
+      x-operation-id-source: derived
 components:
   schemas:
     ApiError:
@@ -136,6 +136,3 @@ components:
           type: string
           example: 4.2.0
       additionalProperties: true
-x-refined-from:
-- gzw-data-openapi.json
-- gzw-data-openapi.json

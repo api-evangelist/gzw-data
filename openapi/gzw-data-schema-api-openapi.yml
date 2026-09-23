@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Gzw Data Schema API
+  title: GZW Data Schema API
   version: 4.2.0
-  description: 'Operations tagged Schema across 2 of this provider''s published API definitions: gzw-data-openapi.json, gzw-data-openapi.json. Each path carries the servers of the definition it was published in.'
+  description: Comprehensive Gray Zone Warfare game data API.
 servers:
 - url: https://gzw-data.dev
 tags:
@@ -48,8 +48,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Schema
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiSchemaByDataset
+      x-operation-id-source: derived
   /api/v1/schema/{dataset}:
     get:
       summary: Get a machine-readable schema for one dataset
@@ -90,8 +90,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Schema
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1SchemaByDataset
+      x-operation-id-source: derived
 components:
   schemas:
     ApiError:
@@ -148,6 +148,3 @@ components:
           type: string
           example: 4.2.0
       additionalProperties: true
-x-refined-from:
-- gzw-data-openapi.json
-- gzw-data-openapi.json

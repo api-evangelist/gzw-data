@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Gzw Data Armor API
+  title: GZW Data Armor API
   version: 4.2.0
-  description: 'Operations tagged Armor across 2 of this provider''s published API definitions: gzw-data-openapi.json, gzw-data-openapi.json. Each path carries the servers of the definition it was published in.'
+  description: Comprehensive Gray Zone Warfare game data API.
 servers:
 - url: https://gzw-data.dev
 tags:
@@ -42,8 +42,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Armor
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiArmor
+      x-operation-id-source: derived
   /api/v1/armor:
     get:
       summary: Armor (vests + helmets + glasses)
@@ -78,8 +78,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Armor
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1Armor
+      x-operation-id-source: derived
 components:
   schemas:
     ApiError:
@@ -99,40 +99,6 @@ components:
         id:
           type: string
       additionalProperties: true
-    PaginatedResponse:
-      allOf:
-      - $ref: '#/components/schemas/ObjectResponse'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              type: object
-          count:
-            type: integer
-          page:
-            type: integer
-          perPage:
-            type: integer
-          total:
-            type: integer
-          totalPages:
-            type: integer
-    ApiErrorResponse:
-      type: object
-      required:
-      - error
-      - source
-      - timestamp
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        source:
-          type: string
-          example: GZW Data API
-        timestamp:
-          type: string
-          format: date-time
     ObjectResponse:
       type: object
       required:
@@ -155,6 +121,37 @@ components:
           type: string
           example: 4.2.0
       additionalProperties: true
-x-refined-from:
-- gzw-data-openapi.json
-- gzw-data-openapi.json
+    ApiErrorResponse:
+      type: object
+      required:
+      - error
+      - source
+      - timestamp
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
+          type: string
+          example: GZW Data API
+        timestamp:
+          type: string
+          format: date-time
+    PaginatedResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              type: object
+          count:
+            type: integer
+          page:
+            type: integer
+          perPage:
+            type: integer
+          total:
+            type: integer
+          totalPages:
+            type: integer

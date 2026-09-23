@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Gzw Data Items API
+  title: GZW Data Items API
   version: 4.2.0
-  description: 'Operations tagged Items across 2 of this provider''s published API definitions: gzw-data-openapi.json, gzw-data-openapi.json. Each path carries the servers of the definition it was published in.'
+  description: Comprehensive Gray Zone Warfare game data API.
 servers:
 - url: https://gzw-data.dev
 tags:
@@ -48,8 +48,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Items
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiItemsByIdContext
+      x-operation-id-source: derived
   /api/items:
     get:
       summary: items (3 items)
@@ -84,8 +84,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Items
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiItems
+      x-operation-id-source: derived
   /api/items/{id}:
     get:
       summary: Get one items record by id
@@ -126,8 +126,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Items
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiItemsById
+      x-operation-id-source: derived
   /api/v1/items/{id}/context:
     get:
       summary: Get an item with related vendor and dataset references
@@ -168,8 +168,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Items
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1ItemsByIdContext
+      x-operation-id-source: derived
   /api/v1/items:
     get:
       summary: items (3 items)
@@ -204,8 +204,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Items
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1Items
+      x-operation-id-source: derived
   /api/v1/items/{id}:
     get:
       summary: Get one items record by id
@@ -246,68 +246,10 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Items
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1ItemsById
+      x-operation-id-source: derived
 components:
   schemas:
-    PaginatedResponse:
-      allOf:
-      - $ref: '#/components/schemas/ObjectResponse'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              type: object
-          count:
-            type: integer
-          page:
-            type: integer
-          perPage:
-            type: integer
-          total:
-            type: integer
-          totalPages:
-            type: integer
-    ApiError:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: string
-          example: DATASET_NOT_FOUND
-        message:
-          type: string
-          example: Dataset not found
-        dataset:
-          type: string
-        id:
-          type: string
-      additionalProperties: true
-    RecordResponse:
-      allOf:
-      - $ref: '#/components/schemas/ObjectResponse'
-      - type: object
-        properties:
-          data:
-            type: object
-    ApiErrorResponse:
-      type: object
-      required:
-      - error
-      - source
-      - timestamp
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        source:
-          type: string
-          example: GZW Data API
-        timestamp:
-          type: string
-          format: date-time
     ObjectResponse:
       type: object
       required:
@@ -330,6 +272,61 @@ components:
           type: string
           example: 4.2.0
       additionalProperties: true
-x-refined-from:
-- gzw-data-openapi.json
-- gzw-data-openapi.json
+    ApiError:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: DATASET_NOT_FOUND
+        message:
+          type: string
+          example: Dataset not found
+        dataset:
+          type: string
+        id:
+          type: string
+      additionalProperties: true
+    ApiErrorResponse:
+      type: object
+      required:
+      - error
+      - source
+      - timestamp
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
+          type: string
+          example: GZW Data API
+        timestamp:
+          type: string
+          format: date-time
+    PaginatedResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              type: object
+          count:
+            type: integer
+          page:
+            type: integer
+          perPage:
+            type: integer
+          total:
+            type: integer
+          totalPages:
+            type: integer
+    RecordResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: object

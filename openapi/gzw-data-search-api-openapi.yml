@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Gzw Data Search API
+  title: GZW Data Search API
   version: 4.2.0
-  description: 'Operations tagged Search across 2 of this provider''s published API definitions: gzw-data-openapi.json, gzw-data-openapi.json. Each path carries the servers of the definition it was published in.'
+  description: Comprehensive Gray Zone Warfare game data API.
 servers:
 - url: https://gzw-data.dev
 tags:
@@ -70,8 +70,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Search
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiSearch
+      x-operation-id-source: derived
   /api/v1/search:
     get:
       summary: Search records across datasets
@@ -134,8 +134,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Search
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1Search
+      x-operation-id-source: derived
 components:
   schemas:
     ApiError:
@@ -192,6 +192,3 @@ components:
           type: string
           example: 4.2.0
       additionalProperties: true
-x-refined-from:
-- gzw-data-openapi.json
-- gzw-data-openapi.json

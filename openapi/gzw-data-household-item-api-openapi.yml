@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Gzw Data Household Item API
+  title: GZW Data Household Item API
   version: 4.2.0
-  description: 'Operations tagged Household Item across 2 of this provider''s published API definitions: gzw-data-openapi.json, gzw-data-openapi.json. Each path carries the servers of the definition it was published in.'
+  description: Comprehensive Gray Zone Warfare game data API.
 servers:
 - url: https://gzw-data.dev
 tags:
@@ -42,8 +42,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Household Item
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiHouseholdItem
+      x-operation-id-source: derived
   /api/household_item/{id}:
     get:
       summary: Get one household_item record by id
@@ -84,8 +84,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Household Item
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiHouseholdItemById
+      x-operation-id-source: derived
   /api/v1/household_item:
     get:
       summary: household_item (20 items)
@@ -120,8 +120,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Household Item
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1HouseholdItem
+      x-operation-id-source: derived
   /api/v1/household_item/{id}:
     get:
       summary: Get one household_item record by id
@@ -162,68 +162,10 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Household Item
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1HouseholdItemById
+      x-operation-id-source: derived
 components:
   schemas:
-    PaginatedResponse:
-      allOf:
-      - $ref: '#/components/schemas/ObjectResponse'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              type: object
-          count:
-            type: integer
-          page:
-            type: integer
-          perPage:
-            type: integer
-          total:
-            type: integer
-          totalPages:
-            type: integer
-    ApiError:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: string
-          example: DATASET_NOT_FOUND
-        message:
-          type: string
-          example: Dataset not found
-        dataset:
-          type: string
-        id:
-          type: string
-      additionalProperties: true
-    RecordResponse:
-      allOf:
-      - $ref: '#/components/schemas/ObjectResponse'
-      - type: object
-        properties:
-          data:
-            type: object
-    ApiErrorResponse:
-      type: object
-      required:
-      - error
-      - source
-      - timestamp
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        source:
-          type: string
-          example: GZW Data API
-        timestamp:
-          type: string
-          format: date-time
     ObjectResponse:
       type: object
       required:
@@ -246,6 +188,61 @@ components:
           type: string
           example: 4.2.0
       additionalProperties: true
-x-refined-from:
-- gzw-data-openapi.json
-- gzw-data-openapi.json
+    ApiError:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: DATASET_NOT_FOUND
+        message:
+          type: string
+          example: Dataset not found
+        dataset:
+          type: string
+        id:
+          type: string
+      additionalProperties: true
+    ApiErrorResponse:
+      type: object
+      required:
+      - error
+      - source
+      - timestamp
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
+          type: string
+          example: GZW Data API
+        timestamp:
+          type: string
+          format: date-time
+    PaginatedResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              type: object
+          count:
+            type: integer
+          page:
+            type: integer
+          perPage:
+            type: integer
+          total:
+            type: integer
+          totalPages:
+            type: integer
+    RecordResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: object

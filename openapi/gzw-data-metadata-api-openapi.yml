@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Gzw Data Metadata API
+  title: GZW Data Metadata API
   version: 4.2.0
-  description: 'Operations tagged Metadata across 2 of this provider''s published API definitions: gzw-data-openapi.json, gzw-data-openapi.json. Each path carries the servers of the definition it was published in.'
+  description: Comprehensive Gray Zone Warfare game data API.
 servers:
 - url: https://gzw-data.dev
 tags:
@@ -42,8 +42,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Metadata
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiMetadata
+      x-operation-id-source: derived
   /api/metadata/{dataset}:
     get:
       summary: Get schema metadata for one dataset
@@ -84,8 +84,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Metadata
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiMetadataByDataset
+      x-operation-id-source: derived
   /api/v1/metadata:
     get:
       summary: Dataset schema metadata
@@ -120,8 +120,8 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Metadata
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1Metadata
+      x-operation-id-source: derived
   /api/v1/metadata/{dataset}:
     get:
       summary: Get schema metadata for one dataset
@@ -162,10 +162,61 @@ paths:
                 $ref: '#/components/schemas/ApiErrorResponse'
       tags:
       - Metadata
-    servers:
-    - url: https://gzw-data.dev
+      operationId: getApiV1MetadataByDataset
+      x-operation-id-source: derived
 components:
   schemas:
+    MetadataResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              datasetCount:
+                type: integer
+              datasets:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    file:
+                      type: string
+                    itemCount:
+                      type: integer
+                    fields: {}
+                    capabilities:
+                      $ref: '#/components/schemas/Capabilities'
+                  required:
+                  - name
+                  - itemCount
+                  - fields
+                  - capabilities
+    ObjectResponse:
+      type: object
+      required:
+      - data
+      - source
+      - timestamp
+      properties:
+        data: {}
+        source:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        dataVersion:
+          type: string
+        apiVersion:
+          type: string
+          example: v1
+        implementationVersion:
+          type: string
+          example: 4.2.0
+      additionalProperties: true
     ApiError:
       type: object
       required:
@@ -235,35 +286,6 @@ components:
               type: boolean
             includesPageCount:
               type: boolean
-    MetadataResponse:
-      allOf:
-      - $ref: '#/components/schemas/ObjectResponse'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              datasetCount:
-                type: integer
-              datasets:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                    file:
-                      type: string
-                    itemCount:
-                      type: integer
-                    fields: {}
-                    capabilities:
-                      $ref: '#/components/schemas/Capabilities'
-                  required:
-                  - name
-                  - itemCount
-                  - fields
-                  - capabilities
     ApiErrorResponse:
       type: object
       required:
@@ -279,28 +301,3 @@ components:
         timestamp:
           type: string
           format: date-time
-    ObjectResponse:
-      type: object
-      required:
-      - data
-      - source
-      - timestamp
-      properties:
-        data: {}
-        source:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-        dataVersion:
-          type: string
-        apiVersion:
-          type: string
-          example: v1
-        implementationVersion:
-          type: string
-          example: 4.2.0
-      additionalProperties: true
-x-refined-from:
-- gzw-data-openapi.json
-- gzw-data-openapi.json
