@@ -205,21 +205,6 @@ components:
         id:
           type: string
       additionalProperties: true
-    ApiErrorResponse:
-      type: object
-      required:
-      - error
-      - source
-      - timestamp
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        source:
-          type: string
-          example: GZW Data API
-        timestamp:
-          type: string
-          format: date-time
     PaginatedResponse:
       allOf:
       - $ref: '#/components/schemas/ObjectResponse'
@@ -246,3 +231,18 @@ components:
         properties:
           data:
             type: object
+    ApiErrorResponse:
+      type: object
+      required:
+      - error
+      - source
+      - timestamp
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
+          type: string
+          example: GZW Data API
+        timestamp:
+          type: string
+          format: date-time

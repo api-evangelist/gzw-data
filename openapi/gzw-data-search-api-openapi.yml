@@ -138,6 +138,28 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ObjectResponse:
+      type: object
+      required:
+      - data
+      - source
+      - timestamp
+      properties:
+        data: {}
+        source:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        dataVersion:
+          type: string
+        apiVersion:
+          type: string
+          example: v1
+        implementationVersion:
+          type: string
+          example: 4.2.0
+      additionalProperties: true
     ApiError:
       type: object
       required:
@@ -170,25 +192,3 @@ components:
         timestamp:
           type: string
           format: date-time
-    ObjectResponse:
-      type: object
-      required:
-      - data
-      - source
-      - timestamp
-      properties:
-        data: {}
-        source:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-        dataVersion:
-          type: string
-        apiVersion:
-          type: string
-          example: v1
-        implementationVersion:
-          type: string
-          example: 4.2.0
-      additionalProperties: true
