@@ -166,6 +166,23 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ApiError:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: DATASET_NOT_FOUND
+        message:
+          type: string
+          example: Dataset not found
+        dataset:
+          type: string
+        id:
+          type: string
+      additionalProperties: true
     ObjectResponse:
       type: object
       required:
@@ -188,23 +205,28 @@ components:
           type: string
           example: 4.2.0
       additionalProperties: true
-    ApiError:
+    ApiErrorResponse:
       type: object
       required:
-      - code
-      - message
+      - error
+      - source
+      - timestamp
       properties:
-        code:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
           type: string
-          example: DATASET_NOT_FOUND
-        message:
+          example: GZW Data API
+        timestamp:
           type: string
-          example: Dataset not found
-        dataset:
-          type: string
-        id:
-          type: string
-      additionalProperties: true
+          format: date-time
+    RecordResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: object
     PaginatedResponse:
       allOf:
       - $ref: '#/components/schemas/ObjectResponse'
@@ -224,25 +246,3 @@ components:
             type: integer
           totalPages:
             type: integer
-    RecordResponse:
-      allOf:
-      - $ref: '#/components/schemas/ObjectResponse'
-      - type: object
-        properties:
-          data:
-            type: object
-    ApiErrorResponse:
-      type: object
-      required:
-      - error
-      - source
-      - timestamp
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        source:
-          type: string
-          example: GZW Data API
-        timestamp:
-          type: string
-          format: date-time

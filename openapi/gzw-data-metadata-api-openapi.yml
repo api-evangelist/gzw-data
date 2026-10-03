@@ -166,6 +166,23 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ApiError:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: DATASET_NOT_FOUND
+        message:
+          type: string
+          example: Dataset not found
+        dataset:
+          type: string
+        id:
+          type: string
+      additionalProperties: true
     Capabilities:
       type: object
       required:
@@ -240,6 +257,21 @@ components:
           type: string
           example: 4.2.0
       additionalProperties: true
+    ApiErrorResponse:
+      type: object
+      required:
+      - error
+      - source
+      - timestamp
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
+          type: string
+          example: GZW Data API
+        timestamp:
+          type: string
+          format: date-time
     MetadataResponse:
       allOf:
       - $ref: '#/components/schemas/ObjectResponse'
@@ -269,35 +301,3 @@ components:
                   - itemCount
                   - fields
                   - capabilities
-    ApiError:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: string
-          example: DATASET_NOT_FOUND
-        message:
-          type: string
-          example: Dataset not found
-        dataset:
-          type: string
-        id:
-          type: string
-      additionalProperties: true
-    ApiErrorResponse:
-      type: object
-      required:
-      - error
-      - source
-      - timestamp
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        source:
-          type: string
-          example: GZW Data API
-        timestamp:
-          type: string
-          format: date-time
