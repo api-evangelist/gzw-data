@@ -1,41 +1,39 @@
-# Kin Score artifact — gzw-data — 2026-08-27T140727
+# Kin Score artifact — gzw-data — 2026-09-25T210408
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: gzw-data
-  schema_version: 0.15.1
-  scored_at: '2026-08-27'
-  run_ts: 2026-08-27T140727
-  composite: 45.7
-  band: developing
+  schema_version: 0.23.0
+  scored_at: '2026-09-25'
+  run_ts: 2026-09-25T210408
+  composite: 59.7
+  band: strong
   facets:
-    discoverability: 70.4
-    contract_quality: 26.7
-    governance: 16.7
-    operational_transparency: 28.9
-    developer_ergonomics: 70.8
-    commercial_clarity: 42.1
-    contract_governance: 16.7
-    access_clarity: 42.1
+    discoverability: 78.6
+    contract_quality: 44.8
+    contract_governance: 57.4
+    operational_transparency: 55.3
+    developer_ergonomics: 67.3
+    access_clarity: 52.6
   agent_readiness:
-    score: 21.8
-    band: agent-aware
+    score: 35.0
+    band: agent-ready
     dimensions:
       spec_presence: true
-      agentic_access: false
-      reversibility_documented: false
+      agentic_access: derived
+      reversibility_documented: na
       mcp_server: false
       auth_clarity: bearer
-      idempotency: false
-      error_semantics: documented
-      openapi_examples: false
-      rate_limit_signal: documented
+      idempotency: na
+      error_semantics: verified
+      openapi_examples: documented
+      rate_limit_signal: verified
       event_surface_described: false
       agent_skills: derived
       well_known_catalog: false
       consent_identity: false
       agent_card: false
-      dry_run_mode: false
+      dry_run_mode: na
       delegated_identity: false
       protected_resource_metadata: false
       dynamic_client_registration: false
@@ -44,9 +42,15 @@ kin_score:
     applies: true
     regime: Government & Public Sector
     regime_id: government
-    score: 46.3
+    score: 30.4
     matched_via: tags
   provenance:
     mcp: derived
     skills: derived
+    agentic_access: derived
     conformance: derived
+    contracts:
+      total: 95
+      derived: 0
+      coverage: 0.0
+      callable: 100.0
