@@ -82,6 +82,21 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ApiErrorResponse:
+      type: object
+      required:
+      - error
+      - source
+      - timestamp
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
+          type: string
+          example: GZW Data API
+        timestamp:
+          type: string
+          format: date-time
     ApiError:
       type: object
       required:
@@ -140,18 +155,3 @@ components:
           type: string
           example: 4.2.0
       additionalProperties: true
-    ApiErrorResponse:
-      type: object
-      required:
-      - error
-      - source
-      - timestamp
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        source:
-          type: string
-          example: GZW Data API
-        timestamp:
-          type: string
-          format: date-time

@@ -183,6 +183,40 @@ components:
         id:
           type: string
       additionalProperties: true
+    PaginatedResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              type: object
+          count:
+            type: integer
+          page:
+            type: integer
+          perPage:
+            type: integer
+          total:
+            type: integer
+          totalPages:
+            type: integer
+    ApiErrorResponse:
+      type: object
+      required:
+      - error
+      - source
+      - timestamp
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
+          type: string
+          example: GZW Data API
+        timestamp:
+          type: string
+          format: date-time
     ObjectResponse:
       type: object
       required:
@@ -205,21 +239,6 @@ components:
           type: string
           example: 4.2.0
       additionalProperties: true
-    ApiErrorResponse:
-      type: object
-      required:
-      - error
-      - source
-      - timestamp
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        source:
-          type: string
-          example: GZW Data API
-        timestamp:
-          type: string
-          format: date-time
     RecordResponse:
       allOf:
       - $ref: '#/components/schemas/ObjectResponse'
@@ -227,22 +246,3 @@ components:
         properties:
           data:
             type: object
-    PaginatedResponse:
-      allOf:
-      - $ref: '#/components/schemas/ObjectResponse'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              type: object
-          count:
-            type: integer
-          page:
-            type: integer
-          perPage:
-            type: integer
-          total:
-            type: integer
-          totalPages:
-            type: integer
