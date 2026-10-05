@@ -1,0 +1,12 @@
+{
+ "url": "https://gzw-data.dev/api/openapi.json",
+ "requested_url": "https://gzw-data.dev/api/openapi.json",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 352048,
+ "sha256": "0ba501bba208f42230cc57425364f19d75c70df4aaca9d2e932acf5d1683511e",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.995), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
