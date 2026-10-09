@@ -31,3 +31,16 @@ funding:
   url: https://www.buymeacoffee.com/zoniboy00
   status: 200
   note: Voluntary support link on the console and in the GitHub README. Not a paid API tier.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  units: []
+  plans:
+  - name: Free
+    access: other
+    model: metered
+    model_how: derived
+    units: []
+    periods: []
