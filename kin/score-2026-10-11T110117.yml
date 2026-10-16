@@ -1,21 +1,19 @@
-# Kin Score artifact — gzw-data — 2026-09-05T211839
+# Kin Score artifact — gzw-data — 2026-10-11T110117
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: gzw-data
-  schema_version: 0.18.3
-  scored_at: '2026-09-05'
-  run_ts: 2026-09-05T211839
-  composite: 62.0
+  schema_version: 0.23.0
+  scored_at: '2026-10-11'
+  run_ts: 2026-10-11T110117
+  composite: 60.2
   band: strong
   facets:
-    discoverability: 63.0
-    contract_quality: 46.7
-    governance: 62.9
+    discoverability: 83.9
+    contract_quality: 44.8
+    contract_governance: 57.4
     operational_transparency: 55.3
     developer_ergonomics: 67.3
-    commercial_clarity: 52.6
-    contract_governance: 62.9
     access_clarity: 52.6
   agent_readiness:
     score: 35.0
@@ -44,7 +42,7 @@ kin_score:
     applies: true
     regime: Government & Public Sector
     regime_id: government
-    score: 57.4
+    score: 30.4
     matched_via: tags
   provenance:
     mcp: derived
