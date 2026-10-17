@@ -82,6 +82,25 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    PaginatedResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: array
+            items:
+              type: object
+          count:
+            type: integer
+          page:
+            type: integer
+          perPage:
+            type: integer
+          total:
+            type: integer
+          totalPages:
+            type: integer
     ApiErrorResponse:
       type: object
       required:
@@ -114,25 +133,6 @@ components:
         id:
           type: string
       additionalProperties: true
-    PaginatedResponse:
-      allOf:
-      - $ref: '#/components/schemas/ObjectResponse'
-      - type: object
-        properties:
-          data:
-            type: array
-            items:
-              type: object
-          count:
-            type: integer
-          page:
-            type: integer
-          perPage:
-            type: integer
-          total:
-            type: integer
-          totalPages:
-            type: integer
     ObjectResponse:
       type: object
       required:

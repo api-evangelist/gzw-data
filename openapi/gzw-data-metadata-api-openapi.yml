@@ -166,6 +166,89 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    MetadataResponse:
+      allOf:
+      - $ref: '#/components/schemas/ObjectResponse'
+      - type: object
+        properties:
+          data:
+            type: object
+            properties:
+              datasetCount:
+                type: integer
+              datasets:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    file:
+                      type: string
+                    itemCount:
+                      type: integer
+                    fields: {}
+                    capabilities:
+                      $ref: '#/components/schemas/Capabilities'
+                  required:
+                  - name
+                  - itemCount
+                  - fields
+                  - capabilities
+    ApiErrorResponse:
+      type: object
+      required:
+      - error
+      - source
+      - timestamp
+      properties:
+        error:
+          $ref: '#/components/schemas/ApiError'
+        source:
+          type: string
+          example: GZW Data API
+        timestamp:
+          type: string
+          format: date-time
+    ApiError:
+      type: object
+      required:
+      - code
+      - message
+      properties:
+        code:
+          type: string
+          example: DATASET_NOT_FOUND
+        message:
+          type: string
+          example: Dataset not found
+        dataset:
+          type: string
+        id:
+          type: string
+      additionalProperties: true
+    ObjectResponse:
+      type: object
+      required:
+      - data
+      - source
+      - timestamp
+      properties:
+        data: {}
+        source:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        dataVersion:
+          type: string
+        apiVersion:
+          type: string
+          example: v1
+        implementationVersion:
+          type: string
+          example: 4.2.0
+      additionalProperties: true
     Capabilities:
       type: object
       required:
@@ -218,86 +301,3 @@ components:
               type: boolean
             includesPageCount:
               type: boolean
-    ApiError:
-      type: object
-      required:
-      - code
-      - message
-      properties:
-        code:
-          type: string
-          example: DATASET_NOT_FOUND
-        message:
-          type: string
-          example: Dataset not found
-        dataset:
-          type: string
-        id:
-          type: string
-      additionalProperties: true
-    MetadataResponse:
-      allOf:
-      - $ref: '#/components/schemas/ObjectResponse'
-      - type: object
-        properties:
-          data:
-            type: object
-            properties:
-              datasetCount:
-                type: integer
-              datasets:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    name:
-                      type: string
-                    file:
-                      type: string
-                    itemCount:
-                      type: integer
-                    fields: {}
-                    capabilities:
-                      $ref: '#/components/schemas/Capabilities'
-                  required:
-                  - name
-                  - itemCount
-                  - fields
-                  - capabilities
-    ApiErrorResponse:
-      type: object
-      required:
-      - error
-      - source
-      - timestamp
-      properties:
-        error:
-          $ref: '#/components/schemas/ApiError'
-        source:
-          type: string
-          example: GZW Data API
-        timestamp:
-          type: string
-          format: date-time
-    ObjectResponse:
-      type: object
-      required:
-      - data
-      - source
-      - timestamp
-      properties:
-        data: {}
-        source:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-        dataVersion:
-          type: string
-        apiVersion:
-          type: string
-          example: v1
-        implementationVersion:
-          type: string
-          example: 4.2.0
-      additionalProperties: true
