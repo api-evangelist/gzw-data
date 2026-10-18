@@ -541,6 +541,8 @@ apis:
   humanURL: https://gzw-data.dev/docs/
   baseURL: https://gzw-data.dev/api/v1
   tags:
+  - Eyewear
+  tags_raw:
   - Glasses
   properties:
   - type: OpenAPI
